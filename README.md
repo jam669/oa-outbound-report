@@ -55,20 +55,30 @@ once, for the first campaign that reached it.
 
 ---
 
-## The attribution gap
+## Attribution — how a call becomes a number here
 
-At first build, **no call from these campaigns existed as a deal in any HubSpot
-pipeline**, and `hs_lead_status` was unset on every vendor-manager contact. The
-conversion figures were therefore zero — measuring what had been *logged*, not
-what happened. Two fixes, both supported:
+**The process (from 14 Aug 2026): a Deal is created once a prospect has attended
+a DC.** That single habit is what keeps this report honest — every DC becomes a
+deal, every deal is attributed back to the campaign that sourced it, and no one
+retypes anything.
 
-1. **Log outbound-sourced calls as deals** against the contact or their company.
-   They then appear here automatically, forever, with no manual step. This is the
-   real fix.
-2. **`wins.csv`** — a stopgap for calls that already happened but were never
-   logged. Columns: `date,company,contact,campaign,outcome,note`. These rows are
-   marked **Manual** on the page and never blended into CRM figures. Delete a row
-   once the deal exists in HubSpot.
+Both routes are live and verified against the first two deals:
+
+| Deal | Attributed via | Why |
+|---|---|---|
+| Neighbor — 10 Activation Agents | **direct** | Mark Bailey is on the Vendor-Manager ICP sendlist |
+| Humana | **company** | we emailed K. McDaniel; the DC was with Matt Rowley — both hang off the same `Humana` company record |
+
+The company route is what catches referrals, which is the normal shape of a
+vendor-manager win: the vendor manager hands you to the person who actually owns
+the work, and the deal lands on *their* record.
+
+Before that process existed, no call from these campaigns existed as a deal in any
+pipeline, and conversion figures read zero — measuring what had been *logged*, not
+what happened. `wins.csv` remains as a stopgap for anything that slips through:
+columns `date,company,contact,campaign,outcome,note`, rendered as **Manual** rows
+and never blended into CRM figures. Delete a row once the deal exists in HubSpot.
+The file is empty by design; both original entries now come straight from the CRM.
 
 ---
 

@@ -31,19 +31,24 @@ property counts ANY inbound reply on the thread, including out-of-office
 auto-replies and bounce notifications, so reply figures are an upper bound and
 are labelled as such on the page.
 
-THE ATTRIBUTION GAP (read this before trusting the conversion numbers)
----------------------------------------------------------------------
-As of the first build, calls that demonstrably came out of these campaigns were
-not represented in the CRM at all: no deal record existed for them in any
-pipeline, and `hs_lead_status` was unset on every vendor-manager contact. Deal
-and DC figures below therefore measure *what has been logged*, not what happened.
-Two things close that gap, and this script supports both:
+ATTRIBUTION
+-----------
+From 14 Aug 2026 the process is: a Deal is created once a prospect has attended
+a DC. Deals are then credited back to a campaign two ways:
 
-  1. Log outbound-sourced calls as deals against the contact (or their company).
-     Everything is then picked up automatically, forever, with no manual step.
-  2. wins.csv — an optional stopgap for calls that already happened but were
-     never logged. See WINS_FILE below. Rows are counted separately from CRM
-     figures and clearly marked on the page, so the two never blur together.
+  direct  — the deal sits on the contact we emailed.
+  company — the deal sits on a colleague at the same employer. This is the normal
+            shape of a vendor-manager win: the vendor manager hands us to whoever
+            owns the work, and the deal lands on their record. Guarded so it only
+            counts deals created after our first email to that company, otherwise
+            any pre-existing or inbound deal at a large employer would be credited
+            to outbound.
+
+A deal is counted once, for the first campaign that reaches it.
+
+wins.csv stays as a stopgap for a call that never made it into the CRM. Rows are
+counted separately and marked "Manual" on the page, so they never blur into CRM
+figures. Empty by default. See WINS_FILE below.
 """
 
 import json
@@ -461,9 +466,19 @@ def build():
             dprops = deals.get(deal_id)
             if not dprops:
                 continue
-            credited_deals.add(deal_id)
-            stage   = dprops.get("dealstage") or ""
             created_deal = parse_ts(dprops.get("createdate"))
+
+            # A company-route deal only counts if it was created after we first
+            # wrote to that company. Without this, any pre-existing or inbound
+            # deal at a large employer (Capital One, Aflac, Humana) would be
+            # credited to outbound purely because we emailed someone there.
+            # A direct association to the person we emailed needs no such guard.
+            if attribution == "company":
+                if created_deal is None or created_deal < sent_at:
+                    continue
+
+            credited_deals.add(deal_id)
+            stage = dprops.get("dealstage") or ""
             try:
                 amount = float(dprops.get("amount") or 0)
             except (TypeError, ValueError):
