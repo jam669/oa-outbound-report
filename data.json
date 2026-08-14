@@ -1,0 +1,1366 @@
+{
+ "generated": "2026-08-14 22:22 Manila",
+ "week_label": "12–18 Aug",
+ "portal_id": "44390857",
+ "totals": {
+  "campaigns_live": 3,
+  "targeted": 268,
+  "sent": 234,
+  "never_sent": 34,
+  "replied": 113,
+  "engaged": 1,
+  "deals": 2,
+  "dc_held": 2,
+  "won": 0,
+  "pipeline_value": 6600.0,
+  "won_value": 0.0,
+  "reply_rate": 48.3,
+  "deal_rate": 0.9,
+  "dc_rate": 0.9,
+  "reply_to_deal": 1.8
+ },
+ "campaigns": [
+  {
+   "id": "vendor-manager-icp",
+   "label": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "sector": "Vendor Managers",
+   "targeted": 168,
+   "sent": 134,
+   "replied": 62,
+   "engaged": 1,
+   "deals": 2,
+   "dc_held": 2,
+   "won": 0,
+   "pipeline_value": 6600.0,
+   "won_value": 0.0,
+   "first_send": "2026-06-10",
+   "last_send": "2026-08-12",
+   "reply_rate": 46.3,
+   "deal_rate": 1.5
+  },
+  {
+   "id": "wave-02-vendor-managers",
+   "label": "Wave 02 — Vendor Managers",
+   "sector": "Vendor Managers",
+   "targeted": 50,
+   "sent": 50,
+   "replied": 27,
+   "engaged": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "won": 0,
+   "pipeline_value": 0.0,
+   "won_value": 0.0,
+   "first_send": "2026-07-10",
+   "last_send": "2026-08-07",
+   "reply_rate": 54.0,
+   "deal_rate": 0.0
+  },
+  {
+   "id": "wave-01-vendor-managers",
+   "label": "Vendor Leads (New)",
+   "sector": "Vendor Managers",
+   "targeted": 50,
+   "sent": 50,
+   "replied": 24,
+   "engaged": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "won": 0,
+   "pipeline_value": 0.0,
+   "won_value": 0.0,
+   "first_send": "2026-04-08",
+   "last_send": "2026-08-07",
+   "reply_rate": 48.0,
+   "deal_rate": 0.0
+  }
+ ],
+ "sectors": [
+  {
+   "sent": 234,
+   "replied": 113,
+   "deals": 2,
+   "dc_held": 2,
+   "won": 0,
+   "sector": "Vendor Managers",
+   "reply_rate": 48.3,
+   "deal_rate": 0.9
+  }
+ ],
+ "trend": [
+  {
+   "week": "2026-05-27",
+   "label": "27 May – 2 Jun",
+   "sent": 0,
+   "replied": 0,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-06-03",
+   "label": "3–9 Jun",
+   "sent": 0,
+   "replied": 0,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-06-10",
+   "label": "10–16 Jun",
+   "sent": 106,
+   "replied": 14,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-06-17",
+   "label": "17–23 Jun",
+   "sent": 26,
+   "replied": 47,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-06-24",
+   "label": "24–30 Jun",
+   "sent": 0,
+   "replied": 0,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-07-01",
+   "label": "1–7 Jul",
+   "sent": 0,
+   "replied": 0,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-07-08",
+   "label": "8–14 Jul",
+   "sent": 96,
+   "replied": 13,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-07-15",
+   "label": "15–21 Jul",
+   "sent": 0,
+   "replied": 1,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-07-22",
+   "label": "22–28 Jul",
+   "sent": 0,
+   "replied": 4,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-07-29",
+   "label": "29 Jul – 4 Aug",
+   "sent": 2,
+   "replied": 0,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-08-05",
+   "label": "5–11 Aug",
+   "sent": 2,
+   "replied": 33,
+   "deals": 0,
+   "dc_held": 0
+  },
+  {
+   "week": "2026-08-12",
+   "label": "12–18 Aug",
+   "sent": 1,
+   "replied": 1,
+   "deals": 2,
+   "dc_held": 2
+  }
+ ],
+ "results": [
+  {
+   "name": "Kelli McDaniel",
+   "company": "Humana",
+   "email": "kmcdaniel9@humana.com",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "sector": "Vendor Managers",
+   "deal": "Humana ",
+   "deal_id": "63837112981",
+   "stage": "DC Completed",
+   "stage_id": "222405237",
+   "attribution": "company",
+   "in_bd_pipeline": true,
+   "amount": 600.0,
+   "created": "2026-08-14",
+   "dc_held": true,
+   "won": false,
+   "dead": false
+  },
+  {
+   "name": "Mark Bailey",
+   "company": "Neighbor",
+   "email": "mark@neighbor.com",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "sector": "Vendor Managers",
+   "deal": "Neighbor - 10 Activation Agents",
+   "deal_id": "63837113095",
+   "stage": "DC Completed",
+   "stage_id": "222405237",
+   "attribution": "direct",
+   "in_bd_pipeline": true,
+   "amount": 6000.0,
+   "created": "2026-08-14",
+   "dc_held": true,
+   "won": false,
+   "dead": false
+  }
+ ],
+ "replies": [
+  {
+   "name": "Mark Bailey",
+   "company": "Neighbor",
+   "email": "mark@neighbor.com",
+   "title": "Director, Call Center Sales",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-08-14",
+   "status": "CONNECTED"
+  },
+  {
+   "name": "Anna Phipps",
+   "company": "Kairos Living",
+   "email": "aphipps@kairosliving.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Julie McNamara",
+   "company": "Colorado Access",
+   "email": "julie.mcnamara@coaccess.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Jordon McCarthy",
+   "company": "General Procurement, Inc.",
+   "email": "jordon@generalprocurement.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Craig Lickiss",
+   "company": "NFM Lending",
+   "email": "clickiss@nfmlending.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Susan Morris",
+   "company": "Federal Home Loan Bank of Boston",
+   "email": "sue.morris@fhlbboston.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Joseph Dragon",
+   "company": "Fidelis Care - New York",
+   "email": "jdragon@fideliscare.org",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Nicole Solberg",
+   "company": "Allianz Life",
+   "email": "nicole.solberg@allianzlife.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Karla Upton",
+   "company": "Bradley Arant Boult Cummings LLP",
+   "email": "kupton@bradley.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Andrew Schmidt",
+   "company": "Logisnext Americas Inc.",
+   "email": "andrew.schmidt@logisnextamericas.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Kelli Queen",
+   "company": "Freddie Mac",
+   "email": "kelli_queen@freddiemac.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Robyn Cates",
+   "company": "Jack Henry",
+   "email": "rcates@jackhenry.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Erica Etzel",
+   "company": "Starline Inc.",
+   "email": "eetzel@starline.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Zach Green",
+   "company": "Banner Life family of companies | life insurance",
+   "email": "zgreen@lgamerica.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Paula Chamberlain",
+   "company": "GEHA Health",
+   "email": "paula.chamberlain@geha.com",
+   "title": "Director, Vendor Management Office",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Jay Rooney",
+   "company": "Global Guardian",
+   "email": "jrooney@globalguardian.com",
+   "title": "Director - Vendor Management -Domestic",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Rachel Ruffing",
+   "company": "Spreedly",
+   "email": "rruffing@spreedly.com",
+   "title": "Director, Vendor Management Office",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Chad Tritt",
+   "company": "Reinsurance Group of America, Incorporated",
+   "email": "chad.tritt@rgare.com",
+   "title": "Director of Vendor Management and Resilience",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Leonella Seeley",
+   "company": "Karyopharm Therapeutics Inc.",
+   "email": "lseeley@karyopharm.com",
+   "title": "Director of Vendor Management and Operations",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Lisa Kelly",
+   "company": "US Acute Care Solutions",
+   "email": "kellyl@usacs.com",
+   "title": "Director, Vendor Management Office",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-08",
+   "status": ""
+  },
+  {
+   "name": "Mark Lippman",
+   "company": "Finance of America",
+   "email": "mark.lippman@financeofamerica.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Trey Dilley",
+   "company": "PGL (Perimeter Global Logistics)",
+   "email": "trey.dilley@shippgl.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Gloria Bauerle",
+   "company": "Datafied",
+   "email": "gbauerle@datafied.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Dan Deegan",
+   "company": "Aspire Health",
+   "email": "daniel.deegan@aspirehealthplan.org",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Sarah Riley",
+   "company": "GHR Healthcare",
+   "email": "sarah.riley@ghrhealthcare.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Margo Sobel",
+   "company": "Cedargate",
+   "email": "margo.sobel@cedargate.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Derek Dimartino",
+   "company": "Ascentium Capital",
+   "email": "derekdimartino@ascentiumcapital.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Lizzy Glenzer-Smith",
+   "company": "Stand Together",
+   "email": "eglenzer@standtogether.org",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-08-07",
+   "status": ""
+  },
+  {
+   "name": "Jamie Bidwell",
+   "company": "Cedarhurst Senior Living",
+   "email": "jbidwell@cedarhurstliving.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Brandon Wall",
+   "company": "Entrust",
+   "email": "brandon.wall@entrust.com",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Lizette Sanchez",
+   "company": "TeamLogic IT",
+   "email": "lsanchez@teamlogicit.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Yvonne Chavez",
+   "company": "NCCI Field Services",
+   "email": "ychavez@nationalcreditors.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Rosario Cecco",
+   "company": "Penn Mutual",
+   "email": "cecco.rosario@pennmutual.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Richard Blume",
+   "company": "HarrisX",
+   "email": "rich@harrisx.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-08-05",
+   "status": ""
+  },
+  {
+   "name": "Alex Clay",
+   "company": "Reserv",
+   "email": "alex.clay@reserv.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-24",
+   "status": ""
+  },
+  {
+   "name": "Melanie Sims",
+   "company": "NaphCare, Inc.",
+   "email": "melanie.sims@naphcare.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-24",
+   "status": ""
+  },
+  {
+   "name": "Katrina Cast",
+   "company": "Freedom Mortgage",
+   "email": "katrina.cast2@freedommortgage.com",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-24",
+   "status": ""
+  },
+  {
+   "name": "Dana Luca",
+   "company": "Imagine360",
+   "email": "ddeluca@imagine360.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-23",
+   "status": ""
+  },
+  {
+   "name": "Rachel Rothenberg",
+   "company": "World Equestrian Center",
+   "email": "rachel.rothenberg@wec.net",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-15",
+   "status": ""
+  },
+  {
+   "name": "David Ward",
+   "company": "Western Governors University",
+   "email": "david.ward1@wgu.edu",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-11",
+   "status": ""
+  },
+  {
+   "name": "Matt Lacina",
+   "company": "GreatAmerica",
+   "email": "mlacina@greatamerica.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-11",
+   "status": ""
+  },
+  {
+   "name": "Laura Smith",
+   "company": "Healthfirst",
+   "email": "lsmith@healthfirst.org",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-11",
+   "status": ""
+  },
+  {
+   "name": "Shonda Nickerson",
+   "company": "Aflac Group Insurance",
+   "email": "snickerson@aflac.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-11",
+   "status": ""
+  },
+  {
+   "name": "Todd Beres",
+   "company": "Amerit Fleet Solutions",
+   "email": "todd.beres@ameritfleetsolutions.com",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Karen Habschied",
+   "company": "Live Oak Bank",
+   "email": "karen.habschied@liveoak.bank",
+   "title": "Director of Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "James Williams",
+   "company": "Lessen",
+   "email": "james.williams@lessen.com",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Michael Ferrera",
+   "company": "Newrez",
+   "email": "michael.ferrera@newrez.com",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Patty Goodman",
+   "company": "Xplor Technologies",
+   "email": "patty.goodman@xplortechnologies.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Kacie Williams-Tolentino",
+   "company": "Guardian Life",
+   "email": "kacie_b_williams@glic.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Denisa Simmons",
+   "company": "CommunityCare",
+   "email": "dsimmons@ccok.com",
+   "title": "Director, Vendor Management, Vendor Services",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Kelly Johnson",
+   "company": "Blue Cross Blue Shield of Arizona",
+   "email": "kelly.johnson@azblue.com",
+   "title": "Vendor Relationship Manager",
+   "campaign": "Wave 02 — Vendor Managers",
+   "campaign_id": "wave-02-vendor-managers",
+   "replied": "2026-07-10",
+   "status": ""
+  },
+  {
+   "name": "Charity Kittrell",
+   "company": "Sagent",
+   "email": "charity.kittrell@sagentlending.com",
+   "title": "Director Vendor Management",
+   "campaign": "Vendor Leads (New)",
+   "campaign_id": "wave-01-vendor-managers",
+   "replied": "2026-07-09",
+   "status": ""
+  },
+  {
+   "name": "Andrea McGregor",
+   "company": "Cambridge Health Alliance",
+   "email": "asmcgregor@challiance.org",
+   "title": "Patient Access Call Centers Director, Revenue Cycle",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Melissa Marden",
+   "company": "Carenet Healthcare Services",
+   "email": "mamarden@carenethealthcare.com",
+   "title": "Director, Clinical Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Dina Brunetti",
+   "company": "Devoted Health",
+   "email": "dina.brunetti@devoted.com",
+   "title": "Senior Manager, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Eileen Crilley",
+   "company": "Holy Name Medical Center",
+   "email": "crilley@holyname.org",
+   "title": "Director, Central Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Iris Mejia",
+   "company": "L.A. Care Health Plan",
+   "email": "imejia@lacare.org",
+   "title": "Senior Manager, Customer Solution Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Rita Long",
+   "company": "Mazzio's",
+   "email": "rlong@mazzios.com",
+   "title": "General Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Sherlene Phillips",
+   "company": "Medcor",
+   "email": "sherlenephillips@medcor.com",
+   "title": "Division Director, Call Center Operations, Telehealth",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Jacqueline Livingston",
+   "company": "Medcor",
+   "email": "jlivingston@medcor.com",
+   "title": "Director, Call Center Operations, Telehealth",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Osvaldo Aquino",
+   "company": "MetroPlus Health Plan",
+   "email": "aquinosv@metroplus.org",
+   "title": "Director, Call Center Quality & Compliance",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Christopher Knepp",
+   "company": "Radial",
+   "email": "kneppc@radial.com",
+   "title": "Senior Manager, Call Center Systems",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Lisa Bogle",
+   "company": "Radial",
+   "email": "lbogle@radial.com",
+   "title": "Director, Call Center Operations Client Services Delivery & Program Director",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Susan Leboeuf",
+   "company": "Reliant Medical Group",
+   "email": "susan.leboeuf@reliantmedicalgroup.org",
+   "title": "Senior Manager, Health Information Management & Central Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "James Daniels",
+   "company": "TriWest Healthcare Alliance",
+   "email": "jdaniels@triwest.com",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Nicollas Figueiredo",
+   "company": "Virgin Voyages",
+   "email": "nicollas.figueiredo@virginvoyages.com",
+   "title": "Global Senior Manager, Contact Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Erica Milsap",
+   "company": "AMPS",
+   "email": "emilsap@amps.com",
+   "title": "Director, Pharmacy Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Tonie Ziegler",
+   "company": "Community Health Choice",
+   "email": "tonie.ziegler@communityhealthchoice.org",
+   "title": "Senior Director, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Dora Galvez",
+   "company": "KOLAS",
+   "email": "dora@ccmup.com",
+   "title": "Director, Customer Service & Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Alicia Baker",
+   "company": "Managed Health Network",
+   "email": "alicia.baker@mhn.com",
+   "title": "Senior Director, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Allen Chaz",
+   "company": "Blood Bank of Delmarva",
+   "email": "callen@bbd.org",
+   "title": "Executive Director, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Tyler Hacke",
+   "company": "CarePayment",
+   "email": "tyler@carepayment.com",
+   "title": "Senior Director, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Christopher Adebayo",
+   "company": "Chisholm Chisholm & Kilpatrick",
+   "email": "cadebayo@cck-law.com",
+   "title": "Senior Manager, Intake Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Darin Strickland",
+   "company": "EPIC Hearing Healthcare",
+   "email": "darin.strickland@epichearing.com",
+   "title": "Director, Call Center Operations & Customer Experience",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Gina Angiulo",
+   "company": "Global Travel International",
+   "email": "gangiulo@gticorporate.com",
+   "title": "Director, Call Center Operations& Service",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Siul Chacin",
+   "company": "Glyph Language Services",
+   "email": "siul.sanchez@glyphservices.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Brock Conrad",
+   "company": "Headwear USA",
+   "email": "hmd@headwear-usa.com",
+   "title": "Offshore Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Frank Pratas",
+   "company": "Hickory Global Partners",
+   "email": "fpratas@hickoryglobalpartners.com",
+   "title": "Global Director, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Jonathan Borowka",
+   "company": "Nation Safe Drivers",
+   "email": "jborowka@nationsafedrivers.com",
+   "title": "Director, Site -Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Jose Chase",
+   "company": "Offshore Staffing",
+   "email": "jose@offshore-staffing.com",
+   "title": "Offshore Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Laura Pompei",
+   "company": "Timeshare Legal",
+   "email": "laura@timesharelegal.com",
+   "title": "Director, Marketing Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Alberto Aguilar",
+   "company": "Trinity Resort Services",
+   "email": "albertoa@trinityresortservices.com",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Ed Bauer",
+   "company": "Ultimate Office",
+   "email": "ebauer@ultoffice.com",
+   "title": "Director, Operations & Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Tairuna Brown",
+   "company": "UST HealthProof",
+   "email": "tairuna.brown@usthealthproof.com",
+   "title": "Senior Manager, Call Center Implementation",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Afton Germany",
+   "company": "UST HealthProof",
+   "email": "afton.germany@ust.com",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Mindy Mullee",
+   "company": "UT Health East Texas",
+   "email": "mlmullee@uthet.com",
+   "title": "Director, Medical Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Marcel Johnson",
+   "company": "Walmart Health Virtual Care",
+   "email": "mjohnson@memd.me",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Orrin Blossom",
+   "company": "WellCare Health Plans",
+   "email": "orrin.blossom@wellcare.com",
+   "title": "Senior Manager, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-18",
+   "status": ""
+  },
+  {
+   "name": "Kelli McDaniel",
+   "company": "Humana",
+   "email": "kmcdaniel9@humana.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Jonathan Weinrich",
+   "company": "Instacart",
+   "email": "jonathan.weinrich@instacart.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Peter Sorrell",
+   "company": "TransPerfect",
+   "email": "psorrell@transperfect.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Lenore Thompson",
+   "company": "Zillow",
+   "email": "lenoret@zillowgroup.com",
+   "title": "Sr. Vendor Program Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Doreen O'Dowd",
+   "company": "Ameritas",
+   "email": "doreen.odowd@ameritas.com",
+   "title": "Director, Participant Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Joy McGraw",
+   "company": "Ancestry",
+   "email": "jchristensen@tgn.com",
+   "title": "Offshore Vendor Manager II",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Susan Hegarty",
+   "company": "Colony Brands",
+   "email": "susan.hegarty@colonybrands.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Katie Henshaw",
+   "company": "Red Roof Inn",
+   "email": "khenshaw@redroof.com",
+   "title": "Vendor Management Director, Contact Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "William Faiella",
+   "company": "Enea Openwave",
+   "email": "william.faiella@owmobility.com",
+   "title": "Senior Manager and Executive With Expertise In Global Customer Support, Managed Services, and Call Center Management",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Catherine López",
+   "company": "Human Touch Translations",
+   "email": "clopez@humantouchtranslations.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Leona Zacek",
+   "company": "MediaLocate",
+   "email": "leona@medialocate.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-17",
+   "status": ""
+  },
+  {
+   "name": "Jessica Ross",
+   "company": "Clear Spring Health",
+   "email": "jessica.ross@clearspringhealthcare.com",
+   "title": "Director, Offshore Operations, Billing & Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Mindy Beck",
+   "company": "CritiCore Protective Wear",
+   "email": "mbeck@criticoreinc.com",
+   "title": "Offshore Operations Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Brian Delancey",
+   "company": "Directnic",
+   "email": "bdelancey@directnic.com",
+   "title": "Director, Call Center Operations & Marketing",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Nadezhda Donskih",
+   "company": "effectiff",
+   "email": "nadezhda.d@effectiff.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Travis Skora",
+   "company": "PontoonStuff , Inc , Boat Equipment & Supplies",
+   "email": "travis@pontoonstuff.com",
+   "title": "Director, Sales & Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Ann Hunter",
+   "company": "SC Data Center",
+   "email": "ann.hunter@sccompanies.com",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "John An",
+   "company": "Vudu",
+   "email": "john.an@vudu.com",
+   "title": "Senior Manager, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-14",
+   "status": ""
+  },
+  {
+   "name": "Maureen Varvi",
+   "company": "Carey",
+   "email": "maureen.varvi@carey.com",
+   "title": "Director, Site of NY Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Ponguru Ravisankar",
+   "company": "Safe-Guard Products International",
+   "email": "ponguru.ravisankar@safe-guardproducts.com",
+   "title": "Offshore Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Marcy Ahlstrand",
+   "company": "Diversified Adjustment Service",
+   "email": "marcy@diversifiedadjustment.com",
+   "title": "Senior Manager, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Amanda Shober",
+   "company": "Five Star Franchising",
+   "email": "mandyb@fivestarfranchising.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Edward Rosinski",
+   "company": "HELP Financial",
+   "email": "edward@helpfinancial.com",
+   "title": "Director, Education & Director, Training, Call Center Operations",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Phillip Noel",
+   "company": "Orange County's Credit Union",
+   "email": "pnoel@orangecountyscu.org",
+   "title": "Senior Manager, Call Center",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-13",
+   "status": ""
+  },
+  {
+   "name": "Derek Alvarez",
+   "company": "Healthesystems",
+   "email": "dalvarez@healthesystems.com",
+   "title": "Vendor Manager",
+   "campaign": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "campaign_id": "vendor-manager-icp",
+   "replied": "2026-06-12",
+   "status": ""
+  }
+ ],
+ "wins": [],
+ "notes": {
+  "reply_caveat": "Replies count any inbound message on the thread, including out-of-office and bounce notifications. Treat as an upper bound.",
+  "crm_linked_deals": 2,
+  "manual_wins": 0
+ }
+}
