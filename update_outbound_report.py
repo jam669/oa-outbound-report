@@ -364,10 +364,21 @@ def build():
     # Company attribution: deals hanging off their employer. This is what
     # catches a referral — we email a vendor manager, they hand us to a
     # colleague, and the deal ends up on the colleague's record instead.
-    print("Fetching company-level deals…")
-    company_links = fetch_associations("contacts", "companies", contact_ids) if contact_ids else {}
-    company_ids = sorted({cid for ids in company_links.values() for cid in ids})
-    company_deals = fetch_associations("companies", "deals", company_ids) if company_ids else {}
+    #
+    # Degrades rather than dies: this route needs a companies read scope the
+    # token may not carry. Losing referral attribution is a worse report;
+    # losing the whole report because of it is worse still.
+    company_links, company_deals = {}, {}
+    if contact_ids:
+        print("Fetching company-level deals…")
+        try:
+            company_links = fetch_associations("contacts", "companies", contact_ids)
+            company_ids = sorted({cid for ids in company_links.values() for cid in ids})
+            company_deals = fetch_associations("companies", "deals", company_ids) if company_ids else {}
+        except RuntimeError as exc:
+            print("   ! company attribution unavailable, continuing with direct only")
+            print("     (%s)" % str(exc)[:180])
+            company_links, company_deals = {}, {}
 
     direct_deal_ids = {d for ids in deal_links.values() for d in ids}
     all_deal_ids    = set(direct_deal_ids)
