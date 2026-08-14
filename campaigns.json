@@ -2,7 +2,7 @@
  "campaigns": [
   {
    "id": "wave-01-vendor-managers",
-   "label": "Vendor Leads (New)",
+   "label": "Wave 01 — Vendor Managers",
    "sector": "Vendor Managers",
    "source": "01_Campaigns/Apollo-Outbound/wave-01-vendor-managers",
    "recipients": [

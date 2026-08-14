@@ -52,6 +52,13 @@ INCLUDE_CAMPAIGNS = {
     "vendor-manager-icp",
 }
 
+# Where the Apps Script tab name is unhelpful out of context, name it plainly —
+# this report is read by people who were not in the wave build.
+LABEL_OVERRIDES = {
+    "wave-01-vendor-managers": "Wave 01 — Vendor Managers",
+    "wave-02-vendor-managers": "Wave 02 — Vendor Managers",
+}
+
 # ── Sector map ───────────────────────────────────────────────────────────────
 # Folder-name fragment → the sector shown in the report's campaign breakdown.
 # The wave LABEL comes from the Apps Script tab name where one exists (that is
@@ -292,7 +299,7 @@ def build():
             camp = collect_campaign(
                 folder,
                 campaign_id=name,
-                label=tab_label(folder) or pretty_folder(name),
+                label=LABEL_OVERRIDES.get(name) or tab_label(folder) or pretty_folder(name),
                 sector=sector_for(name),
             )
             if camp:
