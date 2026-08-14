@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+_batches.txt
+_tmp.html
+_check.js

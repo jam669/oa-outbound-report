@@ -1,0 +1,48 @@
+name: Weekly Outbound Report Update
+
+on:
+  schedule:
+    # PRIMARY: Tuesday 09:00 Manila (01:00 UTC) — same slot as the BD report,
+    # so the two are read against the same week boundary.
+    - cron: '0 1 * * 2'
+    # BACKUP: Tuesday 12:00 Manila (04:00 UTC). GitHub delays scheduled runs
+    # under load; the commit step is a no-op when nothing changed, so a
+    # successful primary makes this harmless.
+    - cron: '0 4 * * 2'
+  # Manual trigger — "Run workflow" in the Actions tab.
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      # campaigns.json is committed rather than rebuilt here: build_registry.py
+      # reads the wave folders in the VS Code workspace, which do not live in
+      # this repo. Re-run it locally and commit when a new campaign is added.
+      - name: Run outbound report updater
+        env:
+          HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
+        run: python update_outbound_report.py
+
+      - name: Commit & push updated report
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add outbound-report.html data.json
+          git diff --staged --quiet || git commit -m "chore: outbound report update $(date -u +'%Y-%m-%d')"
+          git push

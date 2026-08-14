@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OA Outbound Weekly Report — Vendor Managers</title>
+<style>
+  :root {
+    /* Mirrors the BD weekly report so the two read as one system. */
+    --bg:       #080c24;
+    --surface:  #121734;
+    --surface2: #1b2147;
+    --border:   #2b3360;
+    --accent:   #3b5bfe;
+    --accent2:  #c026d3;
+    --text:     #eef1fb;
+    --muted:    #9098be;
+    --radius:   12px;
+
+    /* Series colours — validated on the #121734 surface:
+       lightness band, chroma floor, CVD separation, contrast. */
+    --s-sent:    #3b5bfe;
+    --s-reply:   #c47d12;
+    --s-deal:    #0f9d6b;
+
+    --warn:     #f5a623;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background:
+      radial-gradient(900px 480px at 12% -8%, rgba(0,30,148,.55), transparent 60%),
+      radial-gradient(820px 460px at 102% 2%, rgba(192,38,211,.26), transparent 55%),
+      var(--bg);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 32px 24px 64px; }
+
+  header { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; margin-bottom: 8px;
+  }
+  h1 { font-size: 27px; font-weight: 750; letter-spacing: -.01em; }
+  .sub { color: var(--muted); font-size: 13.5px; margin-top: 8px; }
+  .sub a { color: var(--accent); text-decoration: none; }
+  .sub a:hover { text-decoration: underline; }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px 24px; margin-bottom: 20px;
+  }
+  h2 {
+    font-size: 15px; font-weight: 700; letter-spacing: .01em;
+    margin-bottom: 4px;
+  }
+  .panel-note { font-size: 12.5px; color: var(--muted); margin-bottom: 18px; }
+
+  /* ── KPI tiles ─────────────────────────────────────────────────────────── */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px;
+  }
+  .kpi-label { font-size: 11.5px; color: var(--muted); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .kpi-value { font-size: 30px; font-weight: 700; letter-spacing: -.02em; margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .kpi-meta  { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .kpi.flag { border-color: rgba(245,166,35,.45); }
+  .kpi.flag .kpi-value { color: var(--warn); }
+
+  /* ── Chart ─────────────────────────────────────────────────────────────── */
+  .chart-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .legend { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--muted); }
+  .swatch { width: 11px; height: 11px; border-radius: 3px; flex: none; }
+  .chart-scroll { overflow-x: auto; }
+  svg.chart { display: block; width: 100%; min-width: 560px; height: 260px; }
+  .grid-line { stroke: var(--border); stroke-width: 1; }
+  .axis-text { fill: var(--muted); font-size: 11px; }
+  .series-line { fill: none; stroke-width: 2; }
+  .hit { fill: transparent; cursor: pointer; }
+  .crosshair { stroke: var(--border); stroke-width: 1; display: none; }
+
+  .tooltip {
+    position: fixed; pointer-events: none; z-index: 50; display: none;
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 9px 12px; font-size: 12.5px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45); min-width: 132px;
+  }
+  .tt-title { font-weight: 700; margin-bottom: 5px; }
+  .tt-row { display: flex; align-items: center; gap: 7px; color: var(--muted); }
+  .tt-row b { color: var(--text); margin-left: auto; font-variant-numeric: tabular-nums; }
+
+  /* ── Tables ────────────────────────────────────────────────────────────── */
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th {
+    font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--muted); font-weight: 700; position: sticky; top: 0; background: var(--surface);
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: rgba(59,91,254,.07); }
+  .name { white-space: normal; min-width: 220px; }
+  .dim { color: var(--muted); }
+
+  .bar-cell { min-width: 108px; }
+  .bar-track { height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+  .bar-fill  { height: 100%; border-radius: 3px; background: var(--s-reply); }
+
+  .pill {
+    display: inline-block; padding: 2px 9px; border-radius: 999px;
+    font-size: 11px; font-weight: 650; border: 1px solid var(--border); color: var(--muted);
+  }
+  .pill.live  { color: #7de3bb; border-color: rgba(15,157,107,.5); background: rgba(15,157,107,.12); }
+  .pill.manual{ color: var(--warn); border-color: rgba(245,166,35,.45); background: rgba(245,166,35,.1); }
+
+  /* ── Notice ────────────────────────────────────────────────────────────── */
+  .notice {
+    border-left: 3px solid var(--warn); background: rgba(245,166,35,.07);
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 20px;
+    font-size: 13px; color: #e7d9bd;
+  }
+  .notice b { color: var(--warn); }
+  .empty { color: var(--muted); font-size: 13px; padding: 18px 0; }
+
+  .toggle {
+    background: var(--surface2); color: var(--muted); border: 1px solid var(--border);
+    border-radius: 7px; padding: 5px 11px; font-size: 12px; cursor: pointer; font-weight: 600;
+  }
+  .toggle:hover { color: var(--text); }
+  footer { color: var(--muted); font-size: 12px; margin-top: 32px; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 22px 14px 48px; }
+    h1 { font-size: 22px; }
+    .kpi-value { font-size: 25px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Outsource Accelerator · Business Development</div>
+    <h1>Outbound Weekly Report — Vendor Managers</h1>
+    <div class="sub" id="subline">Loading…</div>
+  </header>
+
+  <div id="app"></div>
+
+  <footer>
+    Refreshes automatically every Tuesday 09:00 Manila from HubSpot.
+    Campaign membership comes from the sendlists in <code>01_Campaigns/</code>;
+    sends and replies come from HubSpot email logging.
+  </footer>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+/* DATA-START */
+const REPORT = null;
+/* DATA-END */
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  const $   = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g,
+    (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const num = (n) => (n == null ? "—" : Number(n).toLocaleString("en-US"));
+  const pct = (n) => (n == null ? "—" : Number(n).toFixed(1) + "%");
+  const money = (n) => "$" + Number(n || 0).toLocaleString("en-US", { maximumFractionDigits: 0 });
+
+  if (!REPORT) {
+    $("subline").textContent = "No data yet.";
+    $("app").innerHTML =
+      '<div class="panel"><h2>Awaiting first refresh</h2>' +
+      '<div class="panel-note">Run <code>python update_outbound_report.py</code> with ' +
+      '<code>HUBSPOT_TOKEN</code> set, or trigger the “Weekly Outbound Report Update” ' +
+      'action on GitHub. The page fills itself in from that run onward.</div></div>';
+    return;
+  }
+
+  const T = REPORT.totals || {};
+
+  $("subline").innerHTML =
+    "Week of " + esc(REPORT.week_label) + " · updated " + esc(REPORT.generated) +
+    ' · <a href="https://jam669.github.io/oa-bd-report/bd-weekly-report.html">BD weekly report →</a>';
+
+  /* ── KPI tiles ─────────────────────────────────────────────────────────── */
+  function kpis() {
+    const tiles = [
+      { label: "Emails sent",     value: num(T.sent),
+        meta: "verified in HubSpot, of " + num(T.targeted) + " targeted" },
+      { label: "Replies",         value: num(T.replied),
+        meta: pct(T.reply_rate) + " reply rate · upper bound" },
+      { label: "Companies live",  value: num(T.campaigns_live),
+        meta: "campaigns with at least one send" },
+      { label: "Calls / deals logged", value: num(T.deals),
+        meta: T.deals ? pct(T.deal_rate) + " of sends" : "none linked in CRM" },
+      { label: "DCs held",        value: num(T.dc_held),
+        meta: "reached discovery or beyond" },
+      { label: "Pipeline value",  value: money(T.pipeline_value),
+        meta: T.won ? num(T.won) + " won · " + money(T.won_value) : "open deals" },
+    ];
+    if (T.never_sent) {
+      tiles.push({ label: "Drafted, not sent", value: num(T.never_sent),
+                   meta: "on a list but no send logged", flag: true });
+    }
+    return '<div class="kpis">' + tiles.map((t) =>
+      '<div class="kpi' + (t.flag ? " flag" : "") + '">' +
+        '<div class="kpi-label">' + esc(t.label) + "</div>" +
+        '<div class="kpi-value">' + t.value + "</div>" +
+        '<div class="kpi-meta">' + esc(t.meta) + "</div>" +
+      "</div>").join("") + "</div>";
+  }
+
+  /* ── Attribution notice ────────────────────────────────────────────────── */
+  function notice() {
+    const wins = (REPORT.wins || []).length;
+    if (T.deals > 0 && !wins) return "";
+    let msg = "";
+    if (!T.deals) {
+      msg = "<b>No calls from these campaigns are logged as deals in HubSpot.</b> " +
+            "Sends and replies below are measured directly and are reliable; the " +
+            "conversion row reads zero because there is nothing in the CRM to count, " +
+            "not because nothing happened. Logging outbound-sourced calls as deals " +
+            "against the contact or their company makes them appear here automatically.";
+    }
+    if (wins) {
+      msg += (msg ? " " : "") + "<b>" + wins + "</b> call" + (wins === 1 ? "" : "s") +
+             " recorded manually in <code>wins.csv</code> are listed separately below " +
+             "and are not mixed into the CRM figures.";
+    }
+    return '<div class="notice">' + msg + "</div>";
+  }
+
+  /* ── Weekly trend ──────────────────────────────────────────────────────── */
+  const SERIES = [
+    { key: "sent",    label: "Sent",    color: "var(--s-sent)"  },
+    { key: "replied", label: "Replies", color: "var(--s-reply)" },
+    { key: "deals",   label: "Deals",   color: "var(--s-deal)"  },
+  ];
+
+  function trendPanel() {
+    const t = REPORT.trend || [];
+    if (!t.length) return "";
+    // A series with no activity in the window is dropped rather than drawn flat
+    // along zero — an empty line reads as a data error.
+    const active = SERIES.filter((s) => t.some((w) => w[s.key] > 0));
+    return '<div class="panel">' +
+      '<div class="chart-head"><div>' +
+        "<h2>Weekly activity</h2>" +
+        '<div class="panel-note">Report weeks run Wednesday to Tuesday, matching the BD report.</div>' +
+      "</div>" +
+      '<div class="legend">' + active.map((s) =>
+        '<span class="legend-item"><span class="swatch" style="background:' + s.color + '"></span>' +
+        esc(s.label) + "</span>").join("") +
+      '<button class="toggle" id="tbl-toggle">Table</button>' +
+      "</div></div>" +
+      '<div class="chart-scroll" id="chart-host"></div>' +
+      '<div class="table-scroll" id="trend-table" hidden></div>' +
+    "</div>";
+  }
+
+  function drawChart() {
+    const host = $("chart-host");
+    if (!host) return;
+    const data = REPORT.trend || [];
+    const active = SERIES.filter((s) => data.some((w) => w[s.key] > 0));
+    if (!active.length) { host.innerHTML = '<div class="empty">No activity in this window.</div>'; return; }
+
+    const W = Math.max(560, data.length * 72), H = 260;
+    const P = { t: 16, r: 16, b: 34, l: 44 };
+    const iw = W - P.l - P.r, ih = H - P.t - P.b;
+
+    const maxV = Math.max(1, ...data.flatMap((w) => active.map((s) => w[s.key] || 0)));
+    // Round the ceiling up to something a human reads cleanly.
+    const step = Math.pow(10, Math.floor(Math.log10(maxV)));
+    const top  = Math.ceil(maxV / step) * step || 1;
+
+    const x = (i) => P.l + (data.length === 1 ? iw / 2 : (i * iw) / (data.length - 1));
+    const y = (v) => P.t + ih - (v / top) * ih;
+
+    let svg = '<svg class="chart" viewBox="0 0 ' + W + " " + H + '" role="img" ' +
+              'aria-label="Weekly outbound activity">';
+
+    for (let g = 0; g <= 4; g++) {
+      const gy = P.t + (ih * g) / 4;
+      svg += '<line class="grid-line" x1="' + P.l + '" y1="' + gy + '" x2="' + (W - P.r) + '" y2="' + gy + '"/>' +
+             '<text class="axis-text" x="' + (P.l - 8) + '" y="' + (gy + 4) + '" text-anchor="end">' +
+             Math.round(top - (top * g) / 4) + "</text>";
+    }
+
+    data.forEach((w, i) => {
+      if (data.length > 8 && i % 2) return;
+      svg += '<text class="axis-text" x="' + x(i) + '" y="' + (H - 12) + '" text-anchor="middle">' +
+             esc(w.label) + "</text>";
+    });
+
+    active.forEach((s) => {
+      const d = data.map((w, i) => (i ? "L" : "M") + x(i) + " " + y(w[s.key] || 0)).join(" ");
+      svg += '<path class="series-line" stroke="' + s.color + '" d="' + d + '"/>';
+      data.forEach((w, i) => {
+        svg += '<circle cx="' + x(i) + '" cy="' + y(w[s.key] || 0) + '" r="4" fill="' + s.color +
+               '" stroke="var(--surface)" stroke-width="2"/>';
+      });
+    });
+
+    svg += '<line class="crosshair" id="crosshair" y1="' + P.t + '" y2="' + (P.t + ih) + '"/>';
+    data.forEach((w, i) => {
+      const half = data.length > 1 ? iw / (data.length - 1) / 2 : iw / 2;
+      svg += '<rect class="hit" data-i="' + i + '" x="' + (x(i) - half) + '" y="' + P.t +
+             '" width="' + half * 2 + '" height="' + ih + '"/>';
+    });
+    svg += "</svg>";
+    host.innerHTML = svg;
+
+    const tip = $("tooltip"), cross = $("crosshair");
+    host.querySelectorAll(".hit").forEach((r) => {
+      r.addEventListener("mousemove", (ev) => {
+        const w = data[+r.dataset.i];
+        cross.setAttribute("x1", x(+r.dataset.i));
+        cross.setAttribute("x2", x(+r.dataset.i));
+        cross.style.display = "block";
+        tip.innerHTML = '<div class="tt-title">' + esc(w.label) + "</div>" +
+          active.map((s) =>
+            '<div class="tt-row"><span class="swatch" style="background:' + s.color + '"></span>' +
+            esc(s.label) + "<b>" + num(w[s.key] || 0) + "</b></div>").join("");
+        tip.style.display = "block";
+        tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - 165) + "px";
+        tip.style.top  = (ev.clientY - 12) + "px";
+      });
+      r.addEventListener("mouseleave", () => {
+        tip.style.display = "none"; cross.style.display = "none";
+      });
+    });
+
+    // Table view — identity never depends on colour alone.
+    const tbl = $("trend-table");
+    tbl.innerHTML = "<table><thead><tr><th>Week</th>" +
+      active.map((s) => '<th class="num">' + esc(s.label) + "</th>").join("") +
+      "</tr></thead><tbody>" + data.map((w) =>
+        "<tr><td>" + esc(w.label) + "</td>" +
+        active.map((s) => '<td class="num">' + num(w[s.key] || 0) + "</td>").join("") + "</tr>"
+      ).join("") + "</tbody></table>";
+
+    $("tbl-toggle").addEventListener("click", (e) => {
+      const showing = !tbl.hidden;
+      tbl.hidden = showing;
+      host.hidden = !showing;
+      e.target.textContent = showing ? "Table" : "Chart";
+    });
+  }
+
+  /* ── Campaign breakdown ────────────────────────────────────────────────── */
+  function campaignPanel() {
+    const rows = REPORT.campaigns || [];
+    if (!rows.length) return "";
+    const maxRate = Math.max(1, ...rows.map((r) => r.reply_rate || 0));
+    return '<div class="panel"><h2>Campaign breakdown</h2>' +
+      '<div class="panel-note">Ranked by deals, then replies, then volume. ' +
+      "“Targeted” is the sendlist; “sent” is what HubSpot confirms went out.</div>" +
+      '<div class="table-scroll"><table><thead><tr>' +
+        "<th>Campaign</th><th>Sector</th>" +
+        '<th class="num">Targeted</th><th class="num">Sent</th>' +
+        '<th class="num">Replies</th><th>Reply rate</th>' +
+        '<th class="num">Deals</th><th>Window</th>' +
+      "</tr></thead><tbody>" + rows.map((r) =>
+        "<tr>" +
+          '<td class="name">' + esc(r.label) + "</td>" +
+          '<td class="dim">' + esc(r.sector) + "</td>" +
+          '<td class="num">' + num(r.targeted) + "</td>" +
+          '<td class="num">' + num(r.sent) + "</td>" +
+          '<td class="num">' + num(r.replied) + "</td>" +
+          '<td class="bar-cell">' +
+            '<div class="bar-track"><div class="bar-fill" style="width:' +
+              Math.round(((r.reply_rate || 0) / maxRate) * 100) + '%"></div></div>' +
+            '<div class="dim" style="font-size:11.5px;margin-top:3px">' + pct(r.reply_rate) + "</div>" +
+          "</td>" +
+          '<td class="num">' + num(r.deals) + "</td>" +
+          '<td class="dim">' + esc(r.first_send || "—") +
+            (r.last_send && r.last_send !== r.first_send ? " → " + esc(r.last_send) : "") + "</td>" +
+        "</tr>").join("") + "</tbody></table></div></div>";
+  }
+
+  /* ── Results ───────────────────────────────────────────────────────────── */
+  function resultsPanel() {
+    const crm = REPORT.results || [], wins = REPORT.wins || [];
+    if (!crm.length && !wins.length) {
+      return '<div class="panel"><h2>Calls &amp; deals</h2>' +
+        '<div class="panel-note">Nothing linked yet — see the note above.</div></div>';
+    }
+    let html = '<div class="panel"><h2>Calls &amp; deals</h2>' +
+      '<div class="panel-note">CRM rows update themselves. Manual rows come from ' +
+      "<code>wins.csv</code> and stay until the deal exists in HubSpot.</div>" +
+      '<div class="table-scroll"><table><thead><tr>' +
+        "<th>Company</th><th>Contact</th><th>Campaign</th><th>Stage / outcome</th>" +
+        '<th class="num">Amount</th><th>Date</th><th>Source</th>' +
+      "</tr></thead><tbody>";
+
+    html += crm.map((r) =>
+      "<tr>" +
+        '<td class="name">' + esc(r.company || "—") + "</td>" +
+        "<td>" + esc(r.name) + "</td>" +
+        '<td class="dim">' + esc(r.campaign) + "</td>" +
+        "<td>" + esc(r.stage || "—") +
+          (r.attribution === "company" ? ' <span class="dim">(via company)</span>' : "") + "</td>" +
+        '<td class="num">' + (r.amount ? money(r.amount) : "—") + "</td>" +
+        '<td class="dim">' + esc(r.created || "—") + "</td>" +
+        '<td><span class="pill live">CRM</span></td>' +
+      "</tr>").join("");
+
+    html += wins.map((w) =>
+      "<tr>" +
+        '<td class="name">' + esc(w.company) + "</td>" +
+        "<td>" + esc(w.contact || "—") + "</td>" +
+        '<td class="dim">' + esc(w.campaign || "—") + "</td>" +
+        "<td>" + esc(w.outcome || "—") +
+          (w.note ? ' <span class="dim">— ' + esc(w.note) + "</span>" : "") + "</td>" +
+        '<td class="num">—</td>' +
+        '<td class="dim">' + esc(w.date || "—") + "</td>" +
+        '<td><span class="pill manual">Manual</span></td>' +
+      "</tr>").join("");
+
+    return html + "</tbody></table></div></div>";
+  }
+
+  /* ── Replies ───────────────────────────────────────────────────────────── */
+  function repliesPanel() {
+    const rows = REPORT.replies || [];
+    if (!rows.length) return "";
+    return '<div class="panel"><h2>Recent replies</h2>' +
+      '<div class="panel-note">Most recent first. Includes out-of-office and bounce ' +
+      "notifications — HubSpot does not distinguish them on the contact record, so " +
+      "scan before treating one as a lead.</div>" +
+      '<div class="table-scroll"><table><thead><tr>' +
+        "<th>Contact</th><th>Company</th><th>Title</th><th>Campaign</th><th>Replied</th>" +
+      "</tr></thead><tbody>" + rows.slice(0, 60).map((r) =>
+        "<tr>" +
+          "<td>" + esc(r.name) + "</td>" +
+          '<td class="name">' + esc(r.company || "—") + "</td>" +
+          '<td class="dim">' + esc(r.title || "—") + "</td>" +
+          '<td class="dim">' + esc(r.campaign) + "</td>" +
+          "<td>" + esc(r.replied) + "</td>" +
+        "</tr>").join("") + "</tbody></table></div>" +
+      (rows.length > 60 ? '<div class="panel-note" style="margin:14px 0 0">Showing 60 of ' +
+        num(rows.length) + " replies.</div>" : "") + "</div>";
+  }
+
+  $("app").innerHTML = kpis() + notice() + trendPanel() + campaignPanel() +
+                       resultsPanel() + repliesPanel();
+  drawChart();
+})();
+</script>
+</body>
+</html>

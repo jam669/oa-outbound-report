@@ -1,0 +1,1906 @@
+{
+ "campaigns": [
+  {
+   "id": "wave-01-vendor-managers",
+   "label": "Vendor Leads (New)",
+   "sector": "Vendor Managers",
+   "source": "01_Campaigns/Apollo-Outbound/wave-01-vendor-managers",
+   "recipients": [
+    {
+     "email": "michael.frank@oneamerica.com",
+     "name": "Michael Frank",
+     "company": "OneAmerica Financial",
+     "title": "Vendor Management Director",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "tomas.aguerrebehere@commandlink.com",
+     "name": "Tomas Aguerrebehere",
+     "company": "CommandLink",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "aphipps@kairosliving.com",
+     "name": "Anna Phipps",
+     "company": "Kairos Living",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "julie.mcnamara@coaccess.com",
+     "name": "Julie McNamara",
+     "company": "Colorado Access",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "todd.beres@ameritfleetsolutions.com",
+     "name": "Todd Beres",
+     "company": "Amerit Fleet Solutions",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "karen.habschied@liveoak.bank",
+     "name": "Karen Habschied",
+     "company": "Live Oak Bank",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "douglasr@anchorloans.com",
+     "name": "Douglas Reynolds",
+     "company": "Anchor Loans",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jordon@generalprocurement.com",
+     "name": "Jordon McCarthy",
+     "company": "General Procurement, Inc.",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rbradlee@myvoicecomm.com",
+     "name": "Russell Bradlee",
+     "company": "VoiceComm",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "cale.ponzo@northsight.com",
+     "name": "Cale Ponzo",
+     "company": "Northsight Management",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "megank@lp-services.net",
+     "name": "Megan Keen",
+     "company": "Loss Prevention Services (MS), LP",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "fanya.thomson@thunes.com",
+     "name": "Fanya Thomson",
+     "company": "Thunes",
+     "title": "Vendor Management Director",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "diana.michalopoulos@cna.com",
+     "name": "Diana Michalopoulos",
+     "company": "CNA Insurance",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "clickiss@nfmlending.com",
+     "name": "Craig Lickiss",
+     "company": "NFM Lending",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "sue.morris@fhlbboston.com",
+     "name": "Susan Morris",
+     "company": "Federal Home Loan Bank of Boston",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jdragon@fideliscare.org",
+     "name": "Joseph Dragon",
+     "company": "Fidelis Care - New York",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "mark.lippman@financeofamerica.com",
+     "name": "Mark Lippman",
+     "company": "Finance of America",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "trey.dilley@shippgl.com",
+     "name": "Trey Dilley",
+     "company": "PGL (Perimeter Global Logistics)",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "lilly@globalwordsmiths.com",
+     "name": "Lilly Abreu",
+     "company": "Global Wordsmiths",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "chuck.deloatche@capitalone.com",
+     "name": "Chuck Deloatche",
+     "company": "NCO Financial Systems",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "sarias@thezenith.com",
+     "name": "Shelaina Arias",
+     "company": "Zenith Insurance",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "ddeluca@imagine360.com",
+     "name": "Dana Luca",
+     "company": "Imagine360",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "james.williams@lessen.com",
+     "name": "James Williams",
+     "company": "Lessen",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "monica.neglio@gigapower.com",
+     "name": "Monica Neglio",
+     "company": "Gigapower",
+     "title": "Director- Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "alex.clay@reserv.com",
+     "name": "Alex Clay",
+     "company": "Reserv",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "melanie.sims@naphcare.com",
+     "name": "Melanie Sims",
+     "company": "NaphCare, Inc.",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jbeatty@sufs.org",
+     "name": "Jay Beatty",
+     "company": "Step Up For Students",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "katrina.cast2@freedommortgage.com",
+     "name": "Katrina Cast",
+     "company": "Freedom Mortgage",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jbidwell@cedarhurstliving.com",
+     "name": "Jamie Bidwell",
+     "company": "Cedarhurst Senior Living",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "brandon.wall@entrust.com",
+     "name": "Brandon Wall",
+     "company": "Entrust",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "paula.howard@teamww.com",
+     "name": "Paula Howard",
+     "company": "Team Worldwide",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "bruecknerj@acpny.com",
+     "name": "James Brueckner",
+     "company": "AdvantageCare Physicians",
+     "title": "Vendor Management, Director",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jkearney@ongweoweh.com",
+     "name": "Jon Kearney",
+     "company": "Ongweoweh Corp",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "charity.kittrell@sagentlending.com",
+     "name": "Charity Kittrell",
+     "company": "Sagent",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "lsanchez@teamlogicit.com",
+     "name": "Lizette Sanchez",
+     "company": "TeamLogic IT",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "ychavez@nationalcreditors.com",
+     "name": "Yvonne Chavez",
+     "company": "NCCI Field Services",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "cecco.rosario@pennmutual.com",
+     "name": "Rosario Cecco",
+     "company": "Penn Mutual",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "michael.ferrera@newrez.com",
+     "name": "Michael Ferrera",
+     "company": "Newrez",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rich@harrisx.com",
+     "name": "Richard Blume",
+     "company": "HarrisX",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "michael.esquer@phxconsultingservices.com",
+     "name": "Michael Esquer",
+     "company": "Loan Resolution Corporation",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "bhowe@deltagroup.net",
+     "name": "Bill Howe",
+     "company": "Delta Group",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jfeuerbach@mchutchison.com",
+     "name": "Jessica Montgomery",
+     "company": "McHUTCHISON",
+     "title": "Vendor Management Director",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "mvarelas@abadmin.com",
+     "name": "Michelle Varelas",
+     "company": "Assured Benefits Administrators",
+     "title": "Vendor Management Director",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jimmy.weisner@carefirst.com",
+     "name": "Jimmy Weisner",
+     "company": "CareFirst BlueCross BlueShield",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "johanna@camsmgt.com",
+     "name": "Johanna Kjesbu",
+     "company": "CAMS (Community Association Management Services)",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "gbauerle@datafied.com",
+     "name": "Gloria Bauerle",
+     "company": "Datafied",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "anperez@nationalcore.org",
+     "name": "Annakena Perez",
+     "company": "National Community Renaissance",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "ppaulhus@jhancock.com",
+     "name": "Paul Paulhus",
+     "company": "John Hancock",
+     "title": "Director Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kristin.dale@rpmliving.com",
+     "name": "Kristin Dale",
+     "company": "RPM Living",
+     "title": "Multifamily Professional",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "ywu@bestchoiceproducts.com",
+     "name": "Ying Wu",
+     "company": "Best Choice Products",
+     "title": "Director of Vendor Management",
+     "tier": "A- Vendor/Sourcing"
+    }
+   ]
+  },
+  {
+   "id": "wave-02-vendor-managers",
+   "label": "Wave 02 — Vendor Managers",
+   "sector": "Vendor Managers",
+   "source": "01_Campaigns/Apollo-Outbound/wave-02-vendor-managers",
+   "recipients": [
+    {
+     "email": "daniel.deegan@aspirehealthplan.org",
+     "name": "Dan Deegan",
+     "company": "Aspire Health",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "sarah.riley@ghrhealthcare.com",
+     "name": "Sarah Riley",
+     "company": "GHR Healthcare",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "sscanlon@thecervantesgroup.com",
+     "name": "Shari Scanlon",
+     "company": "The Cervantes Group",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "fdeeds@jpshealth.org",
+     "name": "Frank Cody",
+     "company": "JPS Health Network",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "margo.sobel@cedargate.com",
+     "name": "Margo Sobel",
+     "company": "Cedargate",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "derekdimartino@ascentiumcapital.com",
+     "name": "Derek Dimartino",
+     "company": "Ascentium Capital",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "david.ward1@wgu.edu",
+     "name": "David Ward",
+     "company": "Western Governors University",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rachel.rothenberg@wec.net",
+     "name": "Rachel Rothenberg",
+     "company": "World Equestrian Center",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jontae.buxton@lowesfoods.com",
+     "name": "Jontae Buxton",
+     "company": "Lowes Foods",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "mlacina@greatamerica.com",
+     "name": "Matt Lacina",
+     "company": "GreatAmerica",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rebecca.lodge@quartzy.com",
+     "name": "Rebecca Lodge",
+     "company": "Quartzy",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "eileen.miller@kimley-horn.com",
+     "name": "Eileen Miller",
+     "company": "Kimley-Horn",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "asteen@sharxplan.com",
+     "name": "Amy Steen",
+     "company": "SHARx, LLC",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "nicole.solberg@allianzlife.com",
+     "name": "Nicole Solberg",
+     "company": "Allianz Life",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jessica.thomas@becu.org",
+     "name": "Jessica Thomas",
+     "company": "BECU",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kupton@bradley.com",
+     "name": "Karla Upton",
+     "company": "Bradley Arant Boult Cummings LLP",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "patty.goodman@xplortechnologies.com",
+     "name": "Patty Goodman",
+     "company": "Xplor Technologies",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kacie_b_williams@glic.com",
+     "name": "Kacie Williams-Tolentino",
+     "company": "Guardian Life",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "andrew.schmidt@logisnextamericas.com",
+     "name": "Andrew Schmidt",
+     "company": "Logisnext Americas Inc.",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "cbooth@storageasset.com",
+     "name": "Cheri Booth",
+     "company": "Storage Asset Management",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "katrinas@truerx.com",
+     "name": "Katrina Strange",
+     "company": "True Rx Health Strategists",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kelli_queen@freddiemac.com",
+     "name": "Kelli Queen",
+     "company": "Freddie Mac",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "saurav.pandey@symetra.com",
+     "name": "Saurav Pandey",
+     "company": "Symetra",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "lsmith@healthfirst.org",
+     "name": "Laura Smith",
+     "company": "Healthfirst",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jtaylor@plmfleet.com",
+     "name": "Joshua Taylor",
+     "company": "PLM Fleet",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "torraine.anglin@aircharterservice.com",
+     "name": "Torraine Anglin",
+     "company": "Air Charter Service",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "eglenzer@standtogether.org",
+     "name": "Lizzy Glenzer-Smith",
+     "company": "Stand Together",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "brandon.woods@truevalue.com",
+     "name": "Brandon Woods",
+     "company": "True Value Company",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "aanderson@mediariders.com",
+     "name": "Angela Anderson",
+     "company": "Media Riders Inc.",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kmertzlufft@uncdairy.com",
+     "name": "Karen Mertzlufft",
+     "company": "Upstate Niagara Cooperative, Inc.",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rcates@jackhenry.com",
+     "name": "Robyn Cates",
+     "company": "Jack Henry",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "dsimmons@ccok.com",
+     "name": "Denisa Simmons",
+     "company": "CommunityCare",
+     "title": "Director, Vendor Management, Vendor Services",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "grant.rainier@vividseats.com",
+     "name": "Grant Rainier",
+     "company": "Vivid Seats",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "dliebig@storedtech.com",
+     "name": "Derek Liebig",
+     "company": "StoredTech",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "eetzel@starline.com",
+     "name": "Erica Etzel",
+     "company": "Starline Inc.",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "zgreen@lgamerica.com",
+     "name": "Zach Green",
+     "company": "Banner Life family of companies | life insurance",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "snickerson@aflac.com",
+     "name": "Shonda Nickerson",
+     "company": "Aflac Group Insurance",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kelly.johnson@azblue.com",
+     "name": "Kelly Johnson",
+     "company": "Blue Cross Blue Shield of Arizona",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "sherman.radford@daimlertruck.com",
+     "name": "Sherman Radford",
+     "company": "Daimler Truck North America",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "amy.bentley@carringtonms.com",
+     "name": "Amy Bentley",
+     "company": "Carrington Mortgage Services, LLC",
+     "title": "Vendor Relationship Manager",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "deng@montefiore.org",
+     "name": "David Eng",
+     "company": "Montefiore Einstein Technology",
+     "title": "Director, Vendor Management Organization",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "amy.goldschmidt@saluteinc.com",
+     "name": "Amy Goldschmidt",
+     "company": "Salute",
+     "title": "Director of Vendor Management, Americas",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "paula.chamberlain@geha.com",
+     "name": "Paula Chamberlain",
+     "company": "GEHA Health",
+     "title": "Director, Vendor Management Office",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "jrooney@globalguardian.com",
+     "name": "Jay Rooney",
+     "company": "Global Guardian",
+     "title": "Director - Vendor Management -Domestic",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "johnschwartz@illumifin.com",
+     "name": "John Schwartz",
+     "company": "illumifin",
+     "title": "Director- Vendor Management Office",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "rruffing@spreedly.com",
+     "name": "Rachel Ruffing",
+     "company": "Spreedly",
+     "title": "Director, Vendor Management Office",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "chad.tritt@rgare.com",
+     "name": "Chad Tritt",
+     "company": "Reinsurance Group of America, Incorporated",
+     "title": "Director of Vendor Management and Resilience",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "scott.n.thompson@zayo.com",
+     "name": "Scott Thompson",
+     "company": "Zayo Group",
+     "title": "Director Vendor Management Enterprise",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "lseeley@karyopharm.com",
+     "name": "Leonella Seeley",
+     "company": "Karyopharm Therapeutics Inc.",
+     "title": "Director of Vendor Management and Operations",
+     "tier": "A- Vendor/Sourcing"
+    },
+    {
+     "email": "kellyl@usacs.com",
+     "name": "Lisa Kelly",
+     "company": "US Acute Care Solutions",
+     "title": "Director, Vendor Management Office",
+     "tier": "A- Vendor/Sourcing"
+    }
+   ]
+  },
+  {
+   "id": "vendor-manager-icp",
+   "label": "Vendor-Manager ICP (incl. Function-Head backfill)",
+   "sector": "Vendor Managers",
+   "source": "01_Campaigns/Vendor-Manager-ICP",
+   "recipients": [
+    {
+     "email": "dmoore@equifax.com",
+     "name": "Donna Moore",
+     "company": "Equifax",
+     "title": "Global Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "toni_l_gary@fanniemae.com",
+     "name": "Toni Gary",
+     "company": "Fannie Mae",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "kayla.arthur@ftr.com",
+     "name": "Kayla Arthur",
+     "company": "Frontier",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "donaldg@godaddy.com",
+     "name": "Donald Gray",
+     "company": "GoDaddy",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "kmcdaniel9@humana.com",
+     "name": "Kelli McDaniel",
+     "company": "Humana",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "jonathan.weinrich@instacart.com",
+     "name": "Jonathan Weinrich",
+     "company": "Instacart",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "andrea@amj-marketing.com",
+     "name": "Andrea C.",
+     "company": "Staples",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "brianphelan@stripe.com",
+     "name": "Brian Phelan",
+     "company": "Stripe",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "psorrell@transperfect.com",
+     "name": "Peter Sorrell",
+     "company": "TransPerfect",
+     "title": "Vendor Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "lenoret@zillowgroup.com",
+     "name": "Lenore Thompson",
+     "company": "Zillow",
+     "title": "Sr. Vendor Program Manager",
+     "tier": "Enterprise"
+    },
+    {
+     "email": "lmadonna@aaanortheast.com",
+     "name": "Linda Madonna",
+     "company": "AAA Northeast",
+     "title": "Senior Manager, Travel Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "mmarchetti@aaanortheast.com",
+     "name": "Michelle Marchetti",
+     "company": "AAA Northeast",
+     "title": "Senior Manager, Membership Sales & Service Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "charris@alphabroder.com",
+     "name": "Carl Harris",
+     "company": "Alphabroder",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "doreen.odowd@ameritas.com",
+     "name": "Doreen O'Dowd",
+     "company": "Ameritas",
+     "title": "Director, Participant Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "jchristensen@tgn.com",
+     "name": "Joy McGraw",
+     "company": "Ancestry",
+     "title": "Offshore Vendor Manager II",
+     "tier": "Large"
+    },
+    {
+     "email": "alexander.dickman@bhnetwork.com",
+     "name": "Alexander Dickman",
+     "company": "Blackhawk Network",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "traci.leate@bcbsma.com",
+     "name": "Traci Leate",
+     "company": "Blue Cross Blue Shield of Massachusetts",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "sam.serban@bluegreenvacations.com",
+     "name": "Sam Serban",
+     "company": "Bluegreen Vacations",
+     "title": "Director, Talent Development Call Centers & Mortgage",
+     "tier": "Large"
+    },
+    {
+     "email": "asmcgregor@challiance.org",
+     "name": "Andrea McGregor",
+     "company": "Cambridge Health Alliance",
+     "title": "Patient Access Call Centers Director, Revenue Cycle",
+     "tier": "Large"
+    },
+    {
+     "email": "mamarden@carenethealthcare.com",
+     "name": "Melissa Marden",
+     "company": "Carenet Healthcare Services",
+     "title": "Director, Clinical Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "susan.hegarty@colonybrands.com",
+     "name": "Susan Hegarty",
+     "company": "Colony Brands",
+     "title": "Vendor Manager",
+     "tier": "Large"
+    },
+    {
+     "email": "ealvarez@cyracom.com",
+     "name": "Edmundo Alvarez",
+     "company": "Cyracom",
+     "title": "Senior Director, Operations & Call Center Management",
+     "tier": "Large"
+    },
+    {
+     "email": "dina.brunetti@devoted.com",
+     "name": "Dina Brunetti",
+     "company": "Devoted Health",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "norina.holmes@dynata.com",
+     "name": "Norina Galimba-Holmes",
+     "company": "Dynata",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "donna.usam@hawaiiantel.com",
+     "name": "Donna Usam",
+     "company": "Hawaiian Telcom",
+     "title": "Senior Manager, Call Center Quality",
+     "tier": "Large"
+    },
+    {
+     "email": "ewooldridge@orangelake.com",
+     "name": "Eric Wooldridge",
+     "company": "Holiday Inn Club Vacations",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "crilley@holyname.org",
+     "name": "Eileen Crilley",
+     "company": "Holy Name Medical Center",
+     "title": "Director, Central Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "jdubsky@homesite.com",
+     "name": "Joseph Dubsky",
+     "company": "Homesite",
+     "title": "General Manager Commercial Contact Centers",
+     "tier": "Large"
+    },
+    {
+     "email": "jessica.plasters@iem.com",
+     "name": "Jessica Plasters",
+     "company": "IEM",
+     "title": "Senior Manager, Deputy Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "jennifer.witcher@jacuzzi.com",
+     "name": "Jennifer Witcher",
+     "company": "Jacuzzi",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "erin.parker@jacuzzi.com",
+     "name": "Erin Parker",
+     "company": "Jacuzzi",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "imejia@lacare.org",
+     "name": "Iris Mejia",
+     "company": "L.A. Care Health Plan",
+     "title": "Senior Manager, Customer Solution Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "maria.paez-orozco@livingspaces.com",
+     "name": "Maria Paez-Orozco",
+     "company": "Living Spaces",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "rlong@mazzios.com",
+     "name": "Rita Long",
+     "company": "Mazzio's",
+     "title": "General Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "sherlenephillips@medcor.com",
+     "name": "Sherlene Phillips",
+     "company": "Medcor",
+     "title": "Division Director, Call Center Operations, Telehealth",
+     "tier": "Large"
+    },
+    {
+     "email": "jlivingston@medcor.com",
+     "name": "Jacqueline Livingston",
+     "company": "Medcor",
+     "title": "Director, Call Center Operations, Telehealth",
+     "tier": "Large"
+    },
+    {
+     "email": "aquinosv@metroplus.org",
+     "name": "Osvaldo Aquino",
+     "company": "MetroPlus Health Plan",
+     "title": "Director, Call Center Quality & Compliance",
+     "tier": "Large"
+    },
+    {
+     "email": "bonnie.trigg@mcmcg.com",
+     "name": "Bonnie Trigg",
+     "company": "Midland Credit Management",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "glenn.garland@onetrust.com",
+     "name": "Glenn Garland",
+     "company": "OneTrust",
+     "title": "Vendor Operations Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "mjagusiak@pfsweb.com",
+     "name": "Michael Jagusiak",
+     "company": "PFS",
+     "title": "Director, Client Financial Services & Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "jason.chmielewski@shellpoint.com",
+     "name": "Jason Chmielewski",
+     "company": "Proctor Loan Protector",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "scott.mize@protective.com",
+     "name": "W. Mize",
+     "company": "Protective",
+     "title": "Manager and Director, Life Customer Service Contact Center",
+     "tier": "Large"
+    },
+    {
+     "email": "kneppc@radial.com",
+     "name": "Christopher Knepp",
+     "company": "Radial",
+     "title": "Senior Manager, Call Center Systems",
+     "tier": "Large"
+    },
+    {
+     "email": "lbogle@radial.com",
+     "name": "Lisa Bogle",
+     "company": "Radial",
+     "title": "Director, Call Center Operations Client Services Delivery & Program Director",
+     "tier": "Large"
+    },
+    {
+     "email": "khenshaw@redroof.com",
+     "name": "Katie Henshaw",
+     "company": "Red Roof Inn",
+     "title": "Vendor Management Director, Contact Center",
+     "tier": "Large"
+    },
+    {
+     "email": "susan.leboeuf@reliantmedicalgroup.org",
+     "name": "Susan Leboeuf",
+     "company": "Reliant Medical Group",
+     "title": "Senior Manager, Health Information Management & Central Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "jdaniels@triwest.com",
+     "name": "James Daniels",
+     "company": "TriWest Healthcare Alliance",
+     "title": "Senior Manager, Call Center",
+     "tier": "Large"
+    },
+    {
+     "email": "nicollas.figueiredo@virginvoyages.com",
+     "name": "Nicollas Figueiredo",
+     "company": "Virgin Voyages",
+     "title": "Global Senior Manager, Contact Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "sanhorn@youngliving.com",
+     "name": "Serina Anhorn",
+     "company": "Young Living Essential Oils",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Large"
+    },
+    {
+     "email": "acarmical@alliedbenefit.com",
+     "name": "Amy Carmical",
+     "company": "Allied Benefit Systems",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "emilsap@amps.com",
+     "name": "Erica Milsap",
+     "company": "AMPS",
+     "title": "Director, Pharmacy Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "anna.jedras@argosmultilingual.com",
+     "name": "Anna Jedras",
+     "company": "Argos Multilingual",
+     "title": "Vendor Manager",
+     "tier": "Mid"
+    },
+    {
+     "email": "acallis@bloominsuranceagency.com",
+     "name": "Anthony Callis",
+     "company": "Bloom Insurance Agency",
+     "title": "Implementation & Workforce Management Director, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "pshaffer@buckeyebroadband.com",
+     "name": "Patrick Shaffer",
+     "company": "Buckeye Broadband",
+     "title": "Senior Manager, Brainiac Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "maureen.varvi@carey.com",
+     "name": "Maureen Varvi",
+     "company": "Carey",
+     "title": "Director, Site of NY Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "martin.patterson@reversedepartment.com",
+     "name": "Martin Patterson",
+     "company": "Celink",
+     "title": "Support Director, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "tonie.ziegler@communityhealthchoice.org",
+     "name": "Tonie Ziegler",
+     "company": "Community Health Choice",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "mark.gary@delhaize.com",
+     "name": "Mark Gary",
+     "company": "Delhaize America Shared Services",
+     "title": "Director, Crosscom Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "kulickey@educationdynamics.net",
+     "name": "Kenneth Ulickey",
+     "company": "EducationDynamics",
+     "title": "Senior Director, Call Center Operations Ig",
+     "tier": "Mid"
+    },
+    {
+     "email": "kpogue@etcc.com",
+     "name": "Kendron Pogue",
+     "company": "Electronic Transaction Consultants",
+     "title": "Director, Call Center Operations& Technology Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "yolanda.powell@empirecls.com",
+     "name": "Yolanda Powell",
+     "company": "EmpireCLS Worldwide Chauffeured Services",
+     "title": "Senior Manager, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "ashley.hargrett@getinsured.com",
+     "name": "Ashley Hargrett",
+     "company": "GetInsured",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "pthomas@goldschmitt.com",
+     "name": "Philip Thomas",
+     "company": "Goldschmitt and Associates",
+     "title": "Senior Manager, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "dalvarez@healthesystems.com",
+     "name": "Derek Alvarez",
+     "company": "Healthesystems",
+     "title": "Vendor Manager",
+     "tier": "Mid"
+    },
+    {
+     "email": "dora@ccmup.com",
+     "name": "Dora Galvez",
+     "company": "KOLAS",
+     "title": "Director, Customer Service & Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "alicia.baker@mhn.com",
+     "name": "Alicia Baker",
+     "company": "Managed Health Network",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "jjordan@medsynergies.com",
+     "name": "Jennifer Jordan",
+     "company": "MedSynergies",
+     "title": "Offshore Manager",
+     "tier": "Mid"
+    },
+    {
+     "email": "davidfields@mintdentistry.com",
+     "name": "David Fields",
+     "company": "Mint Dentistry",
+     "title": "Director, Scheduling-Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "epulido@odfmc.org",
+     "name": "Edgar Pulido",
+     "company": "Open Door Family Medical Center",
+     "title": "Senior Manager, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "evillasenor@partnershiphp.org",
+     "name": "Edna Villasenor",
+     "company": "Partnership HealthPlan of California",
+     "title": "Director, Member Services Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "afton.hernandez@passporthealthusa.com",
+     "name": "Afton Hernandez",
+     "company": "Passport Health",
+     "title": "Director, Call Center Services",
+     "tier": "Mid"
+    },
+    {
+     "email": "bdoue@payflex.com",
+     "name": "Brian Doue",
+     "company": "PayFlex",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "ponguru.ravisankar@safe-guardproducts.com",
+     "name": "Ponguru Ravisankar",
+     "company": "Safe-Guard Products International",
+     "title": "Offshore Manager",
+     "tier": "Mid"
+    },
+    {
+     "email": "jason.wichman@safeauto.com",
+     "name": "Jason Wichman",
+     "company": "SafeAuto Insurance",
+     "title": "Director, Sales & Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "deepankumar.n@speridian.com",
+     "name": "Deepankumar Narayanan",
+     "company": "Speridian Technologies",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Mid"
+    },
+    {
+     "email": "janet.rosario@xceedance.com",
+     "name": "Janet Rosario",
+     "company": "Xceedance",
+     "title": "Senior Manager, Call Center",
+     "tier": "Mid"
+    },
+    {
+     "email": "justin@bcgenrolls.com",
+     "name": "Justin Penko",
+     "company": "BCG Enrolls",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "callen@bbd.org",
+     "name": "Allen Chaz",
+     "company": "Blood Bank of Delmarva",
+     "title": "Executive Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "tyler@carepayment.com",
+     "name": "Tyler Hacke",
+     "company": "CarePayment",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "cadebayo@cck-law.com",
+     "name": "Christopher Adebayo",
+     "company": "Chisholm Chisholm & Kilpatrick",
+     "title": "Senior Manager, Intake Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "ff@cigna.com",
+     "name": "Frisco Freitas",
+     "company": "Cigna Voluntary",
+     "title": "Manager, Call Center & Director, With Expertise In Healthcare, Process Improvement",
+     "tier": "Small"
+    },
+    {
+     "email": "jessica.ross@clearspringhealthcare.com",
+     "name": "Jessica Ross",
+     "company": "Clear Spring Health",
+     "title": "Director, Offshore Operations, Billing & Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "saravan@cloudious.com",
+     "name": "Saravan Manohar",
+     "company": "Cloudious LLC",
+     "title": "Operations Manager (Offshore)",
+     "tier": "Small"
+    },
+    {
+     "email": "smiller@coopcu.com",
+     "name": "Sue Miller",
+     "company": "Co-op Credit Union",
+     "title": "Manager, Member Contact Center & Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "mlopez@compasslanguages.com",
+     "name": "Matias Lopez",
+     "company": "Compass Languages",
+     "title": "Sr. Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "dgoins@completecontractconsulting.com",
+     "name": "David Goins",
+     "company": "Complete Contract Consulting",
+     "title": "Global Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "melissa@cpp.life",
+     "name": "Melissa Burris",
+     "company": "Cost Plus Processing",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "mbeck@criticoreinc.com",
+     "name": "Mindy Beck",
+     "company": "CritiCore Protective Wear",
+     "title": "Offshore Operations Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "sguidry@crosbytugs.com",
+     "name": "Spence Guidry",
+     "company": "Crosby Tugs, LLC",
+     "title": "Offshore Operations Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "shenry@datalot.com",
+     "name": "Shanieka Henry",
+     "company": "Datalot",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "bdelancey@directnic.com",
+     "name": "Brian Delancey",
+     "company": "Directnic",
+     "title": "Director, Call Center Operations & Marketing",
+     "tier": "Small"
+    },
+    {
+     "email": "marcy@diversifiedadjustment.com",
+     "name": "Marcy Ahlstrand",
+     "company": "Diversified Adjustment Service",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "briana@dynamiclanguage.com",
+     "name": "Briana Dyrness",
+     "company": "Dynamic Language",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "nadezhda.d@effectiff.com",
+     "name": "Nadezhda Donskih",
+     "company": "effectiff",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "william.faiella@owmobility.com",
+     "name": "William Faiella",
+     "company": "Enea Openwave",
+     "title": "Senior Manager and Executive With Expertise In Global Customer Support, Managed Services, and Call Center Management",
+     "tier": "Small"
+    },
+    {
+     "email": "darin.strickland@epichearing.com",
+     "name": "Darin Strickland",
+     "company": "EPIC Hearing Healthcare",
+     "title": "Director, Call Center Operations & Customer Experience",
+     "tier": "Small"
+    },
+    {
+     "email": "rvidal@expeditedtravel.com",
+     "name": "Robert Vidal",
+     "company": "Expedited Travel",
+     "title": "Senior Director, Consumer & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "jeannette.lemrise@fcionline.com",
+     "name": "Jeannette Lemrise",
+     "company": "Fertility Centers of Illinois",
+     "title": "Director, Marketing & New Patient Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "roni.stargardt@figis.com",
+     "name": "Roni Stargardt",
+     "company": "Figi's Companies, Inc.",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "mandyb@fivestarfranchising.com",
+     "name": "Amanda Shober",
+     "company": "Five Star Franchising",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "gangiulo@gticorporate.com",
+     "name": "Gina Angiulo",
+     "company": "Global Travel International",
+     "title": "Director, Call Center Operations& Service",
+     "tier": "Small"
+    },
+    {
+     "email": "siul.sanchez@glyphservices.com",
+     "name": "Siul Chacin",
+     "company": "Glyph Language Services",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "angelam@hammacher.com",
+     "name": "Angela Marx",
+     "company": "HAMMACHER SCHLEMMER",
+     "title": "Manager, Call Center Operations Bpo & Wfm",
+     "tier": "Small"
+    },
+    {
+     "email": "hmd@headwear-usa.com",
+     "name": "Brock Conrad",
+     "company": "Headwear USA",
+     "title": "Offshore Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "edward@helpfinancial.com",
+     "name": "Edward Rosinski",
+     "company": "HELP Financial",
+     "title": "Director, Education & Director, Training, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "fpratas@hickoryglobalpartners.com",
+     "name": "Frank Pratas",
+     "company": "Hickory Global Partners",
+     "title": "Global Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "kerry-ann.akintunji@hmutx.com",
+     "name": "Kerry- Ann Akintunji",
+     "company": "Houston Metro Urology",
+     "title": "Director, Human Resources & Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "clopez@humantouchtranslations.com",
+     "name": "Catherine López",
+     "company": "Human Touch Translations",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "lakshani.perera@ktdoctor.com",
+     "name": "Lakshani Perera",
+     "company": "Kids & Teens Medical Group",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "leona@medialocate.com",
+     "name": "Leona Zacek",
+     "company": "MediaLocate",
+     "title": "Vendor Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "jborowka@nationsafedrivers.com",
+     "name": "Jonathan Borowka",
+     "company": "Nation Safe Drivers",
+     "title": "Director, Site -Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "mark@neighbor.com",
+     "name": "Mark Bailey",
+     "company": "Neighbor",
+     "title": "Director, Call Center Sales",
+     "tier": "Small"
+    },
+    {
+     "email": "oneida@newyorksightseeing.com",
+     "name": "Oneida Christophorou",
+     "company": "Newyorksightseeing.com",
+     "title": "Director, Quality Control & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "manoj@ntechsol.com",
+     "name": "Manoj Kumar",
+     "company": "nTech Workforce",
+     "title": "Manager, Offshore Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "jose@offshore-staffing.com",
+     "name": "Jose Chase",
+     "company": "Offshore Staffing",
+     "title": "Offshore Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "jessica.girard@onecompany.com",
+     "name": "Jessica Girard",
+     "company": "ONE (Open Network Exchange",
+     "title": "Senior Program Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "pnoel@orangecountyscu.org",
+     "name": "Phillip Noel",
+     "company": "Orange County's Credit Union",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "jim@paytechtrust.com",
+     "name": "Jim Hendrick",
+     "company": "PayTech Trust",
+     "title": "Product Manager & Director, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "paulbrunory@pdmi.com",
+     "name": "Paul Brunory",
+     "company": "Pharmacy Data Management",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "travis@pontoonstuff.com",
+     "name": "Travis Skora",
+     "company": "PontoonStuff , Inc , Boat Equipment & Supplies",
+     "title": "Director, Sales & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "lzaldana@gevc.net",
+     "name": "Lucio Zaldana",
+     "company": "Resort Vacations",
+     "title": "Director, Marketing & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "sloane@rmn.com",
+     "name": "Sloane Garvey",
+     "company": "RetailMeNot",
+     "title": "Offshore Operations Manager",
+     "tier": "Small"
+    },
+    {
+     "email": "ann.hunter@sccompanies.com",
+     "name": "Ann Hunter",
+     "company": "SC Data Center",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "david.matschina@sempris.com",
+     "name": "David Matschina",
+     "company": "Sempris",
+     "title": "Senior Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "lschley@smartautocare.com",
+     "name": "Lance Schley",
+     "company": "Smart AutoCare",
+     "title": "Director, Operations & Director, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "wmatthews@thegrandresort.com",
+     "name": "Walker Matthews",
+     "company": "The Grand Resort",
+     "title": "Group Director, Call Center & Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "klongosky@publictheater.org",
+     "name": "Kate Longosky",
+     "company": "The Public",
+     "title": "Senior Manager, Audience Services & Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "laura@timesharelegal.com",
+     "name": "Laura Pompei",
+     "company": "Timeshare Legal",
+     "title": "Director, Marketing Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "albertoa@trinityresortservices.com",
+     "name": "Alberto Aguilar",
+     "company": "Trinity Resort Services",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "ebauer@ultoffice.com",
+     "name": "Ed Bauer",
+     "company": "Ultimate Office",
+     "title": "Director, Operations & Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "rhonda@usmarketingsource.com",
+     "name": "Rhonda Aylward",
+     "company": "US Marketing Source",
+     "title": "Director, Training & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "tairuna.brown@usthealthproof.com",
+     "name": "Tairuna Brown",
+     "company": "UST HealthProof",
+     "title": "Senior Manager, Call Center Implementation",
+     "tier": "Small"
+    },
+    {
+     "email": "afton.germany@ust.com",
+     "name": "Afton Germany",
+     "company": "UST HealthProof",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "mlmullee@uthet.com",
+     "name": "Mindy Mullee",
+     "company": "UT Health East Texas",
+     "title": "Director, Medical Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "tdavison@baltimore.org",
+     "name": "Tammy Davison",
+     "company": "Visiting Baltimore",
+     "title": "Director, Housing & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "john.an@vudu.com",
+     "name": "John An",
+     "company": "Vudu",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "mjohnson@memd.me",
+     "name": "Marcel Johnson",
+     "company": "Walmart Health Virtual Care",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "jcallahan@weil4feet.com",
+     "name": "Jane Callahan",
+     "company": "Weil Foot & Ankle Institute",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "orrin.blossom@wellcare.com",
+     "name": "Orrin Blossom",
+     "company": "WellCare Health Plans",
+     "title": "Senior Manager, Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "bcarpio@wemakecalls4you.com",
+     "name": "Brayan Carpio",
+     "company": "WeMakeCalls4You",
+     "title": "Senior Manager, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "jordanm@whitehardt.com",
+     "name": "Jordan Miller",
+     "company": "Whitehardt",
+     "title": "Director, Operations Whitehardt Intake Contract Services & Call Center Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "alanglinais@xstrememd.com",
+     "name": "Andre Langlinais",
+     "company": "XstremeMD",
+     "title": "Manager, Global Offshore Operations",
+     "tier": "Small"
+    },
+    {
+     "email": "betty.denison@yapicentral.com",
+     "name": "Betty Denison",
+     "company": "YAPI",
+     "title": "Supervisor, Operations & Director, Call Center",
+     "tier": "Small"
+    },
+    {
+     "email": "tbroome1@humana.com",
+     "name": "",
+     "company": "Humana",
+     "title": "Director Contact Center Transformation Manager",
+     "tier": ""
+    },
+    {
+     "email": "khorochov@humana.com",
+     "name": "",
+     "company": "Humana",
+     "title": "Director Customer Experience",
+     "tier": ""
+    },
+    {
+     "email": "ldunne@humana.com",
+     "name": "",
+     "company": "Humana",
+     "title": "VP, Operations",
+     "tier": ""
+    },
+    {
+     "email": "dfolz@godaddy.com",
+     "name": "",
+     "company": "GoDaddy",
+     "title": "Director of Customer Support & Call Center Operations",
+     "tier": ""
+    },
+    {
+     "email": "bob.craig@onetrust.com",
+     "name": "",
+     "company": "OneTrust",
+     "title": "VP, Customer Experience",
+     "tier": ""
+    },
+    {
+     "email": "bryan.morgan@onetrust.com",
+     "name": "",
+     "company": "OneTrust",
+     "title": "Director, Customer Support",
+     "tier": ""
+    },
+    {
+     "email": "april.eisenhauer@equifax.com",
+     "name": "",
+     "company": "Equifax",
+     "title": "VP of Customer Experience and Member Engagement",
+     "tier": ""
+    },
+    {
+     "email": "abigail.gelhaus@instacart.com",
+     "name": "",
+     "company": "Instacart",
+     "title": "Senior Director - Customer Experience",
+     "tier": ""
+    },
+    {
+     "email": "christopher.williams2@ftr.com",
+     "name": "",
+     "company": "Frontier",
+     "title": "Vice President Operations",
+     "tier": ""
+    },
+    {
+     "email": "jkring@healthesystems.com",
+     "name": "",
+     "company": "Healthesystems",
+     "title": "Director of Software Engineering",
+     "tier": ""
+    },
+    {
+     "email": "david.harrison@equifax.com",
+     "name": "",
+     "company": "Equifax",
+     "title": "Vice President, Operations",
+     "tier": ""
+    },
+    {
+     "email": "scott.vogt@equifax.com",
+     "name": "",
+     "company": "Equifax",
+     "title": "VP-Operations",
+     "tier": ""
+    },
+    {
+     "email": "shaun.hill@equifax.com",
+     "name": "",
+     "company": "Equifax",
+     "title": "Senior Director, Customer Experience Measurement",
+     "tier": ""
+    },
+    {
+     "email": "caiman.howe@instacart.com",
+     "name": "",
+     "company": "Instacart",
+     "title": "Director, Customer Experience",
+     "tier": ""
+    },
+    {
+     "email": "patrick.balbierz@instacart.com",
+     "name": "",
+     "company": "Instacart",
+     "title": "Director, Customer Experience",
+     "tier": ""
+    },
+    {
+     "email": "izzy.knopper@instacart.com",
+     "name": "",
+     "company": "Instacart",
+     "title": "Director of Customer Experience Technology",
+     "tier": ""
+    },
+    {
+     "email": "marlon.bledsoe@ftr.com",
+     "name": "",
+     "company": "Frontier",
+     "title": "Director of Engineering and Operations",
+     "tier": ""
+    },
+    {
+     "email": "jasondu@zillowgroup.com",
+     "name": "",
+     "company": "Zillow",
+     "title": "Director, Business Operations",
+     "tier": ""
+    },
+    {
+     "email": "danwu@zillowgroup.com",
+     "name": "",
+     "company": "Zillow",
+     "title": "VP, Engineering",
+     "tier": ""
+    },
+    {
+     "email": "denniss@godaddy.com",
+     "name": "",
+     "company": "GoDaddy",
+     "title": "Senior Director, Business Operations Leader",
+     "tier": ""
+    },
+    {
+     "email": "scourtney@godaddy.com",
+     "name": "",
+     "company": "GoDaddy",
+     "title": "VP Engineering",
+     "tier": ""
+    },
+    {
+     "email": "choddy@tgn.com",
+     "name": "",
+     "company": "Ancestry",
+     "title": "Vice President of Engineering",
+     "tier": ""
+    },
+    {
+     "email": "jwood@tgn.com",
+     "name": "",
+     "company": "Ancestry",
+     "title": "Director, Information Technology",
+     "tier": ""
+    },
+    {
+     "email": "wali.ansary@instacart.com",
+     "name": "",
+     "company": "Instacart",
+     "title": "Vice President of Engineering",
+     "tier": ""
+    },
+    {
+     "email": "jschuler@zillowgroup.com",
+     "name": "",
+     "company": "Zillow",
+     "title": "VP of Engineering",
+     "tier": ""
+    }
+   ]
+  }
+ ],
+ "total_campaigns": 3,
+ "total_recipients": 268
+}
