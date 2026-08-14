@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-14 22:22 Manila",
+ "generated": "2026-08-14 22:24 Manila",
  "week_label": "12–18 Aug",
  "portal_id": "44390857",
  "totals": {
@@ -58,7 +58,7 @@
   },
   {
    "id": "wave-01-vendor-managers",
-   "label": "Vendor Leads (New)",
+   "label": "Wave 01 — Vendor Managers",
    "sector": "Vendor Managers",
    "targeted": 50,
    "sent": 50,
@@ -241,7 +241,7 @@
    "company": "Kairos Living",
    "email": "aphipps@kairosliving.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -251,7 +251,7 @@
    "company": "Colorado Access",
    "email": "julie.mcnamara@coaccess.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -261,7 +261,7 @@
    "company": "General Procurement, Inc.",
    "email": "jordon@generalprocurement.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -271,7 +271,7 @@
    "company": "NFM Lending",
    "email": "clickiss@nfmlending.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -281,7 +281,7 @@
    "company": "Federal Home Loan Bank of Boston",
    "email": "sue.morris@fhlbboston.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -291,7 +291,7 @@
    "company": "Fidelis Care - New York",
    "email": "jdragon@fideliscare.org",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-08",
    "status": ""
@@ -431,7 +431,7 @@
    "company": "Finance of America",
    "email": "mark.lippman@financeofamerica.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-07",
    "status": ""
@@ -441,7 +441,7 @@
    "company": "PGL (Perimeter Global Logistics)",
    "email": "trey.dilley@shippgl.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-07",
    "status": ""
@@ -451,7 +451,7 @@
    "company": "Datafied",
    "email": "gbauerle@datafied.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-07",
    "status": ""
@@ -511,7 +511,7 @@
    "company": "Cedarhurst Senior Living",
    "email": "jbidwell@cedarhurstliving.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -521,7 +521,7 @@
    "company": "Entrust",
    "email": "brandon.wall@entrust.com",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -531,7 +531,7 @@
    "company": "TeamLogic IT",
    "email": "lsanchez@teamlogicit.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -541,7 +541,7 @@
    "company": "NCCI Field Services",
    "email": "ychavez@nationalcreditors.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -551,7 +551,7 @@
    "company": "Penn Mutual",
    "email": "cecco.rosario@pennmutual.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -561,7 +561,7 @@
    "company": "HarrisX",
    "email": "rich@harrisx.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-08-05",
    "status": ""
@@ -571,7 +571,7 @@
    "company": "Reserv",
    "email": "alex.clay@reserv.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-24",
    "status": ""
@@ -581,7 +581,7 @@
    "company": "NaphCare, Inc.",
    "email": "melanie.sims@naphcare.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-24",
    "status": ""
@@ -591,7 +591,7 @@
    "company": "Freedom Mortgage",
    "email": "katrina.cast2@freedommortgage.com",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-24",
    "status": ""
@@ -601,7 +601,7 @@
    "company": "Imagine360",
    "email": "ddeluca@imagine360.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-23",
    "status": ""
@@ -661,7 +661,7 @@
    "company": "Amerit Fleet Solutions",
    "email": "todd.beres@ameritfleetsolutions.com",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-10",
    "status": ""
@@ -671,7 +671,7 @@
    "company": "Live Oak Bank",
    "email": "karen.habschied@liveoak.bank",
    "title": "Director of Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-10",
    "status": ""
@@ -681,7 +681,7 @@
    "company": "Lessen",
    "email": "james.williams@lessen.com",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-10",
    "status": ""
@@ -691,7 +691,7 @@
    "company": "Newrez",
    "email": "michael.ferrera@newrez.com",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-10",
    "status": ""
@@ -741,7 +741,7 @@
    "company": "Sagent",
    "email": "charity.kittrell@sagentlending.com",
    "title": "Director Vendor Management",
-   "campaign": "Vendor Leads (New)",
+   "campaign": "Wave 01 — Vendor Managers",
    "campaign_id": "wave-01-vendor-managers",
    "replied": "2026-07-09",
    "status": ""
