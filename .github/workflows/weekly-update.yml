@@ -37,6 +37,10 @@ jobs:
       - name: Run outbound report updater
         env:
           HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
+          # Optional. Absent, outreach volume falls back to HubSpot and
+          # under-counts; the page flags it rather than showing it silently.
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: python update_outbound_report.py
 
       - name: Commit & push updated report

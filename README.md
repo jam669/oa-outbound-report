@@ -10,17 +10,26 @@ Refreshes itself every Tuesday 09:00 Manila from HubSpot; no manual number-typin
 
 ## What's in scope
 
-Three campaigns, 268 targeted people:
+**Every email campaign** — all of it is the vendor-manager play. The waves that
+target ops/finance/RCM personas still lead with the vendor ask, and the
+enterprise/Deep-Ten campaign is vendor outreach too. 31 campaigns, ~1,940 people
+on saved lists. Narrow it by setting `INCLUDE_CAMPAIGNS` in `build_registry.py`.
 
-| Campaign | Targeted |
-|---|---|
-| Vendor-Manager ICP (incl. Function-Head backfill) | 168 |
-| Apollo Wave 01 — Vendor Managers | 50 |
-| Apollo Wave 02 — Vendor Managers | 50 |
+## Two different numbers, on purpose
 
-Other Apollo waves carry a vendor-style ask but target ops/finance personas —
-a different motion, deliberately excluded. To widen scope, add campaign ids to
-`INCLUDE_CAMPAIGNS` in `build_registry.py`, re-run it, and commit `campaigns.json`.
+| Metric | Means | Source |
+|---|---|---|
+| **Outreach sent** | emails sent, follow-ups included — the EOW definition | Gmail Sent folder |
+| **People reached** | distinct humans from a campaign list saved on disk | HubSpot email logging |
+
+They do not match, and shouldn't. Outreach is always higher: a third follow-up
+to the same person is a third send, and several waves were built in-session and
+sent without their list ever being saved to the workspace — invisible to the
+registry, but plainly there in Gmail. For the week of 10–15 Aug the EOW reported
+563 sends; the registry could only see 171 of them, because property management,
+trades/HVAC, trucking, law and insurance had no sendlist on disk.
+
+That is why Gmail counts the volume and HubSpot counts the outcomes.
 
 ---
 
@@ -87,8 +96,14 @@ The file is empty by design; both original entries now come straight from the CR
 ```bash
 pip install requests
 export HUBSPOT_TOKEN=...        # Private App token: contacts + deals read scopes
+export GMAIL_USER=jam@outsourceaccelerator.com
+export GMAIL_APP_PASSWORD=...   # Google app password, not the account password
 python update_outbound_report.py
 ```
+
+The Gmail pair is optional. Without it the report still runs and every outcome
+metric is unaffected, but volume falls back to "people reached" and under-counts —
+the page says so where the number is read.
 
 Rebuild the campaign registry after adding a wave (needs the VS Code workspace,
 so this is a local-only step):
@@ -106,9 +121,13 @@ python _smoke_test.py           # renders 3 scenarios against a stubbed DOM
 ## Automation
 
 `.github/workflows/weekly-update.yml` runs Tuesdays 09:00 Manila (with a 12:00
-backup) and on manual dispatch. It needs one repository secret:
+backup) and on manual dispatch. Repository secrets:
 
-- `HUBSPOT_TOKEN` — same token the BD report uses.
+- `HUBSPOT_TOKEN` — same token the BD report uses. **Required.**
+- `GMAIL_USER` / `GMAIL_APP_PASSWORD` — optional, but without them outreach
+  volume under-counts. Create the app password at
+  https://myaccount.google.com/apppasswords (needs 2-step verification on;
+  it is a 16-character password scoped to this one use and revocable on its own).
 
 The workflow does **not** rebuild `campaigns.json`; that file is committed,
 because the campaign sources live in the VS Code workspace, not in this repo.

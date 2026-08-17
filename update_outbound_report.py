@@ -51,6 +51,8 @@ counted separately and marked "Manual" on the page, so they never blur into CRM
 figures. Empty by default. See WINS_FILE below.
 """
 
+import email.utils
+import imaplib
 import json
 import os
 import re
@@ -85,6 +87,29 @@ WINS_FILE = os.path.join(HERE, "wins.csv")
 
 # Weeks shown in the trend series (report weeks run Wed→Tue, matching the BD report).
 TREND_WEEKS = 12
+
+# ── Gmail (the send counter) ─────────────────────────────────────────────────
+# The EOW report counts emails SENT. Two things make Gmail the only source that
+# can match it:
+#   * several waves were built in-session and never saved to the workspace, so a
+#     registry built from local files cannot see them at all;
+#   * HubSpot's logged contacts mix in the whole team's outreach, and owner id
+#     does not identify who actually sent the email.
+# Gmail's Sent folder is exactly "what Jam sent", which is the EOW definition.
+#
+# Optional: without credentials the report still runs, and falls back to
+# counting people reached via HubSpot (a lower number — follow-up touches and
+# unsaved campaigns are invisible to it).
+GMAIL_USER     = os.environ.get("GMAIL_USER", "")
+GMAIL_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "")
+GMAIL_HOST     = "imap.gmail.com"
+GMAIL_SENT_BOX = '"[Gmail]/Sent Mail"'
+
+# Recipients that are colleagues, not prospects — excluded from outreach counts.
+INTERNAL_DOMAINS = {"outsourceaccelerator.com"}
+
+# Automation and logging addresses that ride along on real sends.
+IGNORED_RECIPIENTS = {"bcc.hubspot.com"}
 
 # ── BD pipeline stage IDs (shared with the BD weekly report) ─────────────────
 STAGES = {
@@ -141,6 +166,9 @@ CONTACT_PROPERTIES = [
     "createdate", "hs_object_source_label", "notes_last_contacted",
     "hs_sales_email_last_replied", "hs_lead_status", "lifecyclestage",
     "num_associated_deals", "hubspot_owner_id", "lead_category",
+    # Total logged touches on this contact. The EOW report counts emails SENT
+    # (a 3rd follow-up is a 3rd send); people-reached alone undercounts that.
+    "num_contacted_notes",
 ]
 
 DEAL_PROPERTIES = [
@@ -242,6 +270,90 @@ def fetch_associations(from_type, to_type, from_ids):
                 if to_id:
                     links[from_id].append(to_id)
     return links
+
+
+def fetch_gmail_sends(since):
+    """
+    Every external address we emailed from the Sent folder since `since`.
+
+    Returns [(sent_at, recipient_email), ...] — one entry per recipient per
+    message, which is the EOW definition of an outreach send: a follow-up to
+    the same person on Thursday is a second send, not a duplicate.
+
+    Returns None (not an empty list) when no credentials are configured, so the
+    caller can tell "not measured" apart from "measured, and it was zero".
+    """
+    if not (GMAIL_USER and GMAIL_PASSWORD):
+        return None
+
+    sends = []
+    box = None
+    try:
+        box = imaplib.IMAP4_SSL(GMAIL_HOST)
+        box.login(GMAIL_USER, GMAIL_PASSWORD)
+        box.select(GMAIL_SENT_BOX, readonly=True)
+
+        # IMAP wants DD-Mon-YYYY and matches on the server's date, so this is a
+        # slightly generous window; exact bucketing happens off the Date header.
+        status, data = box.search(None, "SINCE", since.strftime("%d-%b-%Y"))
+        if status != "OK":
+            print("   ! Gmail search failed (%s)" % status)
+            return None
+
+        ids = data[0].split()
+        print("   %d sent messages to scan" % len(ids))
+
+        # Fetch headers in blocks; pulling bodies would be needlessly heavy.
+        for block in chunked(ids, 200):
+            id_set = b",".join(block).decode()
+            status, chunk = box.fetch(id_set, "(BODY.PEEK[HEADER.FIELDS (TO CC DATE)])")
+            if status != "OK":
+                continue
+            for part in chunk:
+                if not isinstance(part, tuple):
+                    continue
+                header = part[1].decode("utf-8", errors="ignore")
+
+                date_match = re.search(r"^Date:\s*(.+)$", header, re.M | re.I)
+                sent_at = None
+                if date_match:
+                    try:
+                        sent_at = email.utils.parsedate_to_datetime(date_match.group(1).strip())
+                    except (TypeError, ValueError):
+                        sent_at = None
+                if sent_at is None:
+                    continue
+                if sent_at.tzinfo is None:
+                    sent_at = sent_at.replace(tzinfo=timezone.utc)
+                sent_at = sent_at.astimezone(MANILA_TZ)
+
+                recipients = []
+                for field in ("To", "Cc"):
+                    m = re.search(r"^%s:\s*(.+?)(?=^\S+:|\Z)" % field, header, re.M | re.I | re.S)
+                    if m:
+                        recipients += [addr for _, addr in
+                                       email.utils.getaddresses([m.group(1).replace("\r\n", " ")])]
+
+                for addr in recipients:
+                    addr = (addr or "").strip().lower()
+                    if not addr or "@" not in addr:
+                        continue
+                    domain = addr.rsplit("@", 1)[-1]
+                    if domain in INTERNAL_DOMAINS or domain in IGNORED_RECIPIENTS:
+                        continue
+                    sends.append((sent_at, addr))
+
+    except (imaplib.IMAP4.error, OSError) as exc:
+        print("   ! Gmail unavailable (%s) — falling back to HubSpot counts" % exc)
+        return None
+    finally:
+        if box is not None:
+            try:
+                box.logout()
+            except Exception:
+                pass
+
+    return sends
 
 
 def load_wins():
@@ -401,7 +513,7 @@ def build():
         per_camp[camp["id"]] = {
             "id": camp["id"], "label": camp["label"], "sector": camp["sector"],
             "targeted": len(camp["recipients"]),
-            "sent": 0, "replied": 0, "engaged": 0,
+            "sent": 0, "touches": 0, "followups": 0, "replied": 0, "engaged": 0,
             "deals": 0, "dc_held": 0, "won": 0,
             "pipeline_value": 0.0, "won_value": 0.0,
             "first_send": None, "last_send": None,
@@ -434,6 +546,25 @@ def build():
         wk = week_key(sent_at)
         if wk:
             weekly[wk]["sent"] += 1
+
+        # Touches = emails actually sent, which is what the EOW report counts.
+        # HubSpot exposes the total per contact plus the first and latest touch
+        # dates, so totals are exact; weekly buckets place the first and latest
+        # touch precisely and can only blur touches in between.
+        try:
+            touches = int(props.get("num_contacted_notes") or 1)
+        except (TypeError, ValueError):
+            touches = 1
+        touches = max(touches, 1)
+        row["touches"] += touches
+        if wk:
+            weekly[wk]["touches"] += 1
+        if contacted is not None and touches > 1:
+            lwk = week_key(contacted)
+            if lwk:
+                weekly[lwk]["touches"] += 1
+                weekly[lwk]["followups"] += 1
+            row["followups"] += touches - 1
         if row["first_send"] is None or sent_at < row["first_send"]:
             row["first_send"] = sent_at
         if row["last_send"] is None or sent_at > row["last_send"]:
@@ -540,6 +671,7 @@ def build():
             "week":    key,
             "label":   week_label(key),
             "sent":    bucket.get("sent", 0),
+            "touches": bucket.get("touches", 0),
             "replied": bucket.get("replied", 0),
             "deals":   bucket.get("deals", 0),
             "dc_held": bucket.get("dc_held", 0),
@@ -560,6 +692,8 @@ def build():
         "campaigns_live": len(camp_rows),
         "targeted":       sum(c["targeted"] for c in per_camp.values()),
         "sent":           sum(r["sent"] for r in camp_rows),
+        "touches":        sum(r["touches"] for r in camp_rows),
+        "followups":      sum(r["followups"] for r in camp_rows),
         "never_sent":     never_sent,
         "replied":        sum(r["replied"] for r in camp_rows),
         "engaged":        sum(r["engaged"] for r in camp_rows),
@@ -592,6 +726,52 @@ def build():
     results.sort(key=lambda r: (r["won"], r["dc_held"], r["created"]), reverse=True)
     replies.sort(key=lambda r: r["replied"], reverse=True)
 
+    # ── Gmail: outreach actually sent ────────────────────────────────────────
+    # Counted separately from the HubSpot roll-up above, and reconciled against
+    # it on the page, because the two answer different questions:
+    #   HubSpot "reached"  = distinct people from a known campaign list
+    #   Gmail   "outreach" = emails sent, including follow-ups and any campaign
+    #                        whose list was never saved to the workspace
+    print("Counting outreach sent (Gmail)…")
+    window_start = current_week - timedelta(days=7 * (TREND_WEEKS - 1))
+    gmail_sends = fetch_gmail_sends(window_start)
+
+    outreach = None
+    if gmail_sends is None:
+        print("   Gmail not configured — outreach counts fall back to HubSpot")
+    else:
+        by_week = defaultdict(int)
+        by_week_known = defaultdict(int)
+        attributed = unattributed = 0
+        unknown_domains = defaultdict(int)
+
+        for sent_at, addr in gmail_sends:
+            wk = week_key(sent_at)
+            if not wk:
+                continue
+            by_week[wk] += 1
+            if addr in lookup:
+                attributed += 1
+                by_week_known[wk] += 1
+            else:
+                unattributed += 1
+                unknown_domains[addr.rsplit("@", 1)[-1]] += 1
+
+        for row in trend:
+            row["outreach"] = by_week.get(row["week"], 0)
+
+        outreach = {
+            "total":        len(gmail_sends),
+            "attributed":   attributed,
+            "unattributed": unattributed,
+            "this_week":    by_week.get(current_week.strftime("%Y-%m-%d"), 0),
+            # Biggest senders with no campaign list on disk — these are the
+            # waves that need their sendlist committed to be broken out by name.
+            "top_unknown":  sorted(unknown_domains.items(), key=lambda kv: -kv[1])[:15],
+        }
+        print("   %d sends · %d matched to a campaign · %d from lists not on disk"
+              % (outreach["total"], attributed, unattributed))
+
     wins = load_wins()
 
     data = {
@@ -602,6 +782,7 @@ def build():
         "campaigns":  camp_rows,
         "sectors":    sector_rows,
         "trend":      trend,
+        "outreach":   outreach,
         "results":    results,
         "replies":    replies[:200],
         "wins":       wins,

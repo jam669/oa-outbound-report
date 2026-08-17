@@ -39,18 +39,13 @@ LOOSE_WAVE_DIRS = [
 OUT_FILE = os.path.join(HERE, "campaigns.json")
 
 # ── Scope ────────────────────────────────────────────────────────────────────
-# This report covers the Vendor-Manager play only. Other Apollo waves carry a
-# vendor-style ask ("Vendor+Offer" in the tab name) but target ops/finance
-# personas, not vendor/procurement managers — they are a different motion and
-# would blur the numbers.
+# Every email campaign is the vendor-manager play (Jam, 18 Aug 2026): the waves
+# that target ops/finance/RCM personas still lead with the vendor ask, and the
+# enterprise/Deep-Ten campaign is vendor outreach too. So the report covers all
+# of them and the whole outbound engine reconciles against the EOW numbers.
 #
-# To widen the report later, add campaign ids here and re-run this script;
-# nothing else needs to change.
-INCLUDE_CAMPAIGNS = {
-    "wave-01-vendor-managers",
-    "wave-02-vendor-managers",
-    "vendor-manager-icp",
-}
+# Set this to a set of campaign ids to narrow the report back down.
+INCLUDE_CAMPAIGNS = None      # None = every campaign found
 
 # Where the Apps Script tab name is unhelpful out of context, name it plainly —
 # this report is read by people who were not in the wave build.
@@ -353,10 +348,11 @@ def build():
             "recipients": merge_recipients(vm_recs),
         })
 
-    # Scope down BEFORE deduping — otherwise a vendor-manager contact who also
-    # appears on an out-of-scope wave gets attributed to that wave and then
-    # dropped entirely, silently shrinking the campaign.
-    campaigns = [c for c in campaigns if c["id"] in INCLUDE_CAMPAIGNS]
+    # Scope down BEFORE deduping — otherwise a contact who also appears on an
+    # out-of-scope wave gets attributed to that wave and then dropped entirely,
+    # silently shrinking the campaign.
+    if INCLUDE_CAMPAIGNS is not None:
+        campaigns = [c for c in campaigns if c["id"] in INCLUDE_CAMPAIGNS]
 
     # ── First campaign wins a contested address ──────────────────────────────
     # Later waves deliberately re-touch some earlier recipients; attributing to
