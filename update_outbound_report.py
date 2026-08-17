@@ -85,6 +85,11 @@ HTML_FILE     = os.path.join(HERE, "outbound-report.html")
 # the page shows it under "logged in CRM" instead.
 WINS_FILE = os.path.join(HERE, "wins.csv")
 
+# The weekly update as reported to leadership each Friday. Its outreach figures
+# are authoritative: they count emails sent across every campaign, including the
+# ones whose sendlists were never saved to the workspace.
+WEEKLY_FILE = os.path.join(HERE, "weekly.json")
+
 # Weeks shown in the trend series (report weeks run Wed→Tue, matching the BD report).
 TREND_WEEKS = 12
 
@@ -402,6 +407,21 @@ def fetch_gmail_sends(since):
     return sends
 
 
+def load_weekly():
+    """The EOW updates, newest first. Absent file → no weekly panel."""
+    if not os.path.isfile(WEEKLY_FILE):
+        return []
+    try:
+        with open(WEEKLY_FILE, encoding="utf-8") as fh:
+            weeks = json.load(fh).get("weeks", [])
+    except (OSError, ValueError) as exc:
+        print("   ! weekly.json unreadable (%s)" % exc)
+        return []
+    weeks = [w for w in weeks if w.get("week")]
+    weeks.sort(key=lambda w: w["week"], reverse=True)
+    return weeks
+
+
 def load_wins():
     """
     Manually-logged calls that never made it into the CRM. Optional file;
@@ -463,13 +483,14 @@ def parse_ts(value):
 
 def week_start(dt):
     """
-    Report weeks run Wednesday→Tuesday, matching the BD weekly report so the two
-    can be read side by side. Returns the Wednesday that opens the week.
+    Report weeks run Monday→Sunday, so they contain the EOW's Mon–Sat window
+    exactly. (They used to run Wed→Tue to match the BD report, which split every
+    EOW week across two buckets and made the two impossible to reconcile.)
+    Returns the Monday that opens the week.
     """
     if dt is None:
         return None
-    days_since_wed = (dt.weekday() - 2) % 7          # Monday=0, so Wednesday=2
-    start = (dt - timedelta(days=days_since_wed))
+    start = dt - timedelta(days=dt.weekday())        # Monday = 0
     return start.replace(hour=0, minute=0, second=0, microsecond=0)
 
 
@@ -783,9 +804,31 @@ def build():
 
     outreach = None
 
-    # Preferred: weekly counts published by the Apps Script (works where IMAP
+    # Best source: the EOW's own numbers. They are what leadership already reads,
+    # they count sends rather than people, and they cover campaigns whose lists
+    # never reached the workspace.
+    weekly_updates = load_weekly()
+    if weekly_updates:
+        reported = {w["week"]: w for w in weekly_updates}
+        total = 0
+        for row in trend:
+            hit = reported.get(row["week"])
+            row["outreach"] = int(hit.get("outreach") or 0) if hit else 0
+            total += row["outreach"]
+        latest = weekly_updates[0]
+        outreach = {
+            "total":        total,
+            "attributed":   None,
+            "unattributed": None,
+            "this_week":    int(latest.get("outreach") or 0),
+            "top_unknown":  [],
+            "source":       "weekly update (EOW)",
+        }
+        print("   %d sends across %d reported weeks (EOW)" % (total, len(weekly_updates)))
+
+    # Otherwise: weekly counts published by the Apps Script (works where IMAP
     # cannot, because the Workspace disables app passwords).
-    weekly_counts = fetch_outreach_csv()
+    weekly_counts = None if outreach else fetch_outreach_csv()
     if weekly_counts is not None:
         total = 0
         for row in trend:
@@ -851,6 +894,7 @@ def build():
         "sectors":    sector_rows,
         "trend":      trend,
         "outreach":   outreach,
+        "weekly":     weekly_updates,
         "results":    results,
         "replies":    replies[:200],
         "wins":       wins,

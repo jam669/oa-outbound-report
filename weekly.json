@@ -1,0 +1,106 @@
+{
+ "_comment": "Weekly update, taken from the EOW sent to Derek/Arnold/Aaron each Friday. These are the authoritative outreach numbers — they count emails SENT, follow-ups included, across every campaign whether or not its sendlist was saved to the workspace. Keyed by the Monday that opens the week. Add a block each Friday, or let OutreachCounts.gs publish them.",
+ "weeks": [
+  {
+   "week": "2026-08-10",
+   "label": "Aug 10–15",
+   "headline": "Quality over volume — Neighbor DC held and a 10-agent proposal out the door.",
+   "outreach": 563,
+   "connected": 2,
+   "dc_held": 1,
+   "proposals": 1,
+   "deals_in_delivery": 2,
+   "channels": [
+    ["Cold outreach", 556],
+    ["Personalized follow-ups", 7]
+   ],
+   "highlights": [
+    "Neighbor (Mark Bailey) — DC held Aug 14, 10-agent Manila second-site proposal delivered (~$16,491/mo, 90-day 50% refund guarantee).",
+    "Moved off the plain cost-benchmark line to pain-point angles per vertical: property management (cost per door), trades/HVAC, trucking, law firms, wealth, insurance, mortgage, CPA, RCM.",
+    "Thriviae and Deltabit both in delivery; Humana relationship-building continues with Matt Rowley."
+   ]
+  },
+  {
+   "week": "2026-08-03",
+   "label": "Aug 3–8",
+   "headline": "Humana discovery call held; outreach running across email and LinkedIn.",
+   "outreach": 1500,
+   "connected": 130,
+   "dc_held": 1,
+   "proposals": 0,
+   "deals_in_delivery": 2,
+   "channels": [
+    ["Personalized follow-ups", 940],
+    ["Cold outreach", 435],
+    ["Vendor Manager outreach", 125]
+   ],
+   "highlights": [
+    "Humana DC ran Aug 4 — Matt Rowley (Global Supplier Services) came in warm off the approved-vendor outreach.",
+    "125 new LinkedIn connections on a free account — no InMail or Sales Navigator.",
+    "Thriviae kickoff done (SDR/BDR); Deltabit candidate interviews underway."
+   ]
+  },
+  {
+   "week": "2026-07-27",
+   "label": "Jul 27–31",
+   "headline": "Two deposits settled and moved into delivery.",
+   "outreach": 1338,
+   "connected": 1,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 2,
+   "channels": [
+    ["Cold outreach", 1246],
+    ["Candidate sourcing", 88],
+    ["Personalized follow-ups", 3],
+    ["Vendor Manager outreach", 1]
+   ],
+   "highlights": [
+    "Deltabit and Thriviae deposits both settled — Deltabit into interviews, Thriviae kickoff booked.",
+    "Nine cold waves into fresh verticals: insurance verification, credentialing, prior auth, CPA, AP, customer support, loan ops.",
+    "Humana DC booked for Aug 4."
+   ]
+  },
+  {
+   "week": "2026-07-20",
+   "label": "Jul 20–25",
+   "headline": "No calls on the calendar, so outreach compounded — Humana DC booked.",
+   "outreach": 1394,
+   "connected": 10,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    ["Cold outreach", 738],
+    ["Personalized follow-ups", 559],
+    ["Vendor Manager outreach", 97]
+   ],
+   "highlights": [
+    "A vendor-manager contact (Kelli McDaniel) referred us into Humana's Global Supplier Services — booked DC for Aug 4.",
+    "Three quiet leads reconnected: Glimcher, Clarify Health, and Temu (after nearly a year of follow-ups).",
+    "Outreach started auto-logging to HubSpot via BCC, so every send lands in the CRM."
+   ]
+  },
+  {
+   "week": "2026-07-13",
+   "label": "Jul 13–18",
+   "headline": "Stood up a four-channel outbound engine in one week.",
+   "outreach": 840,
+   "connected": 7,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    ["Cold Apollo outreach", 710],
+    ["Vendor Manager outreach", 103],
+    ["Personalized follow-ups", 26],
+    ["LinkedIn invites", 5]
+   ],
+   "highlights": [
+    "~840 personalised, HubSpot-deduped emails across three campaigns plus a new LinkedIn channel.",
+    "Vendor-accreditation intelligence gathered — the approved-vendor angle became the best door-opener.",
+    "An active referral deal closing and a warm referral in play."
+   ]
+  }
+ ]
+}
