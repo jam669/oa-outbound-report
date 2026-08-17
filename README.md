@@ -124,10 +124,19 @@ python _smoke_test.py           # renders 3 scenarios against a stubbed DOM
 backup) and on manual dispatch. Repository secrets:
 
 - `HUBSPOT_TOKEN` — same token the BD report uses. **Required.**
-- `GMAIL_USER` / `GMAIL_APP_PASSWORD` — optional, but without them outreach
-  volume under-counts. Create the app password at
-  https://myaccount.google.com/apppasswords (needs 2-step verification on;
-  it is a 16-character password scoped to this one use and revocable on its own).
+- `OUTREACH_CSV_URL` — the published CSV from `OutreachCounts.gs`. Without it,
+  outreach volume falls back to HubSpot and under-counts.
+- `GMAIL_USER` / `GMAIL_APP_PASSWORD` — an IMAP fallback that **does not work on
+  this account**: the Workspace admin has app passwords disabled. Kept for the
+  case where that policy changes.
+
+### Counting sends when app passwords are disabled
+
+`OutreachCounts.gs` runs inside the OA Outreach Tracker workbook as Jam, counts
+sent mail with `GmailApp` (no admin approval, no app password), and writes a
+`week_start,sends,people` tab that gets published as CSV. Setup steps are in the
+header of that file. It refreshes Tuesday 07:00 Manila, two hours before the
+report job reads it.
 
 The workflow does **not** rebuild `campaigns.json`; that file is committed,
 because the campaign sources live in the VS Code workspace, not in this repo.

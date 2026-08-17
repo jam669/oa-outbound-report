@@ -88,7 +88,16 @@ WINS_FILE = os.path.join(HERE, "wins.csv")
 # Weeks shown in the trend series (report weeks run Wed→Tue, matching the BD report).
 TREND_WEEKS = 12
 
-# ── Gmail (the send counter) ─────────────────────────────────────────────────
+# ── Outreach counts from Apps Script ─────────────────────────────────────────
+# App passwords are disabled on the Workspace account, so IMAP is unavailable.
+# OutreachCounts.gs runs inside the tracker workbook as Jam, counts sent mail
+# with GmailApp (no admin approval needed), and publishes a CSV:
+#     week_start,sends,people
+# Set OUTREACH_CSV_URL to that published URL. Absent, the report falls back to
+# HubSpot's people-reached count and says so on the page.
+OUTREACH_CSV_URL = os.environ.get("OUTREACH_CSV_URL", "")
+
+# ── Gmail over IMAP (fallback path) ──────────────────────────────────────────
 # The EOW report counts emails SENT. Two things make Gmail the only source that
 # can match it:
 #   * several waves were built in-session and never saved to the workspace, so a
@@ -270,6 +279,43 @@ def fetch_associations(from_type, to_type, from_ids):
                 if to_id:
                     links[from_id].append(to_id)
     return links
+
+
+def fetch_outreach_csv():
+    """
+    Weekly send counts published by OutreachCounts.gs.
+
+    Returns {week_start: {"sends": n, "people": n}} or None when not configured
+    or unreachable — None means "not measured", which the page distinguishes
+    from a measured zero.
+    """
+    if not OUTREACH_CSV_URL:
+        return None
+
+    try:
+        resp = requests.get(OUTREACH_CSV_URL, timeout=60)
+        resp.raise_for_status()
+    except requests.RequestException as exc:
+        print("   ! outreach CSV unreachable (%s)" % exc)
+        return None
+
+    import csv as _csv
+    counts = {}
+    for row in _csv.DictReader(resp.text.splitlines()):
+        row = {(k or "").strip().lower(): (v or "").strip() for k, v in row.items()}
+        week = row.get("week_start")
+        if not week:
+            continue
+        try:
+            counts[week] = {"sends": int(row.get("sends") or 0),
+                            "people": int(row.get("people") or 0)}
+        except ValueError:
+            continue
+
+    if not counts:
+        print("   ! outreach CSV had no usable rows")
+        return None
+    return counts
 
 
 def fetch_gmail_sends(since):
@@ -732,13 +778,35 @@ def build():
     #   HubSpot "reached"  = distinct people from a known campaign list
     #   Gmail   "outreach" = emails sent, including follow-ups and any campaign
     #                        whose list was never saved to the workspace
-    print("Counting outreach sent (Gmail)…")
+    print("Counting outreach sent…")
     window_start = current_week - timedelta(days=7 * (TREND_WEEKS - 1))
-    gmail_sends = fetch_gmail_sends(window_start)
 
     outreach = None
-    if gmail_sends is None:
-        print("   Gmail not configured — outreach counts fall back to HubSpot")
+
+    # Preferred: weekly counts published by the Apps Script (works where IMAP
+    # cannot, because the Workspace disables app passwords).
+    weekly_counts = fetch_outreach_csv()
+    if weekly_counts is not None:
+        total = 0
+        for row in trend:
+            row["outreach"] = weekly_counts.get(row["week"], {}).get("sends", 0)
+            total += row["outreach"]
+        outreach = {
+            "total":        total,
+            "attributed":   None,      # the sheet counts sends, not identities
+            "unattributed": None,
+            "this_week":    weekly_counts.get(current_week.strftime("%Y-%m-%d"), {}).get("sends", 0),
+            "top_unknown":  [],
+            "source":       "Apps Script (Gmail)",
+        }
+        print("   %d sends across %d weeks (Apps Script)" % (total, len(trend)))
+
+    gmail_sends = None if outreach else fetch_gmail_sends(window_start)
+
+    if outreach:
+        pass
+    elif gmail_sends is None:
+        print("   not configured — outreach counts fall back to HubSpot")
     else:
         by_week = defaultdict(int)
         by_week_known = defaultdict(int)

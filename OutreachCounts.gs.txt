@@ -1,0 +1,149 @@
+/**
+ * Outreach send counter — feeds the OA Outbound Weekly Report.
+ *
+ * WHY THIS EXISTS
+ * App passwords are disabled on the Workspace account, so the report cannot read
+ * Gmail over IMAP. Apps Script runs *as Jam* with GmailApp access and needs no
+ * admin approval, so it does the counting here and publishes the result for the
+ * report to read.
+ *
+ * WHAT IT COUNTS
+ * Emails SENT to external recipients — the EOW definition. A follow-up to the
+ * same person is a second send. Colleagues and the HubSpot BCC logger are
+ * excluded. Weeks run Wednesday→Tuesday to match the BD and outbound reports.
+ *
+ * SETUP (once)
+ *   1. Open the OA Outreach Tracker workbook → Extensions → Apps Script
+ *   2. Paste this file, Save
+ *   3. Run `updateOutreachCounts` — approve the Gmail permission prompt
+ *   4. Back in the sheet, confirm the "Outreach Counts" tab filled in
+ *   5. File → Share → Publish to web → select "Outreach Counts" → CSV → Publish
+ *   6. Send Claude the published URL — it becomes the OUTREACH_CSV_URL secret
+ *   7. Run `installWeeklyTrigger` once so it refreshes every Tuesday morning
+ */
+
+var TAB_NAME       = 'Outreach Counts';
+var WEEKS_BACK     = 12;
+var INTERNAL_DOMAIN = 'outsourceaccelerator.com';   // colleagues, not prospects
+var IGNORE_MATCH    = 'bcc.hubspot.com';            // the CRM logging address
+var TIMEZONE        = 'Asia/Manila';
+
+/**
+ * Wednesday that opens the report-week containing `date`.
+ * getDay(): Sunday=0 … Wednesday=3.
+ */
+function weekStart_(date) {
+  var d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  var shift = (d.getDay() - 3 + 7) % 7;
+  d.setDate(d.getDate() - shift);
+  return d;
+}
+
+function ymd_(d) {
+  return Utilities.formatDate(d, TIMEZONE, 'yyyy-MM-dd');
+}
+
+/** Main entry point. Safe to re-run; it rewrites the tab each time. */
+function updateOutreachCounts() {
+  var now   = new Date();
+  var first = weekStart_(now);
+  first.setDate(first.getDate() - 7 * (WEEKS_BACK - 1));
+
+  // Gmail's after: is exclusive of the day boundary in some locales; step back
+  // one day and rely on the per-message timestamp for exact bucketing.
+  var searchFrom = new Date(first);
+  searchFrom.setDate(searchFrom.getDate() - 1);
+
+  var query = 'in:sent after:' + Utilities.formatDate(searchFrom, TIMEZONE, 'yyyy/MM/dd');
+
+  var sends      = {};   // week → count of emails sent
+  var recipients = {};   // week → set of distinct people
+  var domains    = {};   // domain → count, to spot lists we have no file for
+
+  var start = 0, PAGE = 100, threads;
+  do {
+    threads = GmailApp.search(query, start, PAGE);
+    var messagesByThread = GmailApp.getMessagesForThreads(threads);
+
+    for (var t = 0; t < messagesByThread.length; t++) {
+      var messages = messagesByThread[t];
+      for (var m = 0; m < messages.length; m++) {
+        var msg = messages[m];
+
+        // getMessagesForThreads returns whole threads, replies included —
+        // keep only what we actually sent.
+        var from = String(msg.getFrom() || '').toLowerCase();
+        if (from.indexOf(INTERNAL_DOMAIN) === -1) continue;
+
+        var when = msg.getDate();
+        if (when < first) continue;
+
+        var wk = ymd_(weekStart_(when));
+        var to = String(msg.getTo() || '') + ',' + String(msg.getCc() || '');
+
+        var parts = to.split(',');
+        for (var p = 0; p < parts.length; p++) {
+          var addr = parts[p].toLowerCase();
+          var at   = addr.indexOf('@');
+          if (at === -1) continue;
+          // Strip display names: "Name <a@b.com>" → a@b.com
+          var lt = addr.indexOf('<');
+          if (lt !== -1) addr = addr.substring(lt + 1, addr.indexOf('>') === -1 ? addr.length : addr.indexOf('>'));
+          addr = addr.replace(/[<>"\s]/g, '');
+          if (!addr || addr.indexOf('@') === -1) continue;
+
+          var domain = addr.split('@').pop();
+          if (domain === INTERNAL_DOMAIN) continue;
+          if (domain.indexOf(IGNORE_MATCH) !== -1) continue;
+
+          sends[wk] = (sends[wk] || 0) + 1;
+          if (!recipients[wk]) recipients[wk] = {};
+          recipients[wk][addr] = true;
+          domains[domain] = (domains[domain] || 0) + 1;
+        }
+      }
+    }
+    start += PAGE;
+  } while (threads.length === PAGE);
+
+  // ── Write the tab ─────────────────────────────────────────────────────────
+  var ss  = SpreadsheetApp.getActiveSpreadsheet();
+  var tab = ss.getSheetByName(TAB_NAME) || ss.insertSheet(TAB_NAME);
+  tab.clear();
+
+  var rows = [['week_start', 'sends', 'people']];
+  for (var i = 0; i < WEEKS_BACK; i++) {
+    var wkDate = weekStart_(now);
+    wkDate.setDate(wkDate.getDate() - 7 * (WEEKS_BACK - 1 - i));
+    var key = ymd_(wkDate);
+    rows.push([key, sends[key] || 0, recipients[key] ? Object.keys(recipients[key]).length : 0]);
+  }
+  tab.getRange(1, 1, rows.length, 3).setValues(rows);
+  tab.getRange(1, 1, 1, 3).setFontWeight('bold');
+  tab.setFrozenRows(1);
+
+  // Stamp so a stale publish is obvious rather than silently old.
+  tab.getRange(rows.length + 2, 1).setValue('generated');
+  tab.getRange(rows.length + 2, 2)
+     .setValue(Utilities.formatDate(now, TIMEZONE, 'yyyy-MM-dd HH:mm') + ' Manila');
+
+  Logger.log('Wrote %s weeks. Latest week sends: %s',
+             WEEKS_BACK, sends[ymd_(weekStart_(now))] || 0);
+}
+
+/** Run once — refreshes every Tuesday 07:00, before the report job at 09:00. */
+function installWeeklyTrigger() {
+  var existing = ScriptApp.getProjectTriggers();
+  for (var i = 0; i < existing.length; i++) {
+    if (existing[i].getHandlerFunction() === 'updateOutreachCounts') {
+      ScriptApp.deleteTrigger(existing[i]);
+    }
+  }
+  ScriptApp.newTrigger('updateOutreachCounts')
+    .timeBased()
+    .onWeekDay(ScriptApp.WeekDay.TUESDAY)
+    .atHour(7)
+    .inTimezone(TIMEZONE)
+    .create();
+  Logger.log('Weekly trigger installed for Tuesday 07:00 Manila.');
+}
