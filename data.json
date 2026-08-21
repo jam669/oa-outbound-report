@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22 03:28 Manila",
+ "generated": "2026-08-22 03:38 Manila",
  "week_label": "17–23 Aug",
  "portal_id": "44390857",
  "totals": {
@@ -20,8 +20,8 @@
   "dc_rate": 0.1,
   "outreach": 6525,
   "contacted_this_week": 760,
-  "connected": 26,
-  "connected_rate": 0.4
+  "connected": 24,
+  "connected_rate": 0.37
  },
  "campaigns": [
   {
@@ -846,7 +846,7 @@
    "contacted": 335,
    "new_people": 210,
    "outreach": 1394,
-   "connected": 10
+   "connected": 8
   },
   {
    "week": "2026-07-27",
@@ -1072,14 +1072,22 @@
    ],
    "channels_excluded": [],
    "linkedin": 0,
-   "connected_email": 10,
+   "connected_email": 8,
    "connected_detail": [
     "Humana — Kelli McDaniel referred us into Global Supplier Services",
     "Luma Financial (Steve Davies) — interested, asked about St. James's Place",
     "Neighbor (Mark Bailey) — interested, wants sales agents",
-    "Glimcher (Michael Sundo, CFO) — reconnected",
-    "Clarify Health (Christine Gu) — wants a 15-min call",
-    "Temu (Penny Wang) — re-engaged, docs sent"
+    "Glimcher (Michael Sundo, CFO) — reconnected"
+   ],
+   "connected_excluded": [
+    {
+     "who": "Clarify Health (Christine Gu) — wants a 15-min call",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    },
+    {
+     "who": "Temu (Penny Wang) — re-engaged, docs sent",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    }
    ]
   },
   {

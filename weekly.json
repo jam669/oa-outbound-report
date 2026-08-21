@@ -1,5 +1,5 @@
 {
- "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week.",
+ "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
    "week": "2026-08-17",
@@ -167,14 +167,22 @@
    ],
    "channels_excluded": [],
    "linkedin": 0,
-   "connected_email": 10,
+   "connected_email": 8,
    "connected_detail": [
     "Humana — Kelli McDaniel referred us into Global Supplier Services",
     "Luma Financial (Steve Davies) — interested, asked about St. James's Place",
     "Neighbor (Mark Bailey) — interested, wants sales agents",
-    "Glimcher (Michael Sundo, CFO) — reconnected",
-    "Clarify Health (Christine Gu) — wants a 15-min call",
-    "Temu (Penny Wang) — re-engaged, docs sent"
+    "Glimcher (Michael Sundo, CFO) — reconnected"
+   ],
+   "connected_excluded": [
+    {
+     "who": "Clarify Health (Christine Gu) — wants a 15-min call",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    },
+    {
+     "who": "Temu (Penny Wang) — re-engaged, docs sent",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    }
    ]
   },
   {
