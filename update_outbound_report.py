@@ -472,6 +472,20 @@ def fetch_weekly_contacted(window_start):
     return dict(by_week)
 
 
+def load_deal_notes():
+    """
+    Context the CRM cannot carry — e.g. a proposal that went out before any
+    discovery call, so no deal record exists to count.
+    """
+    if not os.path.isfile(WEEKLY_FILE):
+        return []
+    try:
+        with open(WEEKLY_FILE, encoding="utf-8") as fh:
+            return json.load(fh).get("deal_notes", []) or []
+    except (OSError, ValueError):
+        return []
+
+
 def load_weekly():
     """The EOW updates, newest first. Absent file → no weekly panel."""
     if not os.path.isfile(WEEKLY_FILE):
@@ -1012,6 +1026,7 @@ def build():
         "weekly":     weekly_updates,
         "results":    results,
         "excluded_deals": excluded_deals,
+        "deal_notes": load_deal_notes(),
         "replies":    [],
         "wins":       wins,
         # Surfaced on the page so the numbers are never read without the

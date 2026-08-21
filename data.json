@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22 04:15 Manila",
+ "generated": "2026-08-22 04:30 Manila",
  "week_label": "17–23 Aug",
  "portal_id": "44390857",
  "totals": {
@@ -1171,6 +1171,9 @@
   }
  ],
  "excluded_deals": [],
+ "deal_notes": [
+  "Hanover — vendor proposal submitted, but no discovery call has been held yet, so no deal exists in HubSpot and it is not counted above."
+ ],
  "replies": [],
  "wins": [],
  "notes": {
