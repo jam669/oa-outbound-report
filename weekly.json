@@ -1,12 +1,11 @@
 {
- "_comment": "Weekly update, taken from the EOW sent to Derek/Arnold/Aaron each Friday. These are the authoritative outreach numbers — they count emails SENT, follow-ups included, across every campaign whether or not its sendlist was saved to the workspace. Keyed by the Monday that opens the week. Add a block each Friday, or let OutreachCounts.gs publish them. Only vendor-campaign activity belongs here: deals from other work (e.g. Thriviae, Deltabit) are deliberately excluded, matching the Lead Source = 'Vendor Campaign' gate applied to CRM deals.",
+ "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week.",
  "weeks": [
   {
    "week": "2026-08-10",
    "label": "Aug 10–15",
    "headline": "Quality over volume — Neighbor DC held and a 10-agent proposal out the door.",
    "outreach": 563,
-   "connected": 2,
    "dc_held": 1,
    "proposals": 1,
    "deals_in_delivery": 0,
@@ -23,6 +22,12 @@
    "highlights": [
     "Neighbor (Mark Bailey) — DC held Aug 14, 10-agent Manila second-site proposal delivered (~$16,491/mo, 90-day 50% refund guarantee).",
     "Moved off the plain cost-benchmark line to pain-point angles per vertical: property management (cost per door), trades/HVAC, trucking, law firms, wealth, insurance, mortgage, CPA, RCM."
+   ],
+   "channels_excluded": [],
+   "linkedin": 0,
+   "connected_email": 2,
+   "connected_detail": [
+    "Neighbor (Mark Bailey) — proposal delivered"
    ]
   },
   {
@@ -30,7 +35,6 @@
    "label": "Aug 3–8",
    "headline": "Humana discovery call held; outreach running across email and LinkedIn.",
    "outreach": 1500,
-   "connected": 130,
    "dc_held": 1,
    "proposals": 0,
    "deals_in_delivery": 0,
@@ -51,14 +55,23 @@
    "highlights": [
     "Humana DC ran Aug 4 — Matt Rowley (Global Supplier Services) came in warm off the approved-vendor outreach.",
     "125 new LinkedIn connections on a free account — no InMail or Sales Navigator."
+   ],
+   "channels_excluded": [],
+   "linkedin": 0,
+   "connected_email": 5,
+   "connected_detail": [
+    "Avaya — not adding vendors now",
+    "HarrisX — pointed us to the right inbox",
+    "BMG Money (Scott Carroll) — warm, already nearshores, no current need",
+    "Bay Area Retina — RCM staying in-house",
+    "one opt-out, suppressed"
    ]
   },
   {
    "week": "2026-07-27",
    "label": "Jul 27–31",
    "headline": "Nine cold waves into fresh verticals; Humana DC booked.",
-   "outreach": 1338,
-   "connected": 1,
+   "outreach": 1250,
    "dc_held": 0,
    "proposals": 0,
    "deals_in_delivery": 0,
@@ -66,10 +79,6 @@
     [
      "Cold outreach",
      1246
-    ],
-    [
-     "Candidate sourcing",
-     88
     ],
     [
      "Personalized follow-ups",
@@ -83,6 +92,17 @@
    "highlights": [
     "Nine cold waves into fresh verticals: insurance verification, credentialing, prior auth, CPA, AP, customer support, loan ops.",
     "Humana DC booked for Aug 4."
+   ],
+   "channels_excluded": [
+    [
+     "Candidate sourcing",
+     88
+    ]
+   ],
+   "linkedin": 0,
+   "connected_email": 1,
+   "connected_detail": [
+    "Cayuga Health — set on staffing for now, keeping warm"
    ]
   },
   {
@@ -90,7 +110,6 @@
    "label": "Jul 20–25",
    "headline": "No calls on the calendar, so outreach compounded — Humana DC booked.",
    "outreach": 1394,
-   "connected": 10,
    "dc_held": 0,
    "proposals": 0,
    "deals_in_delivery": 0,
@@ -112,14 +131,24 @@
     "A vendor-manager contact (Kelli McDaniel) referred us into Humana's Global Supplier Services — booked DC for Aug 4.",
     "Three quiet leads reconnected: Glimcher, Clarify Health, and Temu (after nearly a year of follow-ups).",
     "Outreach started auto-logging to HubSpot via BCC, so every send lands in the CRM."
+   ],
+   "channels_excluded": [],
+   "linkedin": 0,
+   "connected_email": 10,
+   "connected_detail": [
+    "Humana — Kelli McDaniel referred us into Global Supplier Services",
+    "Luma Financial (Steve Davies) — interested, asked about St. James's Place",
+    "Neighbor (Mark Bailey) — interested, wants sales agents",
+    "Glimcher (Michael Sundo, CFO) — reconnected",
+    "Clarify Health (Christine Gu) — wants a 15-min call",
+    "Temu (Penny Wang) — re-engaged, docs sent"
    ]
   },
   {
    "week": "2026-07-13",
    "label": "Jul 13–18",
    "headline": "Stood up a four-channel outbound engine in one week.",
-   "outreach": 840,
-   "connected": 7,
+   "outreach": 839,
    "dc_held": 0,
    "proposals": 0,
    "deals_in_delivery": 0,
@@ -144,7 +173,11 @@
    "highlights": [
     "~840 personalised, HubSpot-deduped emails across three campaigns plus a new LinkedIn channel.",
     "Vendor-accreditation intelligence gathered — the approved-vendor angle became the best door-opener."
-   ]
+   ],
+   "channels_excluded": [],
+   "linkedin": 5,
+   "connected_email": 7,
+   "connected_detail": []
   }
  ]
 }

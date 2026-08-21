@@ -23,13 +23,19 @@ CRM contacts before we wrote to them — is a verified send. Addresses that neve
 appear were drafted but never sent. Nothing here trusts a local file's claim
 that an email went out.
 
-REPLY CAVEAT
-------------
-`hs_sales_email_last_replied` is the only reply signal available on the contact
-record — email engagement objects are permission-blocked on this portal. That
-property counts ANY inbound reply on the thread, including out-of-office
-auto-replies and bounce notifications, so reply figures are an upper bound and
-are labelled as such on the page.
+REPLIES — WHY HUBSPOT IS NOT USED
+--------------------------------
+`hs_sales_email_last_replied` is unusable and is NOT reported as a reply here.
+Mailsuite (the send tracker) emails a "your email has not been opened yet"
+reminder into the thread 24h after each send, and HubSpot logs that as a reply on
+the contact. Measured across 1,894 contacts: of 881 "replies", 426 landed at
+almost exactly +24h and only 2 fell in the 1-23h window where genuine replies
+would sit. The field correlates with prospects NOT reading the email.
+
+Genuine replies come from `connected_email` in weekly.json — the EOW's own
+"Connected To" count, which is human-verified and excludes auto-replies,
+out-of-office and bounces. The HubSpot figure is still carried as
+`thread_notifications` so it stays traceable, but is never shown as engagement.
 
 ATTRIBUTION
 -----------
@@ -778,9 +784,11 @@ def build():
     for row in camp_rows:
         row["first_send"] = row["first_send"].strftime("%Y-%m-%d") if row["first_send"] else ""
         row["last_send"]  = row["last_send"].strftime("%Y-%m-%d") if row["last_send"] else ""
-        row["reply_rate"] = round(100.0 * row["replied"] / row["sent"], 1) if row["sent"] else 0.0
+        # Kept for the campaign table but renamed: this is thread activity from
+        # HubSpot, dominated by Mailsuite notifications, not prospect replies.
+        row["notifications"] = row.pop("replied", 0)
         row["deal_rate"]  = round(100.0 * row["deals"] / row["sent"], 1) if row["sent"] else 0.0
-    camp_rows.sort(key=lambda r: (r["deals"], r["replied"], r["sent"]), reverse=True)
+    camp_rows.sort(key=lambda r: (r["deals"], r["sent"]), reverse=True)
 
     never_sent = sum(c["targeted"] for c in per_camp.values()) - sum(r["sent"] for r in camp_rows)
 
@@ -791,7 +799,9 @@ def build():
         "touches":        sum(r["touches"] for r in camp_rows),
         "followups":      sum(r["followups"] for r in camp_rows),
         "never_sent":     never_sent,
-        "replied":        sum(r["replied"] for r in camp_rows),
+        # Thread activity, not replies. Reported only so the number is
+        # traceable; the page does not present it as engagement.
+        "thread_notifications": sum(r["notifications"] for r in camp_rows),
         "engaged":        sum(r["engaged"] for r in camp_rows),
         "deals":          sum(r["deals"] for r in camp_rows),
         "dc_held":        sum(r["dc_held"] for r in camp_rows),
@@ -799,22 +809,19 @@ def build():
         "pipeline_value": round(sum(r["pipeline_value"] for r in camp_rows), 2),
         "won_value":      round(sum(r["won_value"] for r in camp_rows), 2),
     }
-    totals["reply_rate"] = round(100.0 * totals["replied"] / totals["sent"], 1) if totals["sent"] else 0.0
-    totals["deal_rate"]  = round(100.0 * totals["deals"] / totals["sent"], 1) if totals["sent"] else 0.0
-    totals["dc_rate"]    = round(100.0 * totals["dc_held"] / totals["sent"], 1) if totals["sent"] else 0.0
-    totals["reply_to_deal"] = (round(100.0 * totals["deals"] / totals["replied"], 1)
-                               if totals["replied"] else 0.0)
+    totals["deal_rate"] = round(100.0 * totals["deals"] / totals["sent"], 1) if totals["sent"] else 0.0
+    totals["dc_rate"]   = round(100.0 * totals["dc_held"] / totals["sent"], 1) if totals["sent"] else 0.0
 
     # ── Sector roll-up ───────────────────────────────────────────────────────
-    sectors = defaultdict(lambda: {"sent": 0, "replied": 0, "deals": 0, "dc_held": 0, "won": 0})
+    sectors = defaultdict(lambda: {"sent": 0, "notifications": 0, "deals": 0, "dc_held": 0, "won": 0})
     for row in camp_rows:
         s = sectors[row["sector"]]
-        for k in ("sent", "replied", "deals", "dc_held", "won"):
+        for k in ("sent", "notifications", "deals", "dc_held", "won"):
             s[k] += row[k]
     sector_rows = []
     for name, vals in sectors.items():
         vals = dict(vals, sector=name)
-        vals["reply_rate"] = round(100.0 * vals["replied"] / vals["sent"], 1) if vals["sent"] else 0.0
+    
         vals["deal_rate"]  = round(100.0 * vals["deals"] / vals["sent"], 1) if vals["sent"] else 0.0
         sector_rows.append(vals)
     sector_rows.sort(key=lambda r: (r["deals"], r["sent"]), reverse=True)
@@ -837,6 +844,7 @@ def build():
     # they count sends rather than people, and they cover campaigns whose lists
     # never reached the workspace.
     weekly_updates = load_weekly()
+    totals_outreach = sum(int(w.get("outreach") or 0) for w in weekly_updates)
     if weekly_updates:
         reported = {w["week"]: w for w in weekly_updates}
         total = 0
@@ -912,6 +920,21 @@ def build():
         print("   %d sends · %d matched to a campaign · %d from lists not on disk"
               % (outreach["total"], attributed, unattributed))
 
+    # Genuine human replies come from the EOW, never from HubSpot. HubSpot's
+    # hs_sales_email_last_replied logs Mailsuite's "not opened yet" reminders as
+    # replies — 426 of 881 landed exactly 24h after a send — so it measures the
+    # opposite of engagement and is deliberately not reported as a reply count.
+    connected = sum(int(w.get("connected_email") or 0) for w in weekly_updates)
+    totals["outreach"] = totals_outreach
+    totals["connected"] = connected
+    totals["connected_rate"] = (round(100.0 * connected / totals_outreach, 2)
+                                if totals_outreach else 0.0)
+
+    for row in trend:
+        hit = next((w for w in weekly_updates if w["week"] == row["week"]), None)
+        row["connected"] = int(hit.get("connected_email") or 0) if hit else 0
+        row.pop("replied", None)
+
     wins = load_wins()
 
     data = {
@@ -926,7 +949,7 @@ def build():
         "weekly":     weekly_updates,
         "results":    results,
         "excluded_deals": excluded_deals,
-        "replies":    replies[:200],
+        "replies":    [],
         "wins":       wins,
         # Surfaced on the page so the numbers are never read without the
         # conditions that produced them.
@@ -945,8 +968,8 @@ def build():
 
     inject_into_html(data)
 
-    print("\nSent %(sent)d · replies %(replied)d (%(reply_rate)s%%) · deals %(deals)d "
-          "· DCs held %(dc_held)d · won %(won)d" % totals)
+    print("\nOutreach %d emails to %d people · connected %d (%.2f%%) · deals %d · DCs held %d"
+          % (totals_outreach, totals["sent"], totals["connected"], totals["connected_rate"], totals["deals"], totals["dc_held"]))
     return data
 
 

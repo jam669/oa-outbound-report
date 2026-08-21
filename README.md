@@ -15,21 +15,39 @@ target ops/finance/RCM personas still lead with the vendor ask, and the
 enterprise/Deep-Ten campaign is vendor outreach too. 31 campaigns, ~1,940 people
 on saved lists. Narrow it by setting `INCLUDE_CAMPAIGNS` in `build_registry.py`.
 
-## Two different numbers, on purpose
+## Two volume numbers, on purpose
 
 | Metric | Means | Source |
 |---|---|---|
-| **Outreach sent** | emails sent, follow-ups included — the EOW definition | Gmail Sent folder |
-| **People reached** | distinct humans from a campaign list saved on disk | HubSpot email logging |
+| **Outreach sent** | campaign **emails** sent, follow-ups included | weekly update (EOW) |
+| **People reached** | distinct **humans** on campaign lists saved on disk | HubSpot email logging |
 
-They do not match, and shouldn't. Outreach is always higher: a third follow-up
-to the same person is a third send, and several waves were built in-session and
-sent without their list ever being saved to the workspace — invisible to the
-registry, but plainly there in Gmail. For the week of 10–15 Aug the EOW reported
-563 sends; the registry could only see 171 of them, because property management,
-trades/HVAC, trucking, law and insurance had no sendlist on disk.
+They do not match and shouldn't — different units over different windows.
+5,546 emails reached 1,894 people because most people got two to four
+follow-ups, and several waves were built in-session without their list ever
+being saved, so those recipients count as outreach but cannot be matched to a
+person. For the week of 10–15 Aug the EOW reported 563 sends; the registry could
+see only 171, because property management, trades/HVAC, trucking, law and
+insurance had no sendlist on disk.
 
-That is why Gmail counts the volume and HubSpot counts the outcomes.
+Outreach is **campaign email only**: candidate sourcing is recruitment work and
+is excluded (`channels_excluded` in weekly.json), and LinkedIn is tracked
+separately in `linkedin` rather than in the email total.
+
+## Replies: why HubSpot is not used
+
+`hs_sales_email_last_replied` is **not** reported as a reply, because it does not
+measure replies. Mailsuite emails a *"your email has not been opened yet"* reminder
+into the thread 24h after each send, and HubSpot logs that as a reply on the
+contact. Across 1,894 contacts, of 881 "replies" **426 landed at almost exactly
++24h** and only 2 fell in the 1–23h window where genuine replies would sit — the
+field correlates with prospects *not* reading the email.
+
+Genuine replies come from `connected_email` in weekly.json (the EOW's own
+"Connected To"), which is human-verified and excludes auto-replies, out-of-office
+and bounces. 25 across five weeks — a 0.45% reply rate, against the 46.5% the
+HubSpot field implied. The raw figure is still carried as `thread_notifications`
+so it stays traceable, but is never presented as engagement.
 
 ---
 
