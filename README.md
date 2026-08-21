@@ -19,7 +19,7 @@ on saved lists. Narrow it by setting `INCLUDE_CAMPAIGNS` in `build_registry.py`.
 
 | Metric | Means | Source |
 |---|---|---|
-| **Outreach sent** | campaign **emails** sent, follow-ups included | weekly update (EOW) |
+| **Outreach sent** | campaign **emails** sent, follow-ups included, **no LinkedIn** | weekly update (EOW) |
 | **People reached** | distinct **humans** on campaign lists saved on disk | HubSpot email logging |
 
 They do not match and shouldn't — different units over different windows.
@@ -79,7 +79,9 @@ so it stays traceable, but is never presented as engagement.
 is logged (`Record source` = `EXTENSION` or `BCC_TO_CRM`). A registry address
 appearing in HubSpot that way — or carrying a "last contacted" stamp, which covers
 people already in the CRM — counts as sent. Addresses that never appear were
-drafted but never sent, and show as **Drafted, not sent**.
+still sent — no drafts remain unsent — but have no matching CRM record
+(suppressed before sending, hard-bounced, or a logging gap), so they cannot be
+counted as people reached.
 
 **Replies are an upper bound.** `hs_sales_email_last_replied` is the only reply
 signal available on the contact record (email engagement objects are permission-

@@ -20,8 +20,10 @@ stamping `Record source` as EXTENSION (Gmail extension) or BCC_TO_CRM. So a
 registry address that shows up in HubSpot with one of those sources — or any
 address carrying a "last contacted" stamp, which covers people who were already
 CRM contacts before we wrote to them — is a verified send. Addresses that never
-appear were drafted but never sent. Nothing here trusts a local file's claim
-that an email went out.
+appear were still sent (Jam confirms no drafts remain unsent) but have no
+matching CRM record — suppressed before sending, hard-bounced, or a logging gap —
+so they cannot be counted as people reached. Nothing here trusts a local file's
+claim that an email went out.
 
 REPLIES — WHY HUBSPOT IS NOT USED
 --------------------------------
@@ -840,6 +842,8 @@ def build():
         row["deal_rate"]  = round(100.0 * row["deals"] / row["sent"], 1) if row["sent"] else 0.0
     camp_rows.sort(key=lambda r: (r["deals"], r["sent"]), reverse=True)
 
+    # Registry addresses with no HubSpot record. NOT unsent drafts — everything
+    # was sent; these simply never matched a CRM contact.
     never_sent = sum(c["targeted"] for c in per_camp.values()) - sum(r["sent"] for r in camp_rows)
 
     totals = {
