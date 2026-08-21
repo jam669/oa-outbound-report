@@ -187,8 +187,15 @@ CONTACT_PROPERTIES = [
 
 DEAL_PROPERTIES = [
     "dealname", "dealstage", "pipeline", "amount", "createdate",
-    "closedate", "hubspot_owner_id",
+    "closedate", "hubspot_owner_id", "lead_source",
 ]
+
+# Lead Source that marks a deal as belonging to this campaign. Set on the deal
+# in HubSpot; it is Jam's explicit call on provenance and therefore outranks any
+# attribution this script could infer. Deals without it are listed separately
+# rather than counted — that is what keeps unrelated work (Thriviae, Deltabit)
+# out of a vendor-campaign report even when the company association would match.
+CAMPAIGN_LEAD_SOURCE = "vendor campaign"
 
 # Lead statuses that mean a human on the other end actually engaged.
 ENGAGED_STATUSES = {"CONNECTED", "Feedback", "Qualified", "BD - Deal Created", "Converted"}
@@ -575,6 +582,7 @@ def build():
     results        = []      # every recipient who produced a deal
     replies        = []      # every recipient who replied
     credited_deals = set()   # a deal counts once, for the first campaign to reach it
+    excluded_deals = []      # matched a contact/employer but not tagged Vendor Campaign
 
     for camp in campaigns:
         per_camp[camp["id"]] = {
@@ -686,6 +694,26 @@ def build():
                 if created_deal is None or created_deal < sent_at:
                     continue
 
+            # Lead Source is the deciding vote. A deal that reached a DC through
+            # this campaign is tagged "Vendor Campaign" in HubSpot; anything else
+            # is other work that merely shares a contact or an employer, and it
+            # is recorded for review rather than counted.
+            lead_source = (dprops.get("lead_source") or "").strip()
+            if lead_source.lower() != CAMPAIGN_LEAD_SOURCE:
+                credited_deals.add(deal_id)
+                excluded_deals.append({
+                    "deal":        dprops.get("dealname") or "",
+                    "deal_id":     deal_id,
+                    "company":     company or rec.get("company") or "",
+                    "lead_source": lead_source or "(not set)",
+                    "stage":       STAGE_LABELS.get(dprops.get("dealstage") or "",
+                                                    dprops.get("dealstage") or ""),
+                    "created":     created_deal.strftime("%Y-%m-%d") if created_deal else "",
+                    "reason":      ("Lead Source is '%s', not 'Vendor Campaign'" % lead_source
+                                    if lead_source else "Lead Source is not set"),
+                })
+                continue
+
             credited_deals.add(deal_id)
             stage = dprops.get("dealstage") or ""
             try:
@@ -719,6 +747,7 @@ def build():
                 "stage": STAGE_LABELS.get(stage, stage),
                 "stage_id": stage,
                 "attribution": attribution,
+                "lead_source": lead_source,
                 "in_bd_pipeline": (dprops.get("pipeline") == BD_PIPELINE_ID),
                 "amount": amount,
                 "created": created_deal.strftime("%Y-%m-%d") if created_deal else "",
@@ -896,6 +925,7 @@ def build():
         "outreach":   outreach,
         "weekly":     weekly_updates,
         "results":    results,
+        "excluded_deals": excluded_deals,
         "replies":    replies[:200],
         "wins":       wins,
         # Surfaced on the page so the numbers are never read without the

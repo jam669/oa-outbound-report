@@ -71,7 +71,14 @@ a DC.** That single habit is what keeps this report honest — every DC becomes 
 deal, every deal is attributed back to the campaign that sourced it, and no one
 retypes anything.
 
-Both routes are live and verified against the first two deals:
+**Lead Source is the deciding vote.** A deal that came out of this campaign is
+tagged `Lead Source = Vendor Campaign` on the deal in HubSpot. Only tagged deals
+are counted; anything else is listed under "not counted" for review. That is what
+keeps unrelated work out of the report — Thriviae and Deltabit are real deals but
+they did not come from this campaign, so they do not appear here at all.
+
+Association still decides *which* campaign gets the credit, two ways, both
+verified against the first two deals:
 
 | Deal | Attributed via | Why |
 |---|---|---|
