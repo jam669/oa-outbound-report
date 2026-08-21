@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22 04:10 Manila",
+ "generated": "2026-08-22 04:13 Manila",
  "week_label": "17–23 Aug",
  "portal_id": "44390857",
  "totals": {
@@ -20,8 +20,8 @@
   "dc_rate": 0.1,
   "outreach": 6525,
   "contacted_this_week": 760,
-  "connected": 24,
-  "connected_rate": 0.37
+  "connected": 23,
+  "connected_rate": 0.35
  },
  "campaigns": [
   {
@@ -846,7 +846,7 @@
    "contacted": 335,
    "new_people": 210,
    "outreach": 1394,
-   "connected": 8
+   "connected": 7
   },
   {
    "week": "2026-07-27",
@@ -1067,17 +1067,15 @@
    ],
    "highlights": [
     "A vendor-manager contact (Kelli McDaniel) referred us into Humana's Global Supplier Services — booked DC for Aug 4.",
-    "Three quiet leads reconnected: Glimcher, Clarify Health, and Temu (after nearly a year of follow-ups).",
     "Outreach started auto-logging to HubSpot via BCC, so every send lands in the CRM."
    ],
    "channels_excluded": [],
    "linkedin": 0,
-   "connected_email": 8,
+   "connected_email": 7,
    "connected_detail": [
     "Humana — Kelli McDaniel referred us into Global Supplier Services",
     "Luma Financial (Steve Davies) — interested, asked about St. James's Place",
-    "Neighbor (Mark Bailey) — interested, wants sales agents",
-    "Glimcher (Michael Sundo, CFO) — reconnected"
+    "Neighbor (Mark Bailey) — interested, wants sales agents"
    ],
    "connected_excluded": [
     {
@@ -1086,6 +1084,10 @@
     },
     {
      "who": "Temu (Penny Wang) — re-engaged, docs sent",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    },
+    {
+     "who": "Glimcher (Michael Sundo, CFO) — reconnected",
      "reason": "reconnected pipeline lead, not vendor-campaign sourced"
     }
    ]

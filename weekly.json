@@ -162,17 +162,15 @@
    ],
    "highlights": [
     "A vendor-manager contact (Kelli McDaniel) referred us into Humana's Global Supplier Services — booked DC for Aug 4.",
-    "Three quiet leads reconnected: Glimcher, Clarify Health, and Temu (after nearly a year of follow-ups).",
     "Outreach started auto-logging to HubSpot via BCC, so every send lands in the CRM."
    ],
    "channels_excluded": [],
    "linkedin": 0,
-   "connected_email": 8,
+   "connected_email": 7,
    "connected_detail": [
     "Humana — Kelli McDaniel referred us into Global Supplier Services",
     "Luma Financial (Steve Davies) — interested, asked about St. James's Place",
-    "Neighbor (Mark Bailey) — interested, wants sales agents",
-    "Glimcher (Michael Sundo, CFO) — reconnected"
+    "Neighbor (Mark Bailey) — interested, wants sales agents"
    ],
    "connected_excluded": [
     {
@@ -181,6 +179,10 @@
     },
     {
      "who": "Temu (Penny Wang) — re-engaged, docs sent",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    },
+    {
+     "who": "Glimcher (Michael Sundo, CFO) — reconnected",
      "reason": "reconnected pipeline lead, not vendor-campaign sourced"
     }
    ]
