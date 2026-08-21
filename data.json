@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22 03:15 Manila",
+ "generated": "2026-08-22 03:27 Manila",
  "week_label": "17–23 Aug",
  "portal_id": "44390857",
  "totals": {
@@ -18,9 +18,10 @@
   "won_value": 0.0,
   "deal_rate": 0.1,
   "dc_rate": 0.1,
-  "outreach": 5546,
-  "connected": 25,
-  "connected_rate": 0.45
+  "outreach": 6525,
+  "contacted_this_week": 760,
+  "connected": 26,
+  "connected_rate": 0.4
  },
  "campaigns": [
   {
@@ -758,6 +759,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 3,
+   "new_people": 0,
    "outreach": 0,
    "connected": 0
   },
@@ -768,6 +771,8 @@
    "touches": 103,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 19,
+   "new_people": 18,
    "outreach": 0,
    "connected": 0
   },
@@ -778,6 +783,8 @@
    "touches": 104,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 103,
+   "new_people": 28,
    "outreach": 0,
    "connected": 0
   },
@@ -788,6 +795,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 81,
+   "new_people": 63,
    "outreach": 0,
    "connected": 0
   },
@@ -798,6 +807,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 5,
+   "new_people": 3,
    "outreach": 0,
    "connected": 0
   },
@@ -808,6 +819,8 @@
    "touches": 128,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 9,
+   "new_people": 8,
    "outreach": 0,
    "connected": 0
   },
@@ -818,6 +831,8 @@
    "touches": 315,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 90,
+   "new_people": 88,
    "outreach": 839,
    "connected": 7
   },
@@ -828,6 +843,8 @@
    "touches": 270,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 335,
+   "new_people": 210,
    "outreach": 1394,
    "connected": 10
   },
@@ -838,6 +855,8 @@
    "touches": 688,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 1085,
+   "new_people": 1074,
    "outreach": 1250,
    "connected": 1
   },
@@ -848,6 +867,8 @@
    "touches": 945,
    "deals": 0,
    "dc_held": 0,
+   "contacted": 877,
+   "new_people": 193,
    "outreach": 1500,
    "connected": 5
   },
@@ -858,6 +879,8 @@
    "touches": 170,
    "deals": 2,
    "dc_held": 2,
+   "contacted": 475,
+   "new_people": 454,
    "outreach": 563,
    "connected": 2
   },
@@ -868,19 +891,54 @@
    "touches": 1,
    "deals": 0,
    "dc_held": 0,
-   "outreach": 0,
-   "connected": 0
+   "contacted": 760,
+   "new_people": 688,
+   "outreach": 979,
+   "connected": 1
   }
  ],
  "outreach": {
-  "total": 5546,
+  "total": 6525,
   "attributed": null,
   "unattributed": null,
-  "this_week": 563,
+  "this_week": 979,
   "top_unknown": [],
   "source": "weekly update (EOW)"
  },
  "weekly": [
+  {
+   "week": "2026-08-17",
+   "label": "Aug 17–21",
+   "provisional": true,
+   "headline": "Biggest send week yet — five new verticals on the vendor-registration angle.",
+   "outreach": 979,
+   "linkedin": 0,
+   "connected_email": 1,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Cold outreach (new verticals)",
+     907
+    ],
+    [
+     "Follow-ups to earlier contacts",
+     72
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Five new verticals opened on the “Vendor registration process?” angle: AEC/structural engineering, VP-Engineering (software), game studios, childcare/early education, and parking operators.",
+    "AEC ran as a two-touch sequence — “The hours your engineers can’t bill” on Mon, vendor-registration follow-up on Wed.",
+    "688 net-new people reached plus 72 follow-ups to earlier contacts — roughly double last week's volume.",
+    "Deliverability worth watching: several hard bounces and one spam-filter rejection across the week."
+   ],
+   "connected_detail": [
+    "DuTrac (Kim Adams, SVP Ops) — replied, asked to be removed; suppressed"
+   ],
+   "note": "Provisional: counted from HubSpot (contacts created by Jam, contacted this week). The EOW figure supersedes it when sent."
+  },
   {
    "week": "2026-08-10",
    "label": "Aug 10–15",

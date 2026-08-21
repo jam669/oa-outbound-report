@@ -77,6 +77,13 @@ HEADERS       = {"Authorization": "Bearer %s" % HUBSPOT_TOKEN,
                  "Content-Type": "application/json"}
 
 PORTAL_ID      = "44390857"
+
+# Jam's HubSpot user id. Every contact his sends create carries it in
+# hs_created_by_user_id, which is the only field that reliably separates his
+# outreach from the rest of the team's — hubspot_owner_id is assigned by
+# round-robin and does not say who sent the email. Verified against contacts
+# proven to be his in Gmail (mulhernkulp, lemessurier, trustwell, eagleparking).
+JAM_USER_ID    = "66317048"
 BD_PIPELINE_ID = "68218158"
 MANILA_TZ      = timezone(timedelta(hours=8))
 
@@ -418,6 +425,49 @@ def fetch_gmail_sends(since):
                 pass
 
     return sends
+
+
+def fetch_weekly_contacted(window_start):
+    """
+    People Jam actually emailed, per week, straight from HubSpot.
+
+    Scoped by hs_created_by_user_id so other reps' outreach cannot leak in, and
+    bucketed on notes_last_contacted (when we last wrote to them). This is fully
+    automatic — no Gmail, no EOW — but it counts PEOPLE, not sends: someone
+    emailed twice in a week appears once, so a heavy follow-up week reads low
+    against the EOW's send count. Reported alongside it, never instead of it.
+    """
+    rows, after = [], None
+    while True:
+        payload = {
+            "filterGroups": [{"filters": [
+                {"propertyName": "hs_created_by_user_id", "operator": "EQ", "value": JAM_USER_ID},
+                {"propertyName": "notes_last_contacted", "operator": "GTE",
+                 "value": window_start.strftime("%Y-%m-%d")},
+            ]}],
+            "properties": ["email", "notes_last_contacted", "createdate"],
+            "limit": 100,
+        }
+        if after:
+            payload["after"] = after
+        data = api_post("/crm/v3/objects/contacts/search", payload)
+        rows += data.get("results", [])
+        after = (data.get("paging", {}).get("next") or {}).get("after")
+        if not after:
+            break
+
+    by_week = defaultdict(lambda: {"contacted": 0, "new": 0})
+    for row in rows:
+        props = row.get("properties", {}) or {}
+        touched = parse_ts(props.get("notes_last_contacted"))
+        created = parse_ts(props.get("createdate"))
+        key = week_key(touched)
+        if not key:
+            continue
+        by_week[key]["contacted"] += 1
+        if created and week_key(created) == key:
+            by_week[key]["new"] += 1
+    return dict(by_week)
 
 
 def load_weekly():
@@ -843,6 +893,13 @@ def build():
     # Best source: the EOW's own numbers. They are what leadership already reads,
     # they count sends rather than people, and they cover campaigns whose lists
     # never reached the workspace.
+    print("Counting people contacted (HubSpot, scoped to Jam)…")
+    contacted_weeks = fetch_weekly_contacted(current_week - timedelta(days=7 * (TREND_WEEKS - 1)))
+    for row in trend:
+        hit = contacted_weeks.get(row["week"], {})
+        row["contacted"] = hit.get("contacted", 0)
+        row["new_people"] = hit.get("new", 0)
+
     weekly_updates = load_weekly()
     totals_outreach = sum(int(w.get("outreach") or 0) for w in weekly_updates)
     if weekly_updates:
@@ -926,6 +983,8 @@ def build():
     # opposite of engagement and is deliberately not reported as a reply count.
     connected = sum(int(w.get("connected_email") or 0) for w in weekly_updates)
     totals["outreach"] = totals_outreach
+    totals["contacted_this_week"] = contacted_weeks.get(
+        current_week.strftime("%Y-%m-%d"), {}).get("contacted", 0)
     totals["connected"] = connected
     totals["connected_rate"] = (round(100.0 * connected / totals_outreach, 2)
                                 if totals_outreach else 0.0)

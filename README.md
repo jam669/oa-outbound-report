@@ -34,6 +34,18 @@ Outreach is **campaign email only**: candidate sourcing is recruitment work and
 is excluded (`channels_excluded` in weekly.json), and LinkedIn is tracked
 separately in `linkedin` rather than in the email total.
 
+## Identifying Jam's outreach
+
+`hs_created_by_user_id = 66317048` is the only field that reliably separates his
+sends from the rest of the team's — `hubspot_owner_id` is round-robin and does not
+say who sent the email. Verified against contacts proven his in Gmail. That gives
+a fully automatic weekly count (`contacted` / `new_people` in the trend) with no
+Gmail access and no EOW dependency. It counts PEOPLE, not sends, so a heavy
+follow-up week reads low against the EOW figure; both are shown.
+
+A week with no EOW yet is marked **provisional** on the page and its outreach
+comes from this HubSpot count. The EOW supersedes it when sent.
+
 ## Replies: why HubSpot is not used
 
 `hs_sales_email_last_replied` is **not** reported as a reply, because it does not

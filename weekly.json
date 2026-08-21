@@ -2,6 +2,39 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week.",
  "weeks": [
   {
+   "week": "2026-08-17",
+   "label": "Aug 17–21",
+   "provisional": true,
+   "headline": "Biggest send week yet — five new verticals on the vendor-registration angle.",
+   "outreach": 979,
+   "linkedin": 0,
+   "connected_email": 1,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Cold outreach (new verticals)",
+     907
+    ],
+    [
+     "Follow-ups to earlier contacts",
+     72
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Five new verticals opened on the “Vendor registration process?” angle: AEC/structural engineering, VP-Engineering (software), game studios, childcare/early education, and parking operators.",
+    "AEC ran as a two-touch sequence — “The hours your engineers can’t bill” on Mon, vendor-registration follow-up on Wed.",
+    "688 net-new people reached plus 72 follow-ups to earlier contacts — roughly double last week's volume.",
+    "Deliverability worth watching: several hard bounces and one spam-filter rejection across the week."
+   ],
+   "connected_detail": [
+    "DuTrac (Kim Adams, SVP Ops) — replied, asked to be removed; suppressed"
+   ],
+   "note": "Provisional: counted from HubSpot (contacts created by Jam, contacted this week). The EOW figure supersedes it when sent."
+  },
+  {
    "week": "2026-08-10",
    "label": "Aug 10–15",
    "headline": "Quality over volume — Neighbor DC held and a 10-agent proposal out the door.",
