@@ -1,7 +1,7 @@
 # OA Outbound Weekly Report — Vendor Managers
 
 Live report of how the Vendor-Manager outbound campaigns are performing.
-Refreshes itself every Tuesday 09:00 Manila from HubSpot; no manual number-typing.
+Refreshes itself every Saturday 06:00 Manila from HubSpot; no manual number-typing.
 
 **Report:** `outbound-report.html` → https://jam669.github.io/oa-outbound-report/outbound-report.html
 **Companion:** [BD weekly report](https://jam669.github.io/oa-bd-report/bd-weekly-report.html)
@@ -159,8 +159,9 @@ python _smoke_test.py           # renders 3 scenarios against a stubbed DOM
 
 ## Automation
 
-`.github/workflows/weekly-update.yml` runs Tuesdays 09:00 Manila (with a 12:00
-backup) and on manual dispatch. Repository secrets:
+`.github/workflows/weekly-update.yml` runs Saturdays 06:00 Manila (with a 09:00
+backup) and on manual dispatch. Note the cron says Friday 22:00 UTC — Manila is
+UTC+8, so that is Saturday morning locally. Repository secrets:
 
 - `HUBSPOT_TOKEN` — same token the BD report uses. **Required.**
 - `OUTREACH_CSV_URL` — the published CSV from `OutreachCounts.gs`. Without it,
@@ -174,7 +175,7 @@ backup) and on manual dispatch. Repository secrets:
 `OutreachCounts.gs` runs inside the OA Outreach Tracker workbook as Jam, counts
 sent mail with `GmailApp` (no admin approval, no app password), and writes a
 `week_start,sends,people` tab that gets published as CSV. Setup steps are in the
-header of that file. It refreshes Tuesday 07:00 Manila, two hours before the
+header of that file. It refreshes Saturday 04:00 Manila, two hours before the
 report job reads it.
 
 The workflow does **not** rebuild `campaigns.json`; that file is committed,

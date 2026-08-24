@@ -2,13 +2,14 @@ name: Weekly Outbound Report Update
 
 on:
   schedule:
-    # PRIMARY: Tuesday 09:00 Manila (01:00 UTC) — same slot as the BD report,
-    # so the two are read against the same week boundary.
-    - cron: '0 1 * * 2'
-    # BACKUP: Tuesday 12:00 Manila (04:00 UTC). GitHub delays scheduled runs
-    # under load; the commit step is a no-op when nothing changed, so a
-    # successful primary makes this harmless.
-    - cron: '0 4 * * 2'
+    # PRIMARY: Saturday 06:00 Manila. Manila is UTC+8, so that is Friday 22:00
+    # UTC — the day-of-week here is Friday (5) even though the report lands on
+    # Saturday morning locally.
+    - cron: '0 22 * * 5'
+    # BACKUP: Saturday 09:00 Manila (01:00 UTC Saturday). GitHub delays
+    # scheduled runs under load; the commit step is a no-op when nothing
+    # changed, so a successful primary makes this harmless.
+    - cron: '0 1 * * 6'
   # Manual trigger — "Run workflow" in the Actions tab.
   workflow_dispatch:
 

@@ -10,7 +10,8 @@
  * WHAT IT COUNTS
  * Emails SENT to external recipients — the EOW definition. A follow-up to the
  * same person is a second send. Colleagues and the HubSpot BCC logger are
- * excluded. Weeks run Wednesday→Tuesday to match the BD and outbound reports.
+ * excluded. Weeks run Monday→Sunday, matching the outbound report, so each one
+ * contains the EOW's Mon–Sat window exactly.
  *
  * SETUP (once)
  *   1. Open the OA Outreach Tracker workbook → Extensions → Apps Script
@@ -19,7 +20,7 @@
  *   4. Back in the sheet, confirm the "Outreach Counts" tab filled in
  *   5. File → Share → Publish to web → select "Outreach Counts" → CSV → Publish
  *   6. Send Claude the published URL — it becomes the OUTREACH_CSV_URL secret
- *   7. Run `installWeeklyTrigger` once so it refreshes every Tuesday morning
+ *   7. Run `installWeeklyTrigger` once so it refreshes every Saturday morning
  */
 
 var TAB_NAME       = 'Outreach Counts';
@@ -29,12 +30,12 @@ var IGNORE_MATCH    = 'bcc.hubspot.com';            // the CRM logging address
 var TIMEZONE        = 'Asia/Manila';
 
 /**
- * Wednesday that opens the report-week containing `date`.
- * getDay(): Sunday=0 … Wednesday=3.
+ * Monday that opens the report-week containing `date`.
+ * getDay(): Sunday=0 … Monday=1.
  */
 function weekStart_(date) {
   var d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  var shift = (d.getDay() - 3 + 7) % 7;
+  var shift = (d.getDay() - 1 + 7) % 7;
   d.setDate(d.getDate() - shift);
   return d;
 }
@@ -131,7 +132,7 @@ function updateOutreachCounts() {
              WEEKS_BACK, sends[ymd_(weekStart_(now))] || 0);
 }
 
-/** Run once — refreshes every Tuesday 07:00, before the report job at 09:00. */
+/** Run once — refreshes every Saturday 04:00, before the report job at 06:00. */
 function installWeeklyTrigger() {
   var existing = ScriptApp.getProjectTriggers();
   for (var i = 0; i < existing.length; i++) {
@@ -141,9 +142,9 @@ function installWeeklyTrigger() {
   }
   ScriptApp.newTrigger('updateOutreachCounts')
     .timeBased()
-    .onWeekDay(ScriptApp.WeekDay.TUESDAY)
-    .atHour(7)
+    .onWeekDay(ScriptApp.WeekDay.SATURDAY)
+    .atHour(4)
     .inTimezone(TIMEZONE)
     .create();
-  Logger.log('Weekly trigger installed for Tuesday 07:00 Manila.');
+  Logger.log('Weekly trigger installed for Saturday 04:00 Manila.');
 }
