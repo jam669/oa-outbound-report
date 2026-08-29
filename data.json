@@ -1,13 +1,13 @@
 {
- "generated": "2026-08-22 04:31 Manila",
- "week_label": "17–23 Aug",
+ "generated": "2026-08-29 11:30 Manila",
+ "week_label": "24–30 Aug",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
   "targeted": 1937,
   "sent": 1894,
-  "touches": 3640,
-  "followups": 1746,
+  "touches": 3641,
+  "followups": 1747,
   "never_sent": 43,
   "thread_notifications": 881,
   "engaged": 5,
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 6525,
-  "contacted_this_week": 760,
+  "contacted_this_week": 1292,
   "connected": 23,
   "connected_rate": 0.35
  },
@@ -30,8 +30,8 @@
    "sector": "Vendor Managers",
    "targeted": 167,
    "sent": 133,
-   "touches": 226,
-   "followups": 93,
+   "touches": 227,
+   "followups": 94,
    "engaged": 1,
    "deals": 2,
    "dc_held": 2,
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-06-01",
-   "label": "1–7 Jun",
-   "sent": 0,
-   "touches": 0,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 3,
-   "new_people": 0,
-   "outreach": 0,
-   "connected": 0
-  },
-  {
    "week": "2026-06-08",
    "label": "8–14 Jun",
    "sent": 103,
@@ -795,8 +783,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 81,
-   "new_people": 63,
+   "contacted": 80,
+   "new_people": 62,
    "outreach": 0,
    "connected": 0
   },
@@ -855,8 +843,8 @@
    "touches": 688,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 1085,
-   "new_people": 1074,
+   "contacted": 1082,
+   "new_people": 1073,
    "outreach": 1250,
    "connected": 1
   },
@@ -888,13 +876,25 @@
    "week": "2026-08-17",
    "label": "17–23 Aug",
    "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 151,
+   "new_people": 148,
+   "outreach": 979,
+   "connected": 1
+  },
+  {
+   "week": "2026-08-24",
+   "label": "24–30 Aug",
+   "sent": 0,
    "touches": 1,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 760,
-   "new_people": 688,
-   "outreach": 979,
-   "connected": 1
+   "contacted": 1292,
+   "new_people": 679,
+   "outreach": 0,
+   "connected": 0
   }
  ],
  "outreach": {
