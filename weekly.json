@@ -2,37 +2,72 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
-   "week": "2026-08-17",
-   "label": "Aug 17–21",
-   "provisional": true,
-   "headline": "Biggest send week yet — five new verticals on the vendor-registration angle.",
-   "outreach": 979,
+   "week": "2026-08-24",
+   "label": "Aug 24–29",
+   "headline": "Full-tilt Vendor Inquiry week — the campaign run at scale across UK and US persona tracks.",
+   "outreach": 1540,
    "linkedin": 0,
-   "connected_email": 1,
+   "connected_email": 3,
    "dc_held": 0,
    "proposals": 0,
    "deals_in_delivery": 0,
    "channels": [
     [
-     "Cold outreach (new verticals)",
-     907
+     "Vendor Inquiry campaign",
+     1485
     ],
     [
-     "Follow-ups to earlier contacts",
-     72
+     "Cold pain-point outreach",
+     49
+    ],
+    [
+     "Personalized follow-ups",
+     6
     ]
    ],
    "channels_excluded": [],
    "highlights": [
-    "Five new verticals opened on the “Vendor registration process?” angle: AEC/structural engineering, VP-Engineering (software), game studios, childcare/early education, and parking operators.",
-    "AEC ran as a two-touch sequence — “The hours your engineers can’t bill” on Mon, vendor-registration follow-up on Wed.",
-    "688 net-new people reached plus 72 follow-ups to earlier contacts — roughly double last week's volume.",
-    "Deliverability worth watching: several hard bounces and one spam-filter rejection across the week."
+    "Vendor Inquiry was 96% of the week (1,485 emails) across two persona tracks: UK CX/contact-centre and procurement heads (CalMac, Hays Travel, Gamma, Saga, LNER, Direct Line, The AA, Quilter, Eurostar), and US VP-Ops/COO Function-Heads at net-new consumer/CPG/beauty/toys firms (BaubleBar, Brilliant Earth, JAKKS, Sun Bum, Moose Toys, Life Extension) plus healthcare payers.",
+    "Built a client-domain safety screen on Aug 27 — 119 OA client domains pulled from HubSpot and suppressed whole-domain, now run before every wave so an existing client can never be cold-emailed.",
+    "Neighbor 10-agent proposal still pending; nudged Aug 25 and moving to a live/phone push since email went quiet after Mark's PTO.",
+    "All 3 replies this week were declines. List hygiene: 16 bounces cleared, 1 opt-out suppressed."
    ],
    "connected_detail": [
-    "DuTrac (Kim Adams, SVP Ops) — replied, asked to be removed; suppressed"
+    "3 replies, all declines — no names carried in the EOW"
+   ]
+  },
+  {
+   "week": "2026-08-17",
+   "label": "Aug 17–21",
+   "headline": "Vendor Inquiry scaled to Function-Head personas; the campaign started creating pipeline.",
+   "outreach": 1026,
+   "linkedin": 0,
+   "connected_email": 0,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Vendor Inquiry campaign",
+     615
+    ],
+    [
+     "Cold pain-point outreach",
+     408
+    ],
+    [
+     "Personalized follow-ups",
+     3
+    ]
    ],
-   "note": "Provisional: counted from HubSpot (contacts created by Jam, contacted this week). The EOW figure supersedes it when sent."
+   "channels_excluded": [],
+   "highlights": [
+    "Vendor Inquiry (615) shifted to Function-Head personas — COO / VP-Ops / VP-Engineering alongside procurement — across SaaS/eng, game studios, home-care, security/facilities, ports, utilities, community banks, credit unions and title insurers.",
+    "Cold pain-point outreach (408) into manufacturing, A/E, insurance claims/TPA, law firms, environmental/waste, broadband/ISP and auto dealers, plus an account-based play on Origin Energy.",
+    "The campaign showed up as real pipeline: deals now created under the “Vendor Campaign” lead source — Humana and Neighbor so far.",
+    "Batches went out mid/late week, so replies were expected to build the following week."
+   ],
+   "connected_detail": []
   },
   {
    "week": "2026-08-10",
@@ -224,6 +259,7 @@
   }
  ],
  "deal_notes": [
-  "Hanover — vendor proposal submitted, but no discovery call has been held yet, so no deal exists in HubSpot and it is not counted above."
+  "Hanover — vendor proposal submitted, but no discovery call has been held yet, so no deal exists in HubSpot and it is not counted above. They review passed proposals monthly; follow-up set for the second week of September.",
+  "Neighbor — the 10-agent proposal is still pending. Nudged Aug 19 and Aug 25; moving to a live/phone push after Mark's PTO."
  ]
 }
