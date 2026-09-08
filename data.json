@@ -1,6 +1,6 @@
 {
- "generated": "2026-09-05 13:03 Manila",
- "week_label": "31 Aug – 6 Sep",
+ "generated": "2026-09-08 20:06 Manila",
+ "week_label": "7–13 Sep",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
@@ -18,10 +18,10 @@
   "won_value": 0.0,
   "deal_rate": 0.1,
   "dc_rate": 0.1,
-  "outreach": 8112,
-  "contacted_this_week": 1284,
-  "connected": 25,
-  "connected_rate": 0.31
+  "outreach": 10263,
+  "contacted_this_week": 1,
+  "connected": 30,
+  "connected_rate": 0.29
  },
  "campaigns": [
   {
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-06-15",
-   "label": "15–21 Jun",
-   "sent": 29,
-   "touches": 104,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 103,
-   "new_people": 28,
-   "outreach": 0,
-   "connected": 0
-  },
-  {
    "week": "2026-06-22",
    "label": "22–28 Jun",
    "sent": 0,
@@ -893,19 +881,65 @@
    "dc_held": 0,
    "contacted": 1284,
    "new_people": 12,
+   "outreach": 2151,
+   "connected": 5
+  },
+  {
+   "week": "2026-09-07",
+   "label": "7–13 Sep",
+   "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 1,
+   "new_people": 1,
    "outreach": 0,
    "connected": 0
   }
  ],
  "outreach": {
-  "total": 8112,
+  "total": 10263,
   "attributed": null,
   "unattributed": null,
-  "this_week": 1540,
+  "this_week": 2151,
   "top_unknown": [],
   "source": "weekly update (EOW)"
  },
  "weekly": [
+  {
+   "week": "2026-08-31",
+   "label": "Aug 31 – Sep 5",
+   "headline": "Biggest outreach week yet — healthcare follow-up sweep at scale, and the vendor play opened into three new geographies.",
+   "outreach": 2151,
+   "linkedin": 0,
+   "connected_email": 5,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Follow-up sweep (2nd touch)",
+     1511
+    ],
+    [
+     "Vendor Inquiry first-touch",
+     640
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Follow-up sweep (1,511) — second-touch pass across the late-August campaigns, heavily weighted to US healthcare (~1,340 touches across ~227 companies: home health, hospice, DME, ASC/anesthesia, infusion, fertility, behavioral health, dental DSOs), plus UK vendor-manager follow-ups (LNER, Direct Line, NFU Mutual, LV=, Ramsay, Saga, Skipton).",
+    "Vendor Inquiry opened into three new geographies: AU/NZ (local government, water utilities, universities, aged care, energy, banks/super/insurers, telco), UK (payments/fintech ops, retail/hospitality, rail — TfL, ScotRail, GWR — media, legal, housing, university admissions), and EU/NL procurement (Merck, ING, Adyen, Aegon, NN Group, ASML, ABN AMRO).",
+    "Neighbor is alive again — Mark re-engaged, apologised for the delay, and explained their data team is building a tool to model our rates against performance expectations. The hold is an internal modelling step, not lost interest.",
+    "Mined the week's out-of-office replies for named successors to re-target (Tarmac → Jen Raia, WaterNSW → Brendan Maher, The WCA → Michael Curran) — turning role changes into fresh leads.",
+    "List hygiene: 21 bounces cleared, 1 opt-out suppressed; client-domain safety screen running before every wave."
+   ],
+   "connected_detail": [
+    "LNER (Richard Judge, Head of CX) — replied warmly (“refreshing”) and referred us to Great British Railways as the right future home as rail nationalisation advances; open to reconnecting in ~12 months",
+    "A2Dominion (Mark Prosser) — referred us to their People Services team, who own the preferred-supplier list",
+    "3 further replies, all declines"
+   ]
+  },
   {
    "week": "2026-08-24",
    "label": "Aug 24–29",
@@ -1207,8 +1241,9 @@
  ],
  "excluded_deals": [],
  "deal_notes": [
+  "Neighbor — the 10-agent proposal is alive. Mark re-engaged on Sep 4: their data team is building a tool to model our rates against performance expectations, so the hold is an internal modelling step rather than lost interest. More expected the following week.",
   "Hanover — vendor proposal submitted, but no discovery call has been held yet, so no deal exists in HubSpot and it is not counted above. They review passed proposals monthly; follow-up set for the second week of September.",
-  "Neighbor — the 10-agent proposal is still pending. Nudged Aug 19 and Aug 25; moving to a live/phone push after Mark's PTO."
+  "Two referrals in flight, neither a deal yet: Great British Railways (via LNER) and A2Dominion's People Services team, who own the preferred-supplier list."
  ],
  "replies": [],
  "wins": [],
