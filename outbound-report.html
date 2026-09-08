@@ -321,12 +321,14 @@ const REPORT = {"generated": "2026-09-08 20:08 Manila", "week_label": "7–13 Se
     const w = weeks[0];
 
     const stats = [
-      ["Outreach",        num(w.outreach)],
-      ["Connected to",    num(w.connected)],
-      ["DCs held",        num(w.dc_held)],
-      ["Proposals",       num(w.proposals)],
-      ["Deals in delivery", num(w.deals_in_delivery)],
-    ].filter((s) => s[1] !== "0" || s[0] === "Outreach");
+      // The funnel three always show, zero included — "no DC this week" is a
+      // result worth seeing, not an absence worth hiding. The rest appear only
+      // when they happened.
+      ["Outreach",     num(w.outreach),         true],
+      ["Connected to", num(w.connected_email),  true],
+      ["DCs held",     num(w.dc_held),          true],
+      ["Proposals",    num(w.proposals),        false],
+    ].filter((s) => s[2] || (s[1] !== "0" && s[1] !== "—"));
 
     let html = '<div class="panel"><div class="chart-head"><div>' +
       "<h2>Week of " + esc(w.label) +
