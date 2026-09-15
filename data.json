@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-15 22:09 Manila",
+ "generated": "2026-09-15 22:13 Manila",
  "week_label": "14–20 Sep",
  "portal_id": "44390857",
  "totals": {
@@ -1236,6 +1236,14 @@
    "connected_detail": []
   }
  ],
+ "weekly_status": {
+  "current_week": "2026-09-14",
+  "current_label": "14–20 Sep",
+  "latest_reported": "2026-09-07",
+  "latest_label": "Sep 7–12",
+  "weeks_behind": 1,
+  "awaiting_report": true
+ },
  "results": [
   {
    "name": "Kelli McDaniel",

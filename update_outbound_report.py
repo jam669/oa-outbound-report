@@ -1012,6 +1012,25 @@ def build():
         row["connected"] = int(hit.get("connected_email") or 0) if hit else 0
         row.pop("replied", None)
 
+    # Is the newest reported week actually the current one? The job refreshes the
+    # CRM side every Saturday, but the weekly narrative comes from the EOW and is
+    # added by hand — so without this the page shows last week's panel on top and
+    # looks broken rather than waiting.
+    current_key = current_week.strftime("%Y-%m-%d")
+    latest_key  = weekly_updates[0]["week"] if weekly_updates else None
+    weeks_behind = 0
+    if latest_key:
+        weeks_behind = int((current_week - datetime.strptime(latest_key, "%Y-%m-%d")
+                            .replace(tzinfo=MANILA_TZ)).days // 7)
+    weekly_status = {
+        "current_week":       current_key,
+        "current_label":      week_label(current_key),
+        "latest_reported":    latest_key,
+        "latest_label":       weekly_updates[0]["label"] if weekly_updates else None,
+        "weeks_behind":       max(0, weeks_behind),
+        "awaiting_report":    bool(latest_key) and weeks_behind >= 1,
+    }
+
     wins = load_wins()
 
     data = {
@@ -1024,6 +1043,7 @@ def build():
         "trend":      trend,
         "outreach":   outreach,
         "weekly":     weekly_updates,
+        "weekly_status": weekly_status,
         "results":    results,
         "excluded_deals": excluded_deals,
         "deal_notes": load_deal_notes(),

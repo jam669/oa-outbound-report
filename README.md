@@ -46,6 +46,15 @@ follow-up week reads low against the EOW figure; both are shown.
 A week with no EOW yet is marked **provisional** on the page and its outreach
 comes from this HubSpot count. The EOW supersedes it when sent.
 
+## When the weekly write-up is behind
+
+The Saturday job refreshes everything HubSpot knows, but the weekly narrative
+comes from the EOW and is added by hand — so between Saturday and whenever the
+EOW is added, the top panel shows the *previous* week. The page now says so:
+`weekly_status.awaiting_report` drives a marker naming the current week, how far
+back the reported one is, and how many people HubSpot has seen contacted so far
+this week. A page that is waiting no longer looks like a page that is broken.
+
 ## Replies: why HubSpot is not used
 
 `hs_sales_email_last_replied` is **not** reported as a reply, because it does not
