@@ -2,6 +2,45 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
+   "week": "2026-09-07",
+   "label": "Sep 7–12",
+   "headline": "High volume translating into quality — Neighbor into final security requirements and two approved-vendor pathways opened.",
+   "outreach": 1630,
+   "linkedin": 0,
+   "connected_email": 6,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Vendor-registration follow-up sweep",
+     1076
+    ],
+    [
+     "Cold first-touch",
+     455
+    ],
+    [
+     "Reactivation wave (dormant leads)",
+     99
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Neighbor advanced — Mark is through the proposal and onto security/access controls for the sales pod (restricted-access facility, clean-desk policy, locked-down endpoints, NBI-cleared agents). Security requirements at this stage is a serious-evaluation signal.",
+    "Two approved-vendor pathways opened, which is the campaign's actual goal: Gold Coast Council forwarded the inquiry to their Chief Procurement Office (route in is VendorPanel for sub-$5M engagements), and United Utilities routed us to formal registration via Achilles UVDB and Find a Tender.",
+    "Follow-up sweep (1,076) — the Sep 8 second/third touch across the UK vendor-manager and Function-Head list: banks, insurers, utilities, housing associations, universities, rail, auto dealer groups, charities and fintech.",
+    "New play: a portfolio-oversight ABM into ~16 PE funds (Vista Equity, Sumeru, Level Equity, Spectrum, Mainsail), pitching the support and engineering layer their portfolio companies already run.",
+    "Reactivation wave (99) re-opened dormant inbound/MQL leads that reached OA but never connected, across UK, AU, US and CA.",
+    "Kept mining out-of-office replies for named successors (Angels of Care → Mark Frates, The WCA → Michael Curran, Parachute Health → Matt Pestritto). List hygiene: 25 bounces, 1 opt-out suppressed."
+   ],
+   "connected_detail": [
+    "Gold Coast Council (AU) — inquiry forwarded to their Chief Procurement Office; registration on VendorPanel is the route in for sub-$5M engagements",
+    "United Utilities (UK) — supplier team routed us to formal registration via Achilles UVDB and Find a Tender (still qualifying)",
+    "4 further replies"
+   ]
+  },
+  {
    "week": "2026-08-31",
    "label": "Aug 31 – Sep 5",
    "headline": "Biggest outreach week yet — healthcare follow-up sweep at scale, and the vendor play opened into three new geographies.",
@@ -293,8 +332,9 @@
   }
  ],
  "deal_notes": [
-  "Neighbor — the 10-agent proposal is alive. Mark re-engaged on Sep 4: their data team is building a tool to model our rates against performance expectations, so the hold is an internal modelling step rather than lost interest. More expected the following week.",
-  "Hanover — vendor proposal submitted, but no discovery call has been held yet, so no deal exists in HubSpot and it is not counted above. They review passed proposals monthly; follow-up set for the second week of September.",
-  "Two referrals in flight, neither a deal yet: Great British Railways (via LNER) and A2Dominion's People Services team, who own the preferred-supplier list."
+  "Neighbor — advanced past the proposal to security and access requirements for the sales pod. Commitments drafted (restricted-access facility, clean-desk policy, locked-down endpoints, NBI-cleared agents); full specs to follow. No deal stage change yet, so the figures above are unchanged.",
+  "Approved-vendor pathways open at Gold Coast Council (via VendorPanel, their route for sub-$5M engagements) and United Utilities (via Achilles UVDB and Find a Tender). Neither is a deal — they are supplier-list registrations, which is what this campaign is aiming at.",
+  "Hanover — vendor proposal submitted, no discovery call held, so no deal exists in HubSpot. They review passed proposals monthly; follow-up due this week.",
+  "Referral trails still live and not yet deals: Great British Railways (via LNER) and A2Dominion's People Services team, who own the preferred-supplier list."
  ]
 }
