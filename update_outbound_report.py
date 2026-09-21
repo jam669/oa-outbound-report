@@ -472,6 +472,62 @@ def fetch_weekly_contacted(window_start):
     return dict(by_week)
 
 
+def fetch_tagged_deals():
+    """
+    Every deal tagged Lead Source = Vendor Campaign, found directly rather than
+    through the registry.
+
+    The tag is Jam's explicit call on provenance, so it has to be sufficient on
+    its own. Registry attribution alone misses a whole class of real campaign
+    deals: anyone who was already a CRM contact before the campaign touched them
+    — a dormant lead re-opened by a reactivation wave, for instance — is on no
+    saved sendlist, so no amount of association-walking will reach their deal.
+    """
+    deals, after = {}, None
+    while True:
+        payload = {
+            "filterGroups": [{"filters": [
+                {"propertyName": "lead_source", "operator": "EQ", "value": "Vendor Campaign"}
+            ]}],
+            "properties": DEAL_PROPERTIES,
+            "limit": 100,
+        }
+        if after:
+            payload["after"] = after
+        data = api_post("/crm/v3/objects/deals/search", payload)
+        for item in data.get("results", []):
+            deals[str(item.get("id"))] = item.get("properties", {}) or {}
+        after = (data.get("paging", {}).get("next") or {}).get("after")
+        if not after:
+            return deals
+
+
+def name_for_deals(deal_ids):
+    """Company and contact labels for deals the registry never saw."""
+    labels = {}
+    if not deal_ids:
+        return labels
+    links = fetch_associations("deals", "contacts", deal_ids)
+    contact_ids = sorted({c for ids in links.values() for c in ids})
+    people = {}
+    for batch in chunked(contact_ids, 100):
+        data = api_post("/crm/v3/objects/contacts/batch/read", {
+            "properties": ["email", "firstname", "lastname", "company"],
+            "inputs": [{"id": cid} for cid in batch],
+        })
+        for item in data.get("results", []):
+            people[str(item.get("id"))] = item.get("properties", {}) or {}
+    for did in deal_ids:
+        who = next((people[c] for c in links.get(str(did), []) if c in people), {})
+        labels[str(did)] = {
+            "name": " ".join(x for x in [who.get("firstname"), who.get("lastname")] if x).strip()
+                    or who.get("email") or "",
+            "company": who.get("company") or "",
+            "email": who.get("email") or "",
+        }
+    return labels
+
+
 def load_deal_notes():
     """
     Context the CRM cannot carry — e.g. a proposal that went out before any
@@ -654,6 +710,9 @@ def build():
     results        = []      # every recipient who produced a deal
     replies        = []      # every recipient who replied
     credited_deals = set()   # a deal counts once, for the first campaign to reach it
+    # Deals brought in by the Lead Source tag alone sit outside any campaign row,
+    # so their contribution to the totals is accumulated separately.
+    totals_extra = defaultdict(float)
     excluded_deals = []      # matched a contact/employer but not tagged Vendor Campaign
 
     for camp in campaigns:
@@ -845,6 +904,57 @@ def build():
             "dc_held": bucket.get("dc_held", 0),
         })
 
+    # ── Deals the tag claims but the registry never saw ─────────────────────
+    # A deal tagged Vendor Campaign counts even when no registry contact leads
+    # to it — otherwise a re-opened dormant lead, who is on no saved sendlist,
+    # produces a DC that the report cannot show.
+    print("Fetching deals tagged Lead Source = Vendor Campaign…")
+    tagged = fetch_tagged_deals()
+    missing = [d for d in tagged if d not in credited_deals]
+    labels = name_for_deals(missing) if missing else {}
+    for deal_id in missing:
+        dprops = tagged[deal_id]
+        stage  = dprops.get("dealstage") or ""
+        created_deal = parse_ts(dprops.get("createdate"))
+        try:
+            amount = float(dprops.get("amount") or 0)
+        except (TypeError, ValueError):
+            amount = 0.0
+        credited_deals.add(deal_id)
+        attended = stage in DC_ATTENDED_STAGES
+        won      = stage == STAGES["closed_won"]
+        label    = labels.get(deal_id, {})
+
+        totals_extra["deals"] += 1
+        if attended:
+            totals_extra["dc_held"] += 1
+        if won:
+            totals_extra["won"] += 1
+            totals_extra["won_value"] += amount
+        elif stage not in DEAD_STAGES:
+            totals_extra["pipeline_value"] += amount
+
+        dwk = week_key(created_deal)
+        if dwk:
+            weekly[dwk]["deals"] += 1
+            if attended:
+                weekly[dwk]["dc_held"] += 1
+
+        results.append({
+            "name": label.get("name") or "", "company": label.get("company") or "",
+            "email": label.get("email") or "",
+            "campaign": "Not on a saved sendlist", "campaign_id": "",
+            "sector": "", "deal": dprops.get("dealname") or "", "deal_id": deal_id,
+            "stage": STAGE_LABELS.get(stage, stage), "stage_id": stage,
+            "attribution": "lead source", "lead_source": dprops.get("lead_source") or "",
+            "in_bd_pipeline": (dprops.get("pipeline") == BD_PIPELINE_ID),
+            "amount": amount,
+            "created": created_deal.strftime("%Y-%m-%d") if created_deal else "",
+            "dc_held": attended, "won": won, "dead": stage in DEAD_STAGES,
+        })
+    if missing:
+        print("   %d tagged deal(s) added that the registry could not reach" % len(missing))
+
     # ── Totals ───────────────────────────────────────────────────────────────
     camp_rows = [c for c in per_camp.values() if c["sent"] > 0]
     for row in camp_rows:
@@ -871,11 +981,13 @@ def build():
         # traceable; the page does not present it as engagement.
         "thread_notifications": sum(r["notifications"] for r in camp_rows),
         "engaged":        sum(r["engaged"] for r in camp_rows),
-        "deals":          sum(r["deals"] for r in camp_rows),
-        "dc_held":        sum(r["dc_held"] for r in camp_rows),
-        "won":            sum(r["won"] for r in camp_rows),
-        "pipeline_value": round(sum(r["pipeline_value"] for r in camp_rows), 2),
-        "won_value":      round(sum(r["won_value"] for r in camp_rows), 2),
+        "deals":          sum(r["deals"] for r in camp_rows) + int(totals_extra["deals"]),
+        "dc_held":        sum(r["dc_held"] for r in camp_rows) + int(totals_extra["dc_held"]),
+        "won":            sum(r["won"] for r in camp_rows) + int(totals_extra["won"]),
+        "pipeline_value": round(sum(r["pipeline_value"] for r in camp_rows)
+                                + totals_extra["pipeline_value"], 2),
+        "won_value":      round(sum(r["won_value"] for r in camp_rows)
+                                + totals_extra["won_value"], 2),
     }
     totals["deal_rate"] = round(100.0 * totals["deals"] / totals["sent"], 1) if totals["sent"] else 0.0
     totals["dc_rate"]   = round(100.0 * totals["dc_held"] / totals["sent"], 1) if totals["sent"] else 0.0

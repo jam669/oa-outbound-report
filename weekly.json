@@ -2,6 +2,38 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
+   "week": "2026-09-14",
+   "label": "Sep 14–18",
+   "headline": "The engine produced a live sales conversation — first held DC from our own outbound, and Neighbor reached client reference checks.",
+   "outreach": 970,
+   "linkedin": 0,
+   "connected_email": 4,
+   "dc_held": 1,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Follow-up sweeps",
+     662
+    ],
+    [
+     "Cold first-touch",
+     308
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Discovery Call held Sep 18 — Jerry Saballus at Corrugator, sourced directly from our own outbound rather than an inbound lead. He already runs three Philippines-based VAs and wants a top-tier EA to set standards and coach them, ideally hired before Dec 1. Only blocker is budget clarity while he switches accountants; next step is the deposit to schedule a kick-off.",
+    "Neighbor reached client reference checks — the deepest that deal has gone. The first two did not land: Rene Shalita was a use-case mismatch (small specialised accounting team vs Neighbor needing direct-sales agents at scale), and Audrey Bravo no-showed. Mark has asked for better-matched references and is out of office all next week, so line up clients running scaled direct-sales teams for his return.",
+    "Follow-up sweeps (662) — the Sep 16 second-touch cost-comparison across US/UK plus healthcare re-touches, and a Sep 18 third-touch pass on the UK vendor-registration list (banks, insurers, retail, rail, utilities, universities).",
+    "Cold first-touch (308) into new verticals: AU/generic SMB (149), US/AU healthcare (66), hospitality (32 — student accommodation, hotels, holiday parks), founder-stage tech/SaaS (24), IT-support reqs and one PE fund. No vendor-manager first-touch this week; those originals went out Sep 3 and this was the follow-up layer.",
+    "List hygiene: 12 bounces, 1 opt-out suppressed; kept mining out-of-office replies for named successors (Pentec Health → Darren Leatherman)."
+   ],
+   "connected_detail": [
+    "4 replies"
+   ]
+  },
+  {
    "week": "2026-09-07",
    "label": "Sep 7–12",
    "headline": "High volume translating into quality — Neighbor into final security requirements and two approved-vendor pathways opened.",
@@ -332,9 +364,11 @@
   }
  ],
  "deal_notes": [
-  "Neighbor — advanced past the proposal to security and access requirements for the sales pod. Commitments drafted (restricted-access facility, clean-desk policy, locked-down endpoints, NBI-cleared agents); full specs to follow. No deal stage change yet, so the figures above are unchanged.",
-  "Approved-vendor pathways open at Gold Coast Council (via VendorPanel, their route for sub-$5M engagements) and United Utilities (via Achilles UVDB and Find a Tender). Neither is a deal — they are supplier-list registrations, which is what this campaign is aiming at.",
-  "Hanover — vendor proposal submitted, no discovery call held, so no deal exists in HubSpot. They review passed proposals monthly; follow-up due this week.",
-  "Referral trails still live and not yet deals: Great British Railways (via LNER) and A2Dominion's People Services team, who own the preferred-supplier list."
+  "Corrugator — DC held Sep 18 and the deal exists in HubSpot (“Corrugator - EA”, DC Completed, $600), but its Lead Source reads “Others”, so it is NOT counted in the figures above. Changing that field to “Vendor Campaign” makes it appear here automatically on the next refresh.",
+  "Neighbor — into client reference checks, the deepest stage yet. The first two references did not land (use-case mismatch, and a no-show); Mark has asked for clients running scaled direct-sales teams and is out of office all next week. PCI attestation still in play.",
+  "Gold Coast Council — supplier information is on file, but probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
+  "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation can overcome.",
+  "Hanover — monthly proposal review, follow-up ongoing. No discovery call held, so no deal exists.",
+  "Great British Railways (via LNER) remains a live referral trail, not yet a deal."
  ]
 }
