@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22 03:10 Manila",
+ "generated": "2026-09-26 08:22 Manila",
  "week_label": "21–27 Sep",
  "portal_id": "44390857",
  "totals": {
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 12863,
-  "contacted_this_week": 2,
+  "contacted_this_week": 56,
   "connected": 40,
   "connected_rate": 0.31
  },
@@ -771,8 +771,8 @@
    "touches": 315,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 89,
-   "new_people": 87,
+   "contacted": 88,
+   "new_people": 86,
    "outreach": 839,
    "connected": 7
   },
@@ -867,7 +867,7 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 667,
+   "contacted": 666,
    "new_people": 3,
    "outreach": 1630,
    "connected": 6
@@ -879,7 +879,7 @@
    "touches": 1,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 8,
+   "contacted": 6,
    "new_people": 2,
    "outreach": 970,
    "connected": 4
@@ -891,8 +891,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 2,
-   "new_people": 0,
+   "contacted": 56,
+   "new_people": 49,
    "outreach": 0,
    "connected": 0
   }
