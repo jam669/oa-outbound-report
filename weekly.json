@@ -31,7 +31,34 @@
     "Humana nudged again at eight months in, leading with the pharmacy piece — still quiet. List hygiene: 1 bounce, 2 opt-outs suppressed."
    ],
    "connected_detail": [
-    "4 replies"
+    {
+     "who": "Brendan Meehan",
+     "company": "K49A Media",
+     "role": "SEO Strategy Manager",
+     "date": "2026-09-22",
+     "outcome": "Declined",
+     "summary": "Replied to the third-touch close-out with a flat no.",
+     "quote": "NOT NOW"
+    },
+    {
+     "who": "Bernadette Van Kleef",
+     "company": "Mortgage Choice (AU)",
+     "role": "on behalf of Theo Krinos",
+     "date": "2026-09-21",
+     "outcome": "Declined — contact retired, opt-out",
+     "summary": "Theo Krinos has retired; she asked to be removed and explicitly refused to be added herself. Both suppressed.",
+     "quote": "Please be advised Theo has retired. Please remove him from your distribution list. DO NOT add my details as I DO NOT wish to receive your emails."
+    },
+    {
+     "who": "Mark Bailey",
+     "company": "Neighbor",
+     "role": "buyer on the live 10-agent deal",
+     "date": "2026-09-21",
+     "outcome": "Live deal — timing correction",
+     "summary": "Corrected his availability: away that week, not the following one, and back in office Monday 28 Sep. This is what set the deadline for prepping the three replacement references.",
+     "quote": "Thanks, but I'm actually away this week... not next. I'll be back in office on Monday 9/28"
+    },
+    "1 further reply not separately identified in the inbox sweep"
    ]
   },
   {
@@ -63,7 +90,34 @@
     "List hygiene: 12 bounces, 1 opt-out suppressed; kept mining out-of-office replies for named successors (Pentec Health → Darren Leatherman)."
    ],
    "connected_detail": [
-    "4 replies"
+    {
+     "who": "Johnny Banger",
+     "company": "Places for People",
+     "role": "Head of Complaints",
+     "date": "2026-09-18",
+     "outcome": "Declined — sector-level disqualifier",
+     "summary": "The reply that closed the whole UK housing-association vertical: housing does not outsource contact work at all, so no accreditation route would have helped.",
+     "quote": "In housing, we don't outsource service/calls like the private sector so this is not something we would consider."
+    },
+    {
+     "who": "Richard Blake",
+     "company": "Bellway",
+     "role": "Head of Customer Care",
+     "date": "2026-09-18",
+     "outcome": "Declined — redirected to Group office",
+     "summary": "Not a buyer at his level, but pointed us at Bellway's Group office in Newcastle as the place that would know the process.",
+     "quote": "We don't outsource or use a service such as yours. You can try and contact our Group office in Newcastle. They will be able to advise you."
+    },
+    {
+     "who": "Mark Bailey",
+     "company": "Neighbor",
+     "role": "buyer on the live 10-agent deal",
+     "date": "2026-09-18",
+     "outcome": "Live deal — reference feedback",
+     "summary": "Fed back on the first reference call: Rene Shalita was a good conversation but the wrong use case, which is what triggered the search for scaled direct-sales references.",
+     "quote": "We met with Rene Shalita. Nice guy, however his use case with your program is drastically different than what [we need]."
+    },
+    "1 further reply not separately identified in the inbox sweep"
    ]
   },
   {
