@@ -1,6 +1,6 @@
 {
- "generated": "2026-09-26 13:41 Manila",
- "week_label": "21–27 Sep",
+ "generated": "2026-09-28 21:27 Manila",
+ "week_label": "28 Sep – 4 Oct",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
@@ -18,10 +18,10 @@
   "won_value": 0.0,
   "deal_rate": 0.1,
   "dc_rate": 0.1,
-  "outreach": 12863,
-  "contacted_this_week": 56,
-  "connected": 40,
-  "connected_rate": 0.31
+  "outreach": 13328,
+  "contacted_this_week": 0,
+  "connected": 44,
+  "connected_rate": 0.33
  },
  "campaigns": [
   {
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-07-06",
-   "label": "6–12 Jul",
-   "sent": 128,
-   "touches": 128,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 9,
-   "new_people": 8,
-   "outreach": 0,
-   "connected": 0
-  },
-  {
    "week": "2026-07-13",
    "label": "13–19 Jul",
    "sent": 314,
@@ -893,19 +881,64 @@
    "dc_held": 0,
    "contacted": 56,
    "new_people": 49,
+   "outreach": 465,
+   "connected": 4
+  },
+  {
+   "week": "2026-09-28",
+   "label": "28 Sep – 4 Oct",
+   "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 0,
+   "new_people": 0,
    "outreach": 0,
    "connected": 0
   }
  ],
  "outreach": {
-  "total": 12863,
+  "total": 13328,
   "attributed": null,
   "unattributed": null,
-  "this_week": 970,
+  "this_week": 465,
   "top_unknown": [],
   "source": "weekly update (EOW)"
  },
  "weekly": [
+  {
+   "week": "2026-09-21",
+   "label": "Sep 21–26",
+   "headline": "Lower volume but higher touch — every opener hand-crafted, with both live deals a step from moving.",
+   "outreach": 465,
+   "linkedin": 0,
+   "connected_email": 4,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Follow-ups",
+     353
+    ],
+    [
+     "Cold first-touch",
+     112
+    ]
+   ],
+   "channels_excluded": [],
+   "highlights": [
+    "Corrugator — recommendation sent after last week's DC (one senior office-based executive assistant, ~$2,400/mo all-in, $199 to start) plus a check-in on Sep 26. No reply yet: Jerry is working the budget through his new accounting team, so the ball is in his court. Still warm.",
+    "Neighbor — Mark is back in office Monday 28 Sep. Ops has three better-matched references lined up (Mirion, Adaugeo and a fashion/footwear brand) that mirror Neighbor's scaled direct-sales use case, ready for his return. Still the priority account.",
+    "Follow-ups (353) — mostly non-templated second and third-touch circle-backs, including 82 “the part I left out” close-outs, across healthcare/health-tech, hospitality, e-commerce/retail ops and finance/ops leaders.",
+    "Cold first-touch (112) — all hand-crafted openers built on career history and operational pain rather than templates: US e-commerce/DTC CX leaders (Warby Parker, Hims & Hers, J.Crew, Kendra Scott), UK e-commerce/retail (ASOS, Selfridges, Currys, Pets at Home), AU aged care and holiday parks (G'day Group, Ingenia, Keyton), and US student housing / outdoor hospitality (American Campus, Sun Communities, KOA).",
+    "Throughput note: Claude usage limits were hit several times, so more research and writing was done by hand. The upside is more personalised copy; the trade-off is slower per email. Claude capacity is effectively the throttle on how far personalisation and volume can run at once.",
+    "Humana nudged again at eight months in, leading with the pharmacy piece — still quiet. List hygiene: 1 bounce, 2 opt-outs suppressed."
+   ],
+   "connected_detail": [
+    "4 replies"
+   ]
+  },
   {
    "week": "2026-09-14",
    "label": "Sep 14–18",
@@ -1269,10 +1302,10 @@
   }
  ],
  "weekly_status": {
-  "current_week": "2026-09-21",
-  "current_label": "21–27 Sep",
-  "latest_reported": "2026-09-14",
-  "latest_label": "Sep 14–18",
+  "current_week": "2026-09-28",
+  "current_label": "28 Sep – 4 Oct",
+  "latest_reported": "2026-09-21",
+  "latest_label": "Sep 21–26",
   "weeks_behind": 1,
   "awaiting_report": true
  },
@@ -1320,10 +1353,11 @@
  ],
  "excluded_deals": [],
  "deal_notes": [
-  "Corrugator — DC held Sep 18 and the deal exists in HubSpot (“Corrugator - EA”, DC Completed, $600), but its Lead Source reads “Others”, so it is NOT counted in the figures above. Changing that field to “Vendor Campaign” makes it appear here automatically on the next refresh.",
-  "Neighbor — into client reference checks, the deepest stage yet. The first two references did not land (use-case mismatch, and a no-show); Mark has asked for clients running scaled direct-sales teams and is out of office all next week. PCI attestation still in play.",
+  "Corrugator — recommendation sent (~$2,400/mo all-in, $199 to start) and checked in Sep 26; waiting on Jerry's budget with his new accounting team. The deal exists in HubSpot (“Corrugator - EA”, DC Completed, $600) but its Lead Source still reads “Others”, so it is NOT counted in the figures above. Changing that one field to “Vendor Campaign” makes it appear here automatically on the next refresh.",
+  "Neighbor — in reference checks, the deepest stage yet. Three better-matched references (Mirion, Adaugeo, a fashion/footwear brand) are prepped for Mark's return on 28 Sep. PCI attestation still in play.",
+  "Humana — nudged again at eight months, leading with the pharmacy piece. Still quiet.",
   "Gold Coast Council — supplier information is on file, but probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
-  "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation can overcome.",
+  "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation overcomes.",
   "Hanover — monthly proposal review, follow-up ongoing. No discovery call held, so no deal exists.",
   "Great British Railways (via LNER) remains a live referral trail, not yet a deal."
  ],
