@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28 21:44 Manila",
+ "generated": "2026-10-03 08:56 Manila",
  "week_label": "28 Sep – 4 Oct",
  "portal_id": "44390857",
  "totals": {
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 13328,
-  "contacted_this_week": 0,
+  "contacted_this_week": 32,
   "connected": 44,
   "connected_rate": 0.33
  },
@@ -759,7 +759,7 @@
    "touches": 315,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 88,
+   "contacted": 87,
    "new_people": 86,
    "outreach": 839,
    "connected": 7
@@ -771,8 +771,8 @@
    "touches": 270,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 335,
-   "new_people": 210,
+   "contacted": 334,
+   "new_people": 209,
    "outreach": 1394,
    "connected": 7
   },
@@ -807,7 +807,7 @@
    "touches": 170,
    "deals": 2,
    "dc_held": 2,
-   "contacted": 472,
+   "contacted": 471,
    "new_people": 452,
    "outreach": 563,
    "connected": 2
@@ -831,8 +831,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 23,
-   "new_people": 16,
+   "contacted": 22,
+   "new_people": 15,
    "outreach": 1540,
    "connected": 3
   },
@@ -879,8 +879,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 56,
-   "new_people": 49,
+   "contacted": 47,
+   "new_people": 40,
    "outreach": 465,
    "connected": 4
   },
@@ -891,8 +891,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 0,
-   "new_people": 0,
+   "contacted": 32,
+   "new_people": 19,
    "outreach": 0,
    "connected": 0
   }
