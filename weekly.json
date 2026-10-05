@@ -2,6 +2,71 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
+   "week": "2026-09-28",
+   "label": "Sep 28 – Oct 3",
+   "headline": "Neighbor stepped up into a formal RFP, and two new channels went into trial alongside the email engine.",
+   "outreach": 338,
+   "linkedin": 100,
+   "connected_email": 1,
+   "dc_held": 0,
+   "proposals": 0,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Follow-up sweep (“Re:”)",
+     239
+    ],
+    [
+     "Cold first-touch",
+     99
+    ]
+   ],
+   "channels_excluded": [],
+   "trial_channels": [
+    {
+     "name": "Targeted calls dialled",
+     "value": 75,
+     "detail": "3 answered (~4%), 2 no current need, 1 live conversation (MFM Media)"
+    },
+    {
+     "name": "LinkedIn connection requests",
+     "value": 100,
+     "detail": "12 accepted (12%), now awaiting first responses"
+    }
+   ],
+   "highlights": [
+    "Neighbor went formal — Mark Bailey sent a detailed six-section RFP asking for a full itemised rate card for a second Philippines site, with PCI-DSS flagged as critical because their agents take card payments. That is vendor-comparison mode and the deepest this deal has gone. Itemised response due Monday EOD, call booked Tue 6 / Wed 7 Oct with Derek joining. Outstanding on our side: the Mirion reference.",
+    "Two new channels went into trial: a targeted, prioritised call list (75 dialled, 3 answered, 1 live conversation) and LinkedIn (100 requests, 12 accepted). First run — read these as a baseline, not a benchmark against prior high-volume weeks.",
+    "Email engine kept running at 338 sends: 239 “Re:” follow-ups and ~99 first touches, plus call and proposal follow-ups.",
+    "Deliberate shift from maximising volume to higher-quality prioritised prospects. Email volume is down accordingly — that is the strategy working as intended, not the engine slowing."
+   ],
+   "connected_detail": [
+    {
+     "who": "Mark Bailey",
+     "company": "Neighbor",
+     "role": "buyer on the live 10-agent deal",
+     "date": "2026-10-01",
+     "outcome": "Live deal — formal RFP issued",
+     "summary": "Six-section RFP requesting a full itemised rate card for a second Philippines site, with PCI-DSS flagged as critical. Formal vendor-comparison mode, call booked Oct 6/7 with Derek.",
+     "quote": "Full itemised rate card / cost breakdown for a second Philippines site — PCI-DSS critical."
+    }
+   ],
+   "connected_excluded": [
+    {
+     "who": "Michael Sundo (CFO, Glimcher Group) — asked to reconnect in November",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    },
+    {
+     "who": "Parisa Wang — agreed to proceed, $199 deposit link sent, kickoff being scheduled",
+     "reason": "Lead Source is “OA Derek” — Derek-sourced, not this campaign"
+    },
+    {
+     "who": "Brandon Price (MFM Media) — live dial connect, two pricing options sent",
+     "reason": "reached by phone on an existing account (deal opened Jul 2025), not a campaign email"
+    }
+   ]
+  },
+  {
    "week": "2026-09-21",
    "label": "Sep 21–26",
    "headline": "Lower volume but higher touch — every opener hand-crafted, with both live deals a step from moving.",
@@ -451,10 +516,10 @@
   }
  ],
  "deal_notes": [
-  "Corrugator — recommendation sent (~$2,400/mo all-in, $199 to start) and checked in Sep 26; waiting on Jerry's budget with his new accounting team. The deal exists in HubSpot (“Corrugator - EA”, DC Completed, $600) but its Lead Source still reads “Others”, so it is NOT counted in the figures above. Changing that one field to “Vendor Campaign” makes it appear here automatically on the next refresh.",
-  "Neighbor — in reference checks, the deepest stage yet. Three better-matched references (Mirion, Adaugeo, a fashion/footwear brand) are prepped for Mark's return on 28 Sep. PCI attestation still in play.",
-  "Humana — nudged again at eight months, leading with the pharmacy piece. Still quiet.",
-  "Gold Coast Council — supplier information is on file, but probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
+  "Neighbor — now in a formal six-section RFP: full itemised rate card for a second Philippines site, PCI-DSS flagged as critical. Itemised response due Monday EOD; call booked Tue 6 / Wed 7 Oct with Derek. The Mirion reference is the one item still owed from our side.",
+  "Corrugator — DC held 18 Sep and the deal exists in HubSpot (“Corrugator - EA”, DC Completed, $600), but its Lead Source still reads “Others”, so it is NOT counted above. Changing that field to “Vendor Campaign” makes it appear here automatically on the next refresh.",
+  "Parisa Wang moved to deposit stage this week ($199 link sent, kickoff being scheduled), but her deal is tagged Lead Source “OA Derek” — Derek-sourced, so it belongs to a different motion and is deliberately not counted in this campaign's figures.",
+  "Gold Coast Council — supplier information on file; probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
   "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation overcomes.",
   "Hanover — monthly proposal review, follow-up ongoing. No discovery call held, so no deal exists.",
   "Great British Railways (via LNER) remains a live referral trail, not yet a deal."
