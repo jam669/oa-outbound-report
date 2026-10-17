@@ -1,6 +1,6 @@
 {
- "generated": "2026-10-10 14:32 Manila",
- "week_label": "5–11 Oct",
+ "generated": "2026-10-17 08:09 Manila",
+ "week_label": "12–18 Oct",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 13666,
-  "contacted_this_week": 391,
+  "contacted_this_week": 20,
   "connected": 45,
   "connected_rate": 0.33
  },
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-07-20",
-   "label": "20–26 Jul",
-   "sent": 258,
-   "touches": 270,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 334,
-   "new_people": 209,
-   "outreach": 1394,
-   "connected": 7
-  },
-  {
    "week": "2026-07-27",
    "label": "27 Jul – 2 Aug",
    "sent": 665,
@@ -831,7 +819,7 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 622,
+   "contacted": 621,
    "new_people": 11,
    "outreach": 2151,
    "connected": 5
@@ -867,8 +855,8 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 25,
-   "new_people": 20,
+   "contacted": 14,
+   "new_people": 9,
    "outreach": 465,
    "connected": 4
   },
@@ -891,14 +879,26 @@
    "touches": 16,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 391,
-   "new_people": 64,
+   "contacted": 386,
+   "new_people": 61,
+   "outreach": 0,
+   "connected": 0
+  },
+  {
+   "week": "2026-10-12",
+   "label": "12–18 Oct",
+   "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 20,
+   "new_people": 3,
    "outreach": 0,
    "connected": 0
   }
  ],
  "outreach": {
-  "total": 12827,
+  "total": 11433,
   "attributed": null,
   "unattributed": null,
   "this_week": 338,
@@ -1421,11 +1421,11 @@
   }
  ],
  "weekly_status": {
-  "current_week": "2026-10-05",
-  "current_label": "5–11 Oct",
+  "current_week": "2026-10-12",
+  "current_label": "12–18 Oct",
   "latest_reported": "2026-09-28",
   "latest_label": "Sep 28 – Oct 3",
-  "weeks_behind": 1,
+  "weeks_behind": 2,
   "awaiting_report": true
  },
  "results": [
