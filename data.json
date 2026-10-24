@@ -1,13 +1,13 @@
 {
- "generated": "2026-10-20 19:11 Manila",
+ "generated": "2026-10-24 08:15 Manila",
  "week_label": "19–25 Oct",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
   "targeted": 1937,
   "sent": 1894,
-  "touches": 3669,
-  "followups": 1775,
+  "touches": 3671,
+  "followups": 1777,
   "never_sent": 43,
   "thread_notifications": 881,
   "engaged": 5,
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 14567,
-  "contacted_this_week": 65,
+  "contacted_this_week": 118,
   "connected": 49,
   "connected_rate": 0.34
  },
@@ -30,8 +30,8 @@
    "sector": "Vendor Managers",
    "targeted": 167,
    "sent": 133,
-   "touches": 240,
-   "followups": 107,
+   "touches": 242,
+   "followups": 109,
    "engaged": 1,
    "deals": 2,
    "dc_held": 2,
@@ -843,7 +843,7 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 14,
+   "contacted": 13,
    "new_people": 9,
    "outreach": 465,
    "connected": 4
@@ -867,7 +867,7 @@
    "touches": 15,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 324,
+   "contacted": 323,
    "new_people": 0,
    "outreach": 619,
    "connected": 3
@@ -891,8 +891,8 @@
    "touches": 1,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 65,
-   "new_people": 0,
+   "contacted": 118,
+   "new_people": 50,
    "outreach": 0,
    "connected": 0
   }
