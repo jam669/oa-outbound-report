@@ -2,13 +2,76 @@
  "_comment": "Weekly update from the EOW sent each Friday. `outreach` counts vendor-campaign EMAILS sent (follow-ups included); candidate-sourcing and other non-campaign work is moved to channels_excluded and never counted; LinkedIn is tracked in `linkedin`, separate from the email total. `connected_email` is genuine human replies only — NOT HubSpot's reply field, which logs Mailsuite 'not opened yet' notifications as replies and is therefore unusable. Keyed by the Monday opening the week. A reply only counts if it came from the vendor campaign: reconnected pipeline leads reached through separate follow-up work are listed in connected_excluded and deducted from connected_email.",
  "weeks": [
   {
+   "week": "2026-10-19",
+   "label": "Oct 19–24",
+   "headline": "JCPS landed its discovery call and moved straight to proposal — the hottest thread in the pipeline.",
+   "outreach": 286,
+   "linkedin": 0,
+   "connected_email": 2,
+   "dc_held": 1,
+   "proposals": 1,
+   "deals_in_delivery": 0,
+   "channels": [
+    [
+     "Cold first-touch and systematic second-touches",
+     286
+    ]
+   ],
+   "channels_excluded": [],
+   "trial_channels": [
+    {
+     "name": "UK warm-call block",
+     "value": 3,
+     "detail": "3 conversations — 1 nurture to Q1 2027 (Gerald, Data Migrator), 2 not interested (Ali at PedalRange; Jack Whitehead asked to be removed and is suppressed)"
+    }
+   ],
+   "highlights": [
+    "JCPS Mechanical (Ireland) — discovery call held Mon 19 Oct with Brian O'Toole, Colm and John Corr, Derek joining. A construction/engineering firm in a tight local talent market wanting one senior plus two junior engineers, with remote pre-construction, document control and project coordination. They already run a remote BIM team in Ukraine, so the model is familiar. Brian sent the engineer JDs on 22 Oct and the proposal and feasibility were built and ready by 23 Oct.",
+    "Outreach held at 286: a US-CPA and UK/IE accounting push early in the week, a smaller US tech/SaaS batch, and systematic second touches. Fresh cold batches usually mature into replies the following week, so this week's sends are not yet reflected in the reply count.",
+    "A UK warm-call block produced three conversations: Gerald at Data Migrator is reorganising after losing a major client and is open in a few months (nurture into Q1 2027), Ali at PedalRange is automating in-house, and Jack Whitehead asked to be removed and has been suppressed.",
+    "Neighbor has been quiet for roughly two weeks since the rate card; a light value-add nudge went out 22 Oct. Derek has asked for an unusual, attention-grabbing way back in — something physical rather than another email.",
+    "Two new strategic workstreams opened alongside the campaign: groundwork for the OA AI Automation product line (positioning, packaging, pricing, with Jam leading sales), and feasibility research for Arnold's non-government RFP initiative. Neither is campaign outreach, so neither affects the figures above.",
+    "Client delivery progressed with Aaron's team — thriViae's first hire Manuel is going live, and Pineapple Audio and Siegel Design are both moving through onboarding. All are other-sourced accounts."
+   ],
+   "connected_detail": [
+    {
+     "who": "Brian O'Toole",
+     "company": "JCPS Mechanical (Ireland)",
+     "role": "buyer, construction/engineering",
+     "date": "2026-10-22",
+     "outcome": "Positive — JDs sent, proposal built",
+     "summary": "Followed the discovery call by sending the engineer job descriptions so we could price the work. Proposal and feasibility were ready the next day. Next step is landing it with Brian and Colm and booking the review.",
+     "quote": "Sent the engineer JDs so you can price it — 1 senior + 2 junior engineers, plus remote pre-construction, document control and project coordination."
+    },
+    {
+     "who": "Jenny Hayes",
+     "company": "Team JPG",
+     "role": "hiring manager",
+     "date": "2026-10-21",
+     "outcome": "Parked — solving internally for now",
+     "summary": "Pausing her PM hire to try solving it internally, and will circle back if they pursue it. Parked deliberately with no push.",
+     "quote": "Pausing the PM hire to try solving it internally — I'll circle back if we pursue it."
+    }
+   ],
+   "connected_excluded": [
+    {
+     "who": "Harcourts (Mustapha Abbas, NZ) — “I could be interested, a call's welcome”, catch-up invited",
+     "reason": "telemarketer-pilot revival on an account open since Oct 2024, not a campaign email"
+    },
+    {
+     "who": "Michael Sundo (Glimcher) — tracking for a November touch",
+     "reason": "reconnected pipeline lead, not vendor-campaign sourced"
+    }
+   ]
+  },
+  {
    "week": "2026-10-12",
    "label": "Oct 12–16",
    "headline": "A cold re-touch opened Ireland — JCPS replied, and a discovery call followed four days later.",
    "outreach": 282,
    "linkedin": 0,
    "connected_email": 1,
-   "dc_held": 1,
+   "dc_held": 0,
    "proposals": 0,
    "deals_in_delivery": 0,
    "channels": [
@@ -19,7 +82,7 @@
    ],
    "channels_excluded": [],
    "highlights": [
-    "JCPS (Ireland) is the campaign's own new opportunity. Colm Coyle — M&E / building services, 100+ staff — replied to a cold re-touch, named four target roles (Building Services Engineer, HVAC Engineer, Pipe Fitters/Plumbers, Estimators) and asked for a deck plus Irish/UK references. Discovery call held Mon 19 Oct; JDs requested to tailor the proposal. Strongest new lead of the week.",
+    "JCPS (Ireland) is the campaign's own new opportunity. Colm Coyle — M&E / building services, 100+ staff — replied to a cold re-touch, named four target roles (Building Services Engineer, HVAC Engineer, Pipe Fitters/Plumbers, Estimators) and asked for a deck plus Irish/UK references. The discovery call was booked out of this reply and held the following Monday, 19 Oct, so it is counted in that week.",
     "Two clients went into onboarding — Siegel (Senior US Bookkeeper/Accountant) and Pineapple Audio (NetSuite Bookkeeper, ~$1,200/mo for 20 hrs) — both moving DC to JD to onboarding inside a week. Both are Derek-sourced, so they sit outside this campaign's figures.",
     "Neighbor is still at final vendor comparison with no movement in the window; follow-up going out.",
     "Harcourts (Mustapha Abbas, NZ) came back warm off the telemarketer-pilot revival — “a call is welcomed” — and is being booked. That revival is a separate motion from this campaign."
@@ -652,10 +715,10 @@
   }
  ],
  "deal_notes": [
-  "JCPS (Ireland) — the campaign's own new opportunity: cold re-touch → reply → discovery call held 19 Oct. NO DEAL EXISTS IN HUBSPOT YET. Per the standing process a deal is created once a prospect has attended a DC — create it and tag Lead Source “Vendor Campaign” and it appears here automatically. Owed to Colm: a deck, Irish/UK references, and pricing once the JDs land.",
-  "Neighbor — final vendor comparison for the second Philippines site. Itemised rate card sent ($9.48/agent-hour, $16,491/mo for ten, co-managed); Mark asked for a call and Aaron is locking the time with Derek joining. No movement in the latest window; follow-up going out.",
-  "Corrugator — DC held 18 Sep and the deal exists (“Corrugator - EA”, DC Completed, $600), but its Lead Source still reads “Others”, so it is NOT counted above. One field change makes it count.",
-  "Three clients went into onboarding across the last two weeks — Parisa Wang, Siegel and Pineapple Audio — but all three are tagged Lead Source “OA Derek”, so they belong to a different motion and are deliberately excluded from this campaign's figures.",
+  "JCPS Mechanical — discovery call held 19 Oct, JDs received 22 Oct, proposal and feasibility ready 23 Oct. The deal now exists in HubSpot (“JCPS Mechanical - 1 Sr 2 Jr Engineers”, DC Completed) but its Lead Source reads “Others”, so it is NOT counted in the figures above. Changing that field to “Vendor Campaign” makes it count on the next refresh.",
+  "Corrugator — DC held 18 Sep, deal exists (“Corrugator - EA”, DC Completed, $600), Lead Source still “Others”, so also NOT counted. Two campaign-sourced discovery calls are now sitting uncounted for the same one-field reason.",
+  "Neighbor — quiet for roughly two weeks since the itemised rate card; a light value-add nudge went out 22 Oct. Derek wants an unusual, attention-grabbing re-entry that does not read as desperate, ideally something physical rather than another email.",
+  "Three clients onboarding — Parisa Wang, Siegel and Pineapple Audio — plus thriViae's first hire going live. All are tagged “OA Derek” or are existing accounts, so they belong to other motions and are deliberately excluded from this campaign's figures.",
   "Gold Coast Council — supplier information on file; probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
   "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation overcomes.",
   "Hanover — monthly proposal review, follow-up ongoing. No discovery call held, so no deal exists.",
