@@ -121,7 +121,13 @@ def render(name, payload):
     with open(HTML, encoding="utf-8") as fh:
         html = fh.read()
 
-    script = re.findall(r"<script>(.*?)</script>", html, re.S)[-1]
+    # Block order is: DATA, Vendor-Manager renderer, AI-DATA, AI renderer, tab
+    # switcher. Pick the renderer under test by what it defines, not by position
+    # — taking the last block silently tested the tab switcher instead.
+    blocks = re.findall(r"<script>(.*?)</script>", html, re.S)
+    matches = [b for b in blocks if '$("app").innerHTML' in b]
+    assert len(matches) == 1, "expected exactly one #app renderer, found %d" % len(matches)
+    script = matches[0]
     data_line = "const REPORT = %s;" % ("null" if payload is None else json.dumps(payload))
 
     js = DOM_STUB + "\n" + data_line + "\n" + script + """
