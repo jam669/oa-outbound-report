@@ -1,0 +1,32 @@
+{
+  "campaign": "New Product: AI Automation Outreach",
+  "launched": "2026-11-09",
+  "product": "Full-time PH AI engineer embedded in the client's team, with OA senior architects reviewing every release. Client owns the code; month-to-month.",
+  "offer": "Free 30-minute AI Opportunity Scan (top three things worth automating). A one-page cost comparison only when the trigger is an AI-role hire.",
+  "pilot_targets": [
+    {"label": "AI Opportunity Scans booked", "target": "3–5"},
+    {"label": "Positive replies (cold)", "target": "2–3"},
+    {"label": "Audits or proposals", "target": "1"}
+  ],
+  "waves": [
+    {"id": "W1", "date": "2026-11-09", "trigger": "Warm past BD deals + live AI/back-office job posts", "angle": "Personal re-open or 'before you hire' automation check", "offer": "AI Opportunity Scan / cost comparison"},
+    {"id": "W2", "date": "2026-11-09", "trigger": "Back-office job posts + CV-list add-ons", "angle": "'Before you hire' automation check", "offer": "AI Opportunity Scan"},
+    {"id": "W3", "date": "2026-11-09", "trigger": "Live back-office job post (AP, AR, billing, payroll, data entry)", "angle": "'Before you hire the {role}': automate first, staff if needed", "offer": "AI Opportunity Scan"},
+    {"id": "W4", "date": "2026-11-10", "trigger": "Live back-office job post (verified before enrichment)", "angle": "'Before you hire the {role}'", "offer": "AI Opportunity Scan"},
+    {"id": "W5", "date": "2026-11-10", "trigger": "Newly appointed Head/Director of AI (<200 days in seat)", "angle": "More AI ideas than builders: add an embedded engineer", "offer": "One-page 90-day build outline"},
+    {"id": "W6", "date": "2026-11-10", "trigger": "Newly appointed VP Ops / COO / CFO (20–120 days), 51–1,000 staff", "angle": "A quick, visible ops win: automate one manual process", "offer": "AI Opportunity Scan"},
+    {"id": "W7", "date": "2026-11-10", "trigger": "Newly appointed VP Ops / COO / CFO, 501–1,000 staff", "angle": "Quick ops / finance win (CFOs get finance examples)", "offer": "AI Opportunity Scan"}
+  ],
+  "funnel": [
+    {"wave": "W3", "enriched": 97, "sent": 32, "note": "Apollo job filter ~50% wrong; posts verified by hand"},
+    {"wave": "W4", "enriched": 15, "sent": 8, "note": "Posts verified before enrichment, which cut credit waste ~5x"},
+    {"wave": "W5", "enriched": 42, "sent": 16, "note": "~60% cut by teammate ownership or recent contact"},
+    {"wave": "W6", "enriched": 80, "sent": 30, "note": "PJ owns ~half of sub-500 ops-leader companies"},
+    {"wave": "W7", "enriched": 30, "sent": 19, "note": "500+ only, so PJ accounts are allowed (Arnold's rule)"}
+  ],
+  "followups": [
+    {"waves": "W1–W4", "due": "2026-11-14", "note": "Threaded reply, no new ask"},
+    {"waves": "W5–W7", "due": "2026-11-17", "note": "Threaded reply, no new ask"}
+  ],
+  "gates": "Every send passed: HubSpot company owner + last-contacted (no other rep's live accounts, nothing touched since 10 Sep), HubSpot contact last-email-send, Gmail sent history, all campaign contact logs, DNC/suppression list and client domains. Drafts were held 2 minutes before sending."
+}

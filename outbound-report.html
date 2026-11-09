@@ -197,23 +197,86 @@
     h1 { font-size: 22px; }
     .kpi-value { font-size: 25px; }
   }
+
+  /* ── Tabs ──────────────────────────────────────────────────────────────── */
+  .tabs {
+    display: flex; gap: 4px; flex-wrap: wrap; margin: 4px 0 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab {
+    background: none; border: 0; border-bottom: 2px solid transparent;
+    color: var(--muted); font: inherit; font-size: 13.5px; font-weight: 650;
+    padding: 10px 14px 11px; margin-bottom: -1px; cursor: pointer;
+  }
+  .tab:hover { color: var(--text); }
+  .tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  .tab .new {
+    font-size: 10px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase;
+    color: #f0b6f7; background: rgba(192,38,211,.18); border: 1px solid rgba(192,38,211,.45);
+    border-radius: 999px; padding: 1px 7px; margin-left: 6px; vertical-align: 1px;
+  }
+
+  /* ── AI Automation tab ─────────────────────────────────────────────────── */
+  .ai-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+  .ai-two > .panel { margin-bottom: 0; min-width: 0; }
+  #tab-ai, #tab-vm { min-width: 0; }
+  #tab-ai h1 { overflow-wrap: anywhere; }
+  .ai-stack { display: flex; flex-direction: column; gap: 20px; margin-bottom: 20px; }
+  .ai-def { font-size: 13px; margin-bottom: 10px; }
+  .ai-def b { display: block; font-size: 11.5px; color: var(--muted); font-weight: 650;
+              letter-spacing: .04em; text-transform: uppercase; margin-bottom: 2px; }
+  .ai-def:last-child { margin-bottom: 0; }
+  .ai-target { display: flex; justify-content: space-between; gap: 12px; font-size: 13px;
+               padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .ai-target:last-child { border-bottom: 0; }
+  .ai-target span:last-child { font-variant-numeric: tabular-nums; color: var(--muted); }
+  .ai-target b { color: var(--text); }
+  .pill.auto { color: var(--muted); border-color: var(--border); background: var(--surface2); }
+  .pill.won  { color: #7de3bb; border-color: rgba(15,157,107,.5); background: rgba(15,157,107,.12); }
+  .ai-filter { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .ai-filter .toggle[aria-pressed="true"] { color: var(--text); border-color: var(--accent); }
+  td.wrap-cell { white-space: normal; min-width: 220px; }
+  @media (max-width: 760px) { .ai-two { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="eyebrow">Outsource Accelerator · Business Development</div>
-    <h1>Outbound Weekly Report — Vendor Managers</h1>
-    <div class="sub" id="subline">Loading…</div>
-  </header>
+  <div class="eyebrow">Outsource Accelerator · Business Development</div>
+  <nav class="tabs" role="tablist" aria-label="Report sections">
+    <button class="tab" role="tab" id="tabbtn-vm" aria-controls="tab-vm" aria-selected="true">Vendor Managers</button>
+    <button class="tab" role="tab" id="tabbtn-ai" aria-controls="tab-ai" aria-selected="false" tabindex="-1">New Product: AI Automation Outreach<span class="new">New</span></button>
+  </nav>
 
-  <div id="app"></div>
+  <section id="tab-vm" role="tabpanel" aria-labelledby="tabbtn-vm">
+    <header>
+      <h1>Outbound Weekly Report — Vendor Managers</h1>
+      <div class="sub" id="subline">Loading…</div>
+    </header>
 
-  <footer>
-    Refreshes automatically every Saturday 06:00 Manila from HubSpot.
-    Campaign membership comes from the sendlists in <code>01_Campaigns/</code>;
-    sends and replies come from HubSpot email logging.
-  </footer>
+    <div id="app"></div>
+
+    <footer>
+      Refreshes automatically every Saturday 06:00 Manila from HubSpot.
+      Campaign membership comes from the sendlists in <code>01_Campaigns/</code>;
+      sends and replies come from HubSpot email logging.
+    </footer>
+  </section>
+
+  <section id="tab-ai" role="tabpanel" aria-labelledby="tabbtn-ai" hidden>
+    <header>
+      <h1>New Product: AI Automation Outreach</h1>
+      <div class="sub" id="ai-subline">Loading…</div>
+    </header>
+
+    <div id="ai-app"></div>
+
+    <footer>
+      Updated after each wave from the AI Automation contact log
+      (<code>01_Campaigns/AI-Automation/_CONTACT-LOG.csv</code>) via <code>build_ai_tab.py</code>.
+      Replies are logged by hand in <code>ai_replies.csv</code>. Company names only; no contact details are published.
+    </footer>
+  </section>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
@@ -733,6 +796,189 @@ const REPORT = {"generated": "2026-11-07 14:42 Manila", "week_label": "2–8 Nov
       e.target.textContent = wkEarlier.hidden ? "Earlier weeks" : "Hide earlier";
     });
   }
+})();
+</script>
+
+<script>
+/* AI-DATA-START */
+const AI_REPORT = {"generated": "2026-11-10 01:56 Manila", "campaign": "New Product: AI Automation Outreach", "launched": "2026-11-09", "product": "Full-time PH AI engineer embedded in the client's team, with OA senior architects reviewing every release. Client owns the code; month-to-month.", "offer": "Free 30-minute AI Opportunity Scan (top three things worth automating). A one-page cost comparison only when the trigger is an AI-role hire.", "gates": "Every send passed: HubSpot company owner + last-contacted (no other rep's live accounts, nothing touched since 10 Sep), HubSpot contact last-email-send, Gmail sent history, all campaign contact logs, DNC/suppression list and client domains. Drafts were held 2 minutes before sending.", "pilot_targets": [{"label": "AI Opportunity Scans booked", "target": "3–5"}, {"label": "Positive replies (cold)", "target": "2–3"}, {"label": "Audits or proposals", "target": "1"}], "funnel": [{"wave": "W3", "enriched": 97, "sent": 32, "note": "Apollo job filter ~50% wrong; posts verified by hand"}, {"wave": "W4", "enriched": 15, "sent": 8, "note": "Posts verified before enrichment, which cut credit waste ~5x"}, {"wave": "W5", "enriched": 42, "sent": 16, "note": "~60% cut by teammate ownership or recent contact"}, {"wave": "W6", "enriched": 80, "sent": 30, "note": "PJ owns ~half of sub-500 ops-leader companies"}, {"wave": "W7", "enriched": 30, "sent": 19, "note": "500+ only, so PJ accounts are allowed (Arnold's rule)"}], "followups": [{"waves": "W1–W4", "due": "2026-11-14", "note": "Threaded reply, no new ask"}, {"waves": "W5–W7", "due": "2026-11-17", "note": "Threaded reply, no new ask"}], "totals": {"emails": 117, "first_touches": 117, "companies": 117, "waves": 7, "human_replies": 0, "positive": 0, "scans": 0, "auto": 3, "bounced": 0}, "waves": [{"id": "W1", "date": "2026-11-09", "trigger": "Warm past BD deals + live AI/back-office job posts", "angle": "Personal re-open or 'before you hire' automation check", "offer": "AI Opportunity Scan / cost comparison", "sent": 7, "auto": 0, "replied": 0, "bounced": 0}, {"id": "W2", "date": "2026-11-09", "trigger": "Back-office job posts + CV-list add-ons", "angle": "'Before you hire' automation check", "offer": "AI Opportunity Scan", "sent": 5, "auto": 0, "replied": 0, "bounced": 0}, {"id": "W3", "date": "2026-11-09", "trigger": "Live back-office job post (AP, AR, billing, payroll, data entry)", "angle": "'Before you hire the {role}': automate first, staff if needed", "offer": "AI Opportunity Scan", "sent": 32, "auto": 1, "replied": 0, "bounced": 0}, {"id": "W4", "date": "2026-11-10", "trigger": "Live back-office job post (verified before enrichment)", "angle": "'Before you hire the {role}'", "offer": "AI Opportunity Scan", "sent": 8, "auto": 1, "replied": 0, "bounced": 0}, {"id": "W5", "date": "2026-11-10", "trigger": "Newly appointed Head/Director of AI (<200 days in seat)", "angle": "More AI ideas than builders: add an embedded engineer", "offer": "One-page 90-day build outline", "sent": 16, "auto": 0, "replied": 0, "bounced": 0}, {"id": "W6", "date": "2026-11-10", "trigger": "Newly appointed VP Ops / COO / CFO (20–120 days), 51–1,000 staff", "angle": "A quick, visible ops win: automate one manual process", "offer": "AI Opportunity Scan", "sent": 30, "auto": 1, "replied": 0, "bounced": 0}, {"id": "W7", "date": "2026-11-10", "trigger": "Newly appointed VP Ops / COO / CFO, 501–1,000 staff", "angle": "Quick ops / finance win (CFOs get finance examples)", "offer": "AI Opportunity Scan", "sent": 19, "auto": 0, "replied": 0, "bounced": 0}], "tracks": [{"track": "New ops / finance leader", "sent": 49}, {"track": "Back-office job post", "sent": 43}, {"track": "New AI leader", "sent": 16}, {"track": "AI / automation job post", "sent": 4}, {"track": "Warm: past BD deal", "sent": 3}, {"track": "CV-list add-on", "sent": 2}], "replies": [{"company": "Rubber-Inc", "wave": "W6", "type": "auto", "date": "2026-11-09", "note": "Out of office until 10 Nov"}, {"company": "Epstein Becker Green", "wave": "W4", "type": "auto", "date": "2026-11-09", "note": "Contact has left; auto-reply names a successor for finance"}, {"company": "Nusano", "wave": "W3", "type": "auto", "date": "2026-11-09", "note": "Out of office; auto-reply names an alternate contact"}], "sends": [{"company": "BCRemit", "wave": "W1", "touch": 1, "track": "Warm: past BD deal", "date": "2026-11-09", "status": "sent"}, {"company": "Black Hills Information Security", "wave": "W1", "touch": 1, "track": "Warm: past BD deal", "date": "2026-11-09", "status": "sent"}, {"company": "EX.CO", "wave": "W1", "touch": 1, "track": "AI / automation job post", "date": "2026-11-09", "status": "sent"}, {"company": "Guy M. Turner", "wave": "W1", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Manrkē", "wave": "W1", "touch": 1, "track": "Warm: past BD deal", "date": "2026-11-09", "status": "sent"}, {"company": "ORNL Federal Credit Union", "wave": "W1", "touch": 1, "track": "AI / automation job post", "date": "2026-11-09", "status": "sent"}, {"company": "Saxton & Stump", "wave": "W1", "touch": 1, "track": "AI / automation job post", "date": "2026-11-09", "status": "sent"}, {"company": "CCM - Chase Cost Management", "wave": "W2", "touch": 1, "track": "CV-list add-on", "date": "2026-11-09", "status": "sent"}, {"company": "Cypress Creek Renewables", "wave": "W2", "touch": 1, "track": "CV-list add-on", "date": "2026-11-09", "status": "sent"}, {"company": "Flow", "wave": "W2", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "PD Instore", "wave": "W2", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Speed Bay Warehouse Solutions", "wave": "W2", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Addgene", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "AJW Group", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Benore Logistic Systems", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Braman Pest", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Carlton Fields", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Double E", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Eagle Fire", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Famous Supply", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Hawley Troxell", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Impulse Space", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Infinitum", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "JCG Land Services", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Kinder's", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "LOGS Legal Group", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Maddocks", "wave": "W3", "touch": 1, "track": "AI / automation job post", "date": "2026-11-09", "status": "sent"}, {"company": "McCarter and English", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Mevotech", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Nusano", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "auto-reply"}, {"company": "O'Hagan Meyer", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Parkhill", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "PGAL", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Pleasant Valley Corporation", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Radformation", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Rapid Response Monitoring", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Tarter USA", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "TDX", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Trinidad Benham", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Weintraub Tobin", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "WGI", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Wholesale Electric", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Yoto", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Zenlayer", "wave": "W3", "touch": 1, "track": "Back-office job post", "date": "2026-11-09", "status": "sent"}, {"company": "Agility Robotics", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Batchelor & Kimball", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Cole Schotz", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Epstein Becker Green", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "auto-reply"}, {"company": "FWS Group", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Pratum Companies", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Protos Security", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Redwood Materials", "wave": "W4", "touch": 1, "track": "Back-office job post", "date": "2026-11-10", "status": "sent"}, {"company": "Best Egg", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Citypress", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Colombo & Hurd", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Cresset", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Ecovyst", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Fastmarkets", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Hope Family Wines", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "ISC", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Keller Postman", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "L&L Holding", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Lander & Rogers", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Lyra Collective", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Novaria", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "OnePoint BFG", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "OWN", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "Permian Resources", "wave": "W5", "touch": 1, "track": "New AI leader", "date": "2026-11-10", "status": "sent"}, {"company": "3.1 Phillip Lim", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Chosen Foods", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "CII Foods", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Concord Group Insurance", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Crenlo", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "EIS", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Everbrite", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "FIGS", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Hull Barrett", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Iconex", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Innovasea", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Maine Course Hospitality", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Maverick Power", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Midas Hospitality", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Mikros Engineering", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Norwood Medical", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "OLIPOP", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Oliver Packaging", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Red Dot Buildings", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Rigid Industrial", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Rubber-Inc", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "auto-reply"}, {"company": "Rubbercraft", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Sage Freight", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "SkyWater", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Southern Minnesota Beet Sugar", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Tanis", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Vivace", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "VMC Group", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Wausau Supply", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "WesTower", "wave": "W6", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Adolfson & Peterson", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Barts Electric", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Big Geyser", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Carris Reels", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Citadel Security USA", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Eddy Foods", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Fortis Construction", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Gardner White", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Inline Plastics", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Load Trail", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Loffredo Fresh Foods", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Michigan Milk Producers Association", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Milwaukee Electronics", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Parts ASAP", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Power Solutions International", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "R.H. White Construction", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Rycon Construction", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Talking Rain", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}, {"company": "Vantage Specialty Chemicals", "wave": "W7", "touch": 1, "track": "New ops / finance leader", "date": "2026-11-10", "status": "sent"}]};
+/* AI-DATA-END */
+</script>
+
+<script>
+/* New Product: AI Automation Outreach tab. Separate from the vendor-manager
+   report above so the weekly Action (which only rewrites DATA-START) never
+   touches it. Data is written by build_ai_tab.py. */
+(function () {
+  "use strict";
+  const $   = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g,
+    (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+  const num = (n) => (n == null ? "—" : Number(n).toLocaleString("en-US"));
+  const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const day = (iso) => { if (!iso) return "—"; const p = iso.split("-"); return +p[2] + " " + MONTHS[+p[1] - 1]; };
+
+  const D = typeof AI_REPORT !== "undefined" ? AI_REPORT : null;
+  if (!D) { $("ai-subline").textContent = "No data yet."; return; }
+  const T = D.totals;
+
+  $("ai-subline").innerHTML = "Launched " + esc(day(D.launched)) + " · updated " + esc(D.generated) +
+    " · " + num(T.waves) + " waves so far";
+
+  const STATUS = {
+    "sent":            ['<span class="pill src">Sent</span>', "Sent"],
+    "auto-reply":      ['<span class="pill auto">Auto-reply</span>', "Auto-reply"],
+    "bounced":         ['<span class="pill manual">Bounced</span>', "Bounced"],
+    "replied-positive":['<span class="pill won">Positive reply</span>', "Positive"],
+    "replied-scan":    ['<span class="pill won">Scan booked</span>', "Scan"],
+    "replied-neutral": ['<span class="pill live">Replied</span>', "Replied"],
+    "replied-negative":['<span class="pill manual">Not interested</span>', "No"],
+  };
+  const pill = (s) => (STATUS[s] || STATUS.sent)[0];
+
+  function kpis() {
+    const tiles = [
+      { label: "Emails sent", value: num(T.emails), meta: num(T.first_touches) + " first touches · " + num(T.waves) + " waves" },
+      { label: "Companies reached", value: num(T.companies), meta: "one decision-maker per company" },
+      { label: "Human replies", value: num(T.human_replies),
+        meta: T.human_replies ? num(T.positive) + " positive" : "too early: first sends " + esc(day(D.launched)) },
+      { label: "AI Scans booked", value: num(T.scans), meta: "pilot target 3–5", flag: !T.scans },
+      { label: "Auto-replies", value: num(T.auto), meta: num(T.bounced) + " bounced · OOO and leaver notices" },
+    ];
+    return '<div class="kpis">' + tiles.map((t) =>
+      '<div class="kpi' + (t.flag ? " flag" : "") + '"><div class="kpi-label">' + esc(t.label) +
+      '</div><div class="kpi-value">' + t.value + '</div><div class="kpi-meta">' + t.meta + "</div></div>"
+    ).join("") + "</div>";
+  }
+
+  function aboutPanels() {
+    const targets = (D.pilot_targets || []).map((p) => {
+      const have = /scan/i.test(p.label) ? T.scans : /positive/i.test(p.label) ? T.positive : 0;
+      return '<div class="ai-target"><span>' + esc(p.label) + '</span><span><b>' + num(have) +
+             "</b> of " + esc(p.target) + "</span></div>";
+    }).join("");
+    const fu = (D.followups || []).map((f) =>
+      '<div class="ai-target"><span>' + esc(f.waves) + " · " + esc(f.note) + "</span><span>due <b>" +
+      esc(day(f.due)) + "</b></span></div>").join("");
+    return '<div class="ai-two">' +
+      '<div class="panel"><h2>What we are selling</h2><div class="panel-note">The pitch every wave carries.</div>' +
+        '<div class="ai-def"><b>Product</b>' + esc(D.product) + "</div>" +
+        '<div class="ai-def"><b>Offer</b>' + esc(D.offer) + "</div></div>" +
+      '<div class="panel"><h2>Pilot scorecard</h2><div class="panel-note">Targets agreed for the pilot.</div>' +
+        targets + '<h2 style="margin-top:18px">Follow-ups</h2>' + fu + "</div>" +
+    "</div>";
+  }
+
+  function wavesPanel() {
+    const W = D.waves || [];
+    const max = Math.max(1, ...W.map((w) => w.sent));
+    return '<div class="panel"><h2>Waves</h2>' +
+      '<div class="panel-note">Each wave uses one public trigger and one angle. Counts are first-touch emails.</div>' +
+      '<div class="table-scroll"><table><thead><tr>' +
+        "<th>Wave</th><th>Sent on</th><th>Trigger</th><th>Angle</th>" +
+        '<th class="num">Sent</th><th class="bar-cell"></th><th class="num">Replies</th><th class="num">Auto</th>' +
+      "</tr></thead><tbody>" + W.map((w) =>
+        "<tr><td><b>" + esc(w.id) + "</b></td>" +
+        '<td class="dim">' + esc(day(w.date)) + "</td>" +
+        '<td class="wrap-cell">' + esc(w.trigger) + "</td>" +
+        '<td class="wrap-cell dim">' + esc(w.angle) + "</td>" +
+        '<td class="num">' + num(w.sent) + "</td>" +
+        '<td class="bar-cell"><div class="bar-track"><div class="bar-fill" style="background:var(--s-sent);width:' +
+          (100 * w.sent / max).toFixed(1) + '%"></div></div></td>' +
+        '<td class="num">' + num(w.replied) + "</td>" +
+        '<td class="num dim">' + num(w.auto) + "</td></tr>"
+      ).join("") + "</tbody></table></div></div>";
+  }
+
+  function tracksAndFunnel() {
+    const tr = D.tracks || [];
+    const max = Math.max(1, ...tr.map((t) => t.sent));
+    const tracks = '<div class="chan">' + tr.map((t) =>
+      '<div class="chan-row"><span class="chan-name">' + esc(t.track) + '</span>' +
+      '<span class="chan-bar"><div class="bar-track"><div class="bar-fill" style="background:var(--s-sent);width:' +
+      (100 * t.sent / max).toFixed(1) + '%"></div></div></span><span class="chan-n">' + num(t.sent) + "</span></div>"
+    ).join("") + "</div>";
+    const F = D.funnel || [];
+    const fun = '<div class="table-scroll"><table><thead><tr><th>Wave</th>' +
+      '<th class="num">Enriched</th><th class="num">Sent</th><th class="num">Yield</th><th>Why the drop</th></tr></thead><tbody>' +
+      F.map((f) => "<tr><td><b>" + esc(f.wave) + '</b></td><td class="num">' + num(f.enriched) +
+        '</td><td class="num">' + num(f.sent) + '</td><td class="num">' + Math.round(100 * f.sent / f.enriched) +
+        '%</td><td class="wrap-cell dim">' + esc(f.note) + "</td></tr>").join("") + "</tbody></table></div>";
+    return '<div class="ai-two">' +
+      '<div class="panel"><h2>By trigger</h2><div class="panel-note">Why we wrote to them.</div>' + tracks + "</div>" +
+      '<div class="panel"><h2>List quality</h2><div class="panel-note">Contacts enriched vs. emails that passed every gate.</div>' + fun + "</div>" +
+    "</div>";
+  }
+
+  function repliesPanel() {
+    const R = D.replies || [];
+    const body = R.length
+      ? '<div class="table-scroll"><table><thead><tr><th>Company</th><th>Wave</th><th>Date</th><th>Type</th><th>Note</th></tr></thead><tbody>' +
+        R.map((r) => '<tr><td class="name">' + esc(r.company) + '</td><td class="dim">' + esc(r.wave) +
+          '</td><td class="dim">' + esc(day(r.date)) + "</td><td>" +
+          pill(r.type === "auto" ? "auto-reply" : r.type === "bounce" ? "bounced" : "replied-" + r.type) +
+          '</td><td class="wrap-cell dim">' + esc(r.note) + "</td></tr>").join("") + "</tbody></table></div>"
+      : '<div class="empty">No replies yet.</div>';
+    return '<div class="panel"><h2>Replies</h2><div class="panel-note">Every inbound response, including out-of-office and leaver notices (which often name a successor worth contacting).</div>' + body + "</div>";
+  }
+
+  function sendsPanel() {
+    const S = D.sends || [];
+    const waves = [...new Set(S.map((s) => s.wave))];
+    const btns = '<div class="ai-filter" role="group" aria-label="Filter by wave">' +
+      ['All'].concat(waves).map((w, i) =>
+        '<button class="toggle" data-wave="' + esc(w) + '" aria-pressed="' + (i === 0) + '">' + esc(w) + "</button>").join("") + "</div>";
+    return '<div class="panel"><h2>Every company contacted</h2>' +
+      '<div class="panel-note">' + num(S.length) + ' companies. ' + esc(D.gates) + "</div>" +
+      btns + '<div class="table-scroll"><table><thead><tr><th>Company</th><th>Wave</th><th>Trigger</th><th>Sent</th><th>Status</th></tr></thead>' +
+      '<tbody id="ai-sends">' + S.map((s) =>
+        '<tr data-wave="' + esc(s.wave) + '"><td class="name">' + esc(s.company) + '</td><td class="dim">' + esc(s.wave) +
+        '</td><td class="dim">' + esc(s.track) + '</td><td class="dim">' + esc(day(s.date)) + "</td><td>" + pill(s.status) + "</td></tr>"
+      ).join("") + "</tbody></table></div></div>";
+  }
+
+  $("ai-app").innerHTML = kpis() + aboutPanels() + '<div style="height:20px"></div>' + wavesPanel() +
+                          tracksAndFunnel() + '<div style="height:20px"></div>' + repliesPanel() + sendsPanel();
+
+  document.querySelectorAll(".ai-filter .toggle").forEach((b) => {
+    b.addEventListener("click", () => {
+      const w = b.dataset.wave;
+      document.querySelectorAll(".ai-filter .toggle").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      document.querySelectorAll("#ai-sends tr").forEach((r) => { r.hidden = w !== "All" && r.dataset.wave !== w; });
+    });
+  });
+})();
+</script>
+
+<script>
+/* Tabs: hash-addressable (#ai-automation) so each tab has a shareable link. */
+(function () {
+  "use strict";
+  const tabs = [
+    { btn: document.getElementById("tabbtn-vm"), panel: document.getElementById("tab-vm"), hash: "" },
+    { btn: document.getElementById("tabbtn-ai"), panel: document.getElementById("tab-ai"), hash: "#ai-automation" },
+  ];
+  const titles = { "": "OA Outbound Weekly Report — Vendor Managers",
+                   "#ai-automation": "OA Outbound — New Product: AI Automation Outreach" };
+  function show(i, push) {
+    tabs.forEach((t, j) => {
+      const on = i === j;
+      t.btn.setAttribute("aria-selected", String(on));
+      t.btn.tabIndex = on ? 0 : -1;
+      t.panel.hidden = !on;
+    });
+    document.title = titles[tabs[i].hash];
+    if (push) history.replaceState(null, "", tabs[i].hash || location.pathname + location.search);
+  }
+  tabs.forEach((t, i) => {
+    t.btn.addEventListener("click", () => show(i, true));
+    t.btn.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const n = (i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length;
+      show(n, true); tabs[n].btn.focus();
+    });
+  });
+  show(location.hash === "#ai-automation" ? 1 : 0, false);
 })();
 </script>
 </body>
