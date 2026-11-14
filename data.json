@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-07 14:42 Manila",
- "week_label": "2–8 Nov",
+ "generated": "2026-11-14 09:58 Manila",
+ "week_label": "9–15 Nov",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 14853,
-  "contacted_this_week": 7,
+  "contacted_this_week": 8,
   "connected": 51,
   "connected_rate": 0.34
  },
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-08-17",
-   "label": "17–23 Aug",
-   "sent": 0,
-   "touches": 0,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 151,
-   "new_people": 148,
-   "outreach": 1026,
-   "connected": 0
-  },
-  {
    "week": "2026-08-24",
    "label": "24–30 Aug",
    "sent": 0,
@@ -831,7 +819,7 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 31,
+   "contacted": 30,
    "new_people": 18,
    "outreach": 338,
    "connected": 1
@@ -843,7 +831,7 @@
    "touches": 15,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 302,
+   "contacted": 301,
    "new_people": 0,
    "outreach": 619,
    "connected": 3
@@ -891,14 +879,26 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 7,
+   "contacted": 4,
+   "new_people": 0,
+   "outreach": 0,
+   "connected": 0
+  },
+  {
+   "week": "2026-11-09",
+   "label": "9–15 Nov",
+   "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 8,
    "new_people": 0,
    "outreach": 0,
    "connected": 0
   }
  ],
  "outreach": {
-  "total": 9307,
+  "total": 8281,
   "attributed": null,
   "unattributed": null,
   "this_week": 286,
@@ -1620,11 +1620,11 @@
   }
  ],
  "weekly_status": {
-  "current_week": "2026-11-02",
-  "current_label": "2–8 Nov",
+  "current_week": "2026-11-09",
+  "current_label": "9–15 Nov",
   "latest_reported": "2026-10-19",
   "latest_label": "Oct 19–24",
-  "weeks_behind": 2,
+  "weeks_behind": 3,
   "awaiting_report": true
  },
  "results": [
@@ -1671,14 +1671,46 @@
  ],
  "excluded_deals": [],
  "deal_notes": [
-  "JCPS Mechanical — discovery call held 19 Oct, JDs received 22 Oct, proposal and feasibility ready 23 Oct. The deal now exists in HubSpot (“JCPS Mechanical - 1 Sr 2 Jr Engineers”, DC Completed) but its Lead Source reads “Others”, so it is NOT counted in the figures above. Changing that field to “Vendor Campaign” makes it count on the next refresh.",
-  "Corrugator — DC held 18 Sep, deal exists (“Corrugator - EA”, DC Completed, $600), Lead Source still “Others”, so also NOT counted. Two campaign-sourced discovery calls are now sitting uncounted for the same one-field reason.",
-  "Neighbor — quiet for roughly two weeks since the itemised rate card; a light value-add nudge went out 22 Oct. Derek wants an unusual, attention-grabbing re-entry that does not read as desperate, ideally something physical rather than another email.",
-  "Three clients onboarding — Parisa Wang, Siegel and Pineapple Audio — plus thriViae's first hire going live. All are tagged “OA Derek” or are existing accounts, so they belong to other motions and are deliberately excluded from this campaign's figures.",
-  "Gold Coast Council — supplier information on file; probity rules stop them engaging officers pre-tender, so this waits for a formal tender or VendorPanel opportunity.",
-  "United Utilities and the UK housing-association route (including A2Dominion) are closed — both came back onshore-only, which is an absolute disqualifier no accreditation overcomes.",
-  "Hanover — monthly proposal review, follow-up ongoing. No discovery call held, so no deal exists.",
-  "Great British Railways (via LNER) remains a live referral trail, not yet a deal."
+  {
+   "status": "hot",
+   "title": "JCPS Mechanical — proposal out, not yet counted",
+   "body": "Discovery call held 19 Oct, JDs received 22 Oct, proposal and feasibility ready 23 Oct. The deal exists in HubSpot (“JCPS Mechanical - 1 Sr 2 Jr Engineers”, DC Completed) but its Lead Source reads “Others”, so it is not counted above. Changing that one field to “Vendor Campaign” makes it count on the next refresh."
+  },
+  {
+   "status": "blocked",
+   "title": "Corrugator — DC held in September, still uncounted",
+   "body": "DC held 18 Sep and the deal exists (“Corrugator - EA”, DC Completed, $600), but Lead Source still reads “Others”. Two campaign-sourced discovery calls are now sitting uncounted for the same one-field reason."
+  },
+  {
+   "status": "watch",
+   "title": "Neighbor — quiet two weeks after the rate card",
+   "body": "A light value-add nudge went out 22 Oct. Derek wants an unusual, attention-grabbing re-entry that does not read as desperate — ideally something physical rather than another email."
+  },
+  {
+   "status": "other",
+   "title": "Three clients onboarding — none from this campaign",
+   "body": "Parisa Wang, Siegel and Pineapple Audio, plus thriViae’s first hire going live. All are tagged “OA Derek” or are existing accounts, so they belong to other motions and are deliberately excluded from this campaign’s figures."
+  },
+  {
+   "status": "parked",
+   "title": "Gold Coast Council — waiting on a tender",
+   "body": "Supplier information is on file, but probity rules stop them engaging officers pre-tender. This waits for a formal tender or a VendorPanel opportunity."
+  },
+  {
+   "status": "closed",
+   "title": "United Utilities and UK housing associations — closed",
+   "body": "Both came back onshore-only, including A2Dominion. That is an absolute disqualifier no accreditation overcomes, so the whole route is shut rather than slow."
+  },
+  {
+   "status": "open",
+   "title": "Hanover — monthly proposal review",
+   "body": "Follow-up ongoing. No discovery call has been held, so no deal exists."
+  },
+  {
+   "status": "open",
+   "title": "Great British Railways — live referral trail",
+   "body": "Came via LNER and is still being worked. Not yet a deal."
+  }
  ],
  "replies": [],
  "wins": [],
