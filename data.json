@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-21 15:51 Manila",
- "week_label": "16–22 Nov",
+ "generated": "2026-11-28 11:43 Manila",
+ "week_label": "23–29 Nov",
  "portal_id": "44390857",
  "totals": {
   "campaigns_live": 31,
@@ -19,7 +19,7 @@
   "deal_rate": 0.1,
   "dc_rate": 0.1,
   "outreach": 14853,
-  "contacted_this_week": 16,
+  "contacted_this_week": 5,
   "connected": 51,
   "connected_rate": 0.34
  },
@@ -753,18 +753,6 @@
  ],
  "trend": [
   {
-   "week": "2026-08-31",
-   "label": "31 Aug – 6 Sep",
-   "sent": 0,
-   "touches": 0,
-   "deals": 0,
-   "dc_held": 0,
-   "contacted": 620,
-   "new_people": 11,
-   "outreach": 2151,
-   "connected": 5
-  },
-  {
    "week": "2026-09-07",
    "label": "7–13 Sep",
    "sent": 0,
@@ -891,14 +879,26 @@
    "touches": 0,
    "deals": 0,
    "dc_held": 0,
-   "contacted": 16,
-   "new_people": 5,
+   "contacted": 13,
+   "new_people": 2,
+   "outreach": 0,
+   "connected": 0
+  },
+  {
+   "week": "2026-11-23",
+   "label": "23–29 Nov",
+   "sent": 0,
+   "touches": 0,
+   "deals": 0,
+   "dc_held": 0,
+   "contacted": 5,
+   "new_people": 0,
    "outreach": 0,
    "connected": 0
   }
  ],
  "outreach": {
-  "total": 6741,
+  "total": 4590,
   "attributed": null,
   "unattributed": null,
   "this_week": 286,
@@ -1620,11 +1620,11 @@
   }
  ],
  "weekly_status": {
-  "current_week": "2026-11-16",
-  "current_label": "16–22 Nov",
+  "current_week": "2026-11-23",
+  "current_label": "23–29 Nov",
   "latest_reported": "2026-10-19",
   "latest_label": "Oct 19–24",
-  "weeks_behind": 4,
+  "weeks_behind": 5,
   "awaiting_report": true
  },
  "results": [
